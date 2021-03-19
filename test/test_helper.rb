@@ -13,5 +13,8 @@ module ActiveSupport
     fixtures :all
 
     # Add more helper methods to be used by all tests here...
+    def login(username)
+      post session_login_url, params: { session: { username: username, password: 'testpassword' } }
+    end
   end
 end
