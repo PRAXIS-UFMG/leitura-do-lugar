@@ -1,4 +1,4 @@
-.max-w-56
+main
   h1.bg-red-500 Listing users
 
   table
@@ -21,8 +21,6 @@
           td= user.password_digest
           td= link_to 'Show', user
           td= link_to 'Edit', edit_user_path(user)
-          td= link_to 'Destroy', user, method: :delete, data:   confirm: 'Are you sure?'  
-
-  br
+          td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
 
   = link_to 'New User', new_user_path

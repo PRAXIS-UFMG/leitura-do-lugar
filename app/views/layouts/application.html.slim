@@ -9,4 +9,10 @@ html
     = stylesheet_pack_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
   body
+    nav.w-screen.flex.h-14.px-4.items-center.justify-between
+      header
+        h1.text-2xl
+          => "leitura"
+          span.font-bold do lugar
+      = link_to 'sobre a plataforma', '/', class: 'font-medium text-lg transition hover:text-praxis-700 active:bg-praxis-50'
     = yield

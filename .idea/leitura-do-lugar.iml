@@ -25,6 +25,7 @@
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/public/system" />
       <excludeFolder url="file://$MODULE_DIR$/components" />
+      <excludeFolder url="file://$MODULE_DIR$/.yarn/cache" />
     </content>
     <orderEntry type="jdk" jdkName="rbenv: 3.0.0" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -1625,33 +1626,36 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="webpacker (vbundled(6.0.0.pre.2)) [path][gem]" type="rubylib">
+      <library name="webpacker (vbundled(6.0.0.beta.6)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
         </properties>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.pre.2/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.pre.2/docs" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.pre.2/test" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.pre.2/.github" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.pre.2/package" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.pre.2/gemfiles" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.beta.6/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.beta.6/docs" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.beta.6/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.beta.6/config" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.beta.6/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.beta.6/package" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.beta.6/gemfiles" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.pre.2/lib" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.pre.2/docs" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.pre.2/test" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.pre.2/.github" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.pre.2/package" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.pre.2/gemfiles" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.beta.6/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.beta.6/docs" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.beta.6/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.beta.6/config" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.beta.6/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.beta.6/package" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.beta.6/gemfiles" />
         </SOURCES>
         <excluded>
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.pre.2/docs" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.pre.2/test" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.pre.2/.github" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.pre.2/package" />
-          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.pre.2/gemfiles" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.beta.6/docs" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.beta.6/test" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.beta.6/config" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.beta.6/.github" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.beta.6/package" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/webpacker-6.0.0.beta.6/gemfiles" />
         </excluded>
       </library>
     </orderEntry>

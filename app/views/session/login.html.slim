@@ -1,2 +1,9 @@
-h1 Session#login
-p Find me in app/views/session/login.html.slim
+main.w-screen.h-screen.flex.items-center.justify-center
+  = form_with scope: :session, url: create_session_path, class: 'flex flex-col gap-y-2' do |form|
+    h2.text-center área do pesquisador
+    = form.label :username, class: 'hidden'
+    = form.text_field :username, required: true, class: 'border border-black'
+    = form.label :password, class: 'hidden'
+    = form.password_field :password, required: true, class: 'border border-black'
+    = form.submit 'entrar', class: 'py-2 transition hover:bg-gray-100 active:bg-praxis-100'
+    p.text-red-800 = flash[:error]
