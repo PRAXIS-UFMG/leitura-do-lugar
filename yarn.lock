@@ -1230,15 +1230,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rails/activestorage@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rails/activestorage@npm:6.1.3"
-  dependencies:
-    spark-md5: ^3.0.0
-  checksum: 2e578cc6f232159b1cb8d8012666eb4795a51486eea8ea876f2a5e483911da9ca0996fed762e92c01f1bdeb2a767f9c2ae87f2cfd7518c189eab5574e299b97d
-  languageName: node
-  linkType: hard
-
 "@rails/ujs@npm:^6.1.3":
   version: 6.1.3
   resolution: "@rails/ujs@npm:6.1.3"
@@ -5178,7 +5169,6 @@ fsevents@~2.3.1:
   version: 0.0.0-use.local
   resolution: "leitura-do-lugar@workspace:."
   dependencies:
-    "@rails/activestorage": ^6.1.3
     "@rails/ujs": ^6.1.3
     "@rails/webpacker": 6.0.0-beta.6
     "@tailwindcss/forms": ^0.2.1
@@ -8088,13 +8078,6 @@ fsevents@~2.3.1:
   version: 0.7.3
   resolution: "source-map@npm:0.7.3"
   checksum: 351ce26ffa1ebf203660c0d70d7566c81e65d2d994d1c2d94da140808e02da34961673ce12ecea9b40797b96fbeb8c70bf71a4ad9f779f1a4fdbba75530bb386
-  languageName: node
-  linkType: hard
-
-"spark-md5@npm:^3.0.0":
-  version: 3.0.1
-  resolution: "spark-md5@npm:3.0.1"
-  checksum: 2785248ac7a9a75711c2fc1b1afe91fd28d062427501671c51c9c8abf4f26b66e36a9d5e97626cbde01950c2a20c646731954cc723b42c4a6de75c579bb6a215
   languageName: node
   linkType: hard
 

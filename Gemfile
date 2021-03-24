@@ -20,7 +20,7 @@ gem 'bcrypt', '~> 3.1.7'
 # A lightweight templating engine for Ruby
 gem 'slim-rails'
 # Official AWS Ruby gem for Amazon Simple Storage Service (Amazon S3).
-gem 'aws-sdk-s3', require: false
+# gem 'aws-sdk-s3', require: false
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'rack-timeout'

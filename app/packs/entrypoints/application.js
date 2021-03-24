@@ -1,4 +1,4 @@
-import * as ActiveStorage from "@rails/activestorage"
+// import * as ActiveStorage from "@rails/activestorage"
 import StimulusApplication from "../javascript/stimulus"
 import Rails from "@rails/ujs"
 // This file is automatically compiled by Webpack, along with any other files
@@ -17,4 +17,4 @@ export const imagePath = (name) => images(name, true)
 
 Rails.start()
 StimulusApplication()
-ActiveStorage.start()
+// ActiveStorage.start()
