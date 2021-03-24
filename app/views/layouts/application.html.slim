@@ -8,11 +8,21 @@ html
     = csp_meta_tag
     = stylesheet_pack_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
-  body
-    nav.w-screen.flex.h-14.px-4.items-center.justify-between
+  body.flex.flex-col.h-screen.w-screen
+    nav.flex.h-14.px-4.items-center.justify-between
       header
         h1.text-2xl
           => "leitura"
           span.font-bold do lugar
-      = link_to 'sobre a plataforma', '/', class: 'font-medium text-lg transition hover:text-praxis-700 active:bg-praxis-50'
+      - if authenticated?
+        div.flex.gap-x-3
+          h2.text-lg
+            => current_user.name
+            | (
+            span.underline= current_user.username
+            | )
+          = link_to icon(:user, 'Usuário'), current_user
+          = link_to icon(:logout, 'Logout'), logout_path, method: :delete, data: { confirm: 'Você tem certeza que deseja sair?' }
+      - else
+        = link_to 'sobre a plataforma', '/', class: 'font-medium text-lg transition hover:text-praxis-700 active:bg-praxis-50'
     = yield
