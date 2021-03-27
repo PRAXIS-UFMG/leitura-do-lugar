@@ -23,6 +23,9 @@ vendor/bundle
 /storage/*
 !/storage/.keep
 
+# Ignore SQLite databases
+/db/*.sqlite3
+
 /public/assets
 .byebug_history
 
@@ -40,9 +43,6 @@ vendor/bundle
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
-/public/packs
-/public/packs-test
-/node_modules
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity

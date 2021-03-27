@@ -29,5 +29,23 @@
 # To learn more, please read the Rails Internationalization guide
 # available at https://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
+pt-BR:
+  actions:
+    back: Voltar
+    show: Visualizar
+    create: Criar
+    edit: Editar
+    remove: Remover
+  activerecord:
+    models:
+      user:
+        one: Usuário
+        other: Usuários
+    attributes:
+      user:
+        username: Username
+        name: Nome
+        admin:
+          one: Admin
+          'true': SIM
+          'false': NÃO

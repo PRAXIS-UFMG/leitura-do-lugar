@@ -1,0 +1,16 @@
+table.table-fixed.border-collapse.mt-4 class="lg:mt-32"
+  tbody
+    tr.border-b.border-black
+      td.w-36= User.human_attribute_name('name')
+      td.w-36.pl-2= @user.name
+    tr
+      td.border-r.border-gray-400= User.human_attribute_name('username')
+      td.pl-2= @user.username
+    tr
+      td.border-r.border-gray-400= User.human_attribute_name('admin')
+      td.pl-2.text-sm.font-bold.text-gray-700= t "activerecord.attributes.user.admin.#{@user.admin}"
+.mt-4.flex.w-72.justify-between
+  = link_to icon(:'arrow-left', alt = t('actions.back')), users_path
+  - if current_user.admin
+    = link_to icon(:pencil, alt = t('actions.edit')), edit_user_path(@user)
+    = link_to icon(:x, alt = t('actions.remove')), user_path(@user), method: :delete, data: { confirm: 'Tem certeza? Este usuário será apagado para sempre!' }

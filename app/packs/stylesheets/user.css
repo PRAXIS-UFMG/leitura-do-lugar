@@ -12,7 +12,7 @@
 
 .table-menu {
     @apply absolute flex flex-row gap-x-1 transition delay-150;
-    right: -80px;
+    left: 48px;
     top: 10px;
 }
 

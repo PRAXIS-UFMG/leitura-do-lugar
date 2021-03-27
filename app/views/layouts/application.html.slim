@@ -2,7 +2,7 @@ doctype html
 html
   head
     meta content="text/html" charset="UTF-8" http-equiv="Content-Type" /
-    title Leitura do Lugar - PRAXIS/UFMG
+    title= content_for?(:title) ? content_for(:title) : 'Leitura do Lugar - PRAXIS/UFMG'
     meta content="width=device-width,initial-scale=1" name="viewport" /
     = csrf_meta_tags
     = csp_meta_tag
@@ -14,15 +14,8 @@ html
         h1.text-2xl
           => "leitura"
           span.font-bold do lugar
-      - if authenticated?
-        div.flex.gap-x-3
-          h2.text-lg
-            => current_user.name
-            | (
-            span.underline= current_user.username
-            | )
-          = link_to icon(:user, 'Usuário'), current_user
-          = link_to icon(:logout, 'Logout'), logout_path, method: :delete, data: { confirm: 'Você tem certeza que deseja sair?' }
+      - if content_for?(:topbar)
+        = yield(:topbar)
       - else
         = link_to 'sobre a plataforma', '/', class: 'font-medium text-lg transition hover:text-praxis-700 active:bg-praxis-50'
-    = yield
+    = content_for?(:content) ? yield(:content) : yield
