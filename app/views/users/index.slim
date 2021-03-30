@@ -18,8 +18,8 @@ table.table-fixed.border-collapse.mt-4 class="lg:mt-32"
           td.relative data-controller='dropdown' data-dropdown-open-value='false'
             button.table-toggle data-action="click->dropdown#toggle"= icon(:'chevron-left', 'Ações', 'data-dropdown-target': 'toggle')
             div.table-menu
-              = link_to icon(:'external-link', alt = t('actions.show')), user
+              = link_to icon(:eye, alt = t('actions.show')), user
               = link_to icon(:pencil, alt = t('actions.edit')), edit_user_path(user)
-              = link_to icon(:x, alt = t('actions.remove')), user, method: :delete, data: { confirm: 'Are you sure?' }
+              = link_to icon(:x, alt = t('actions.remove')), user, method: :delete, data: { confirm: t('confirm.user.destroy') }
         - else
           td= link_to icon(:'external-link', alt = t('actions.show'), class: 'mx-auto'), user

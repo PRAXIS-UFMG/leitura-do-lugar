@@ -24,30 +24,26 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
-    respond_to do |_format|
-      if @user.save
-        redirect_to @user, notice: 'User was successfully created.'
-      else
-        render :new, status: :unprocessable_entity
-      end
+    if @user.save
+      redirect_to @user, notice: t('notice.user.created')
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
-    respond_to do |_format|
-      if @user.update(user_params)
-        redirect_to @user, notice: 'User was successfully updated.'
-      else
-        render :edit, status: :unprocessable_entity
-      end
+    if @user.update(user_params)
+      redirect_to @user, notice: t('notice.user.updated')
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /users/1 or /users/1.json
   def destroy
     @user.destroy
-    redirect_to users_url, notice: 'User was successfully destroyed.'
+    redirect_to users_url, notice: t('notice.user.destroyed')
   end
 
   private
@@ -59,6 +55,6 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:name, :username, :admin, :password_digest)
+    params.require(:user).permit(:name, :username, :admin, :password, :password_confirmation)
   end
 end

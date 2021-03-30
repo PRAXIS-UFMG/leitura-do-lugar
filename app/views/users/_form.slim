@@ -1,22 +1,27 @@
-= form_for @user do |f|
-  - if @user.errors.any?
-    #error_explanation
-      h2= "# pluralize(@user.errors.count, "error")  prohibited this user from being saved:"
-      ul
-        - @user.errors.full_messages.each do |message|
-          li= message
-
-  .field
-    = f.label :name
+= form_for @user, html: { class: 'flex flex-col gap-2 lg:gap-4' } do |f|
+  .flex
+    = f.label :name, class: 'w-24 my-auto'
     = f.text_field :name
-  .field
-    = f.label :username
+  .flex
+    = f.label :username, class: 'w-24 my-auto'
     = f.text_field :username
-  .field
-    = f.label :admin
-    = f.text_field :admin
-  .field
-    = f.label :password_digest
-    = f.text_field :password_digest
-  .actions
-    = f.submit 'Save'
+  - if current_user.admin
+    .flex.items-center
+      = f.label :admin, class: 'leading-10 w-24'
+      = f.check_box :admin
+  .flex
+    = f.label :password, class: 'w-24 my-auto'
+    = f.password_field :password
+  .flex
+    = f.label :password_confirmation, class: 'w-24 my-auto'
+    = f.password_field :password_confirmation
+  .flex.justify-between.mt-4.mb-2
+    = link_to icon(:'arrow-left', alt =t('actions.back')), users_path
+    = f.button type: 'submit' do
+      = icon(:check, alt = t('actions.confirm'))
+    - unless @user.new_record?
+      = link_to icon(:eye, alt = t('actions.show')), @user
+  - if @user.errors.any?
+    ul.text-red-700.font-medium
+      - @user.errors.full_messages.each do |message|
+        li= message

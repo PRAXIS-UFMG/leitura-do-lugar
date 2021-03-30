@@ -3,7 +3,7 @@
 - content_for :topbar do
   div.flex.gap-x-3
     h2.text-lg
-      => current_user.name
+      =' current_user.name
       | (
       span.underline= current_user.username
       | )

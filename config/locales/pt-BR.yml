@@ -36,6 +36,18 @@ pt-BR:
     create: Criar
     edit: Editar
     remove: Remover
+    confirm: Confirmar
+  headers:
+    editing: Editando
+    creating: Novo Usuário
+  confirm:
+    user:
+      destroy: Tem certeza? Este usuário será apagado para sempre!
+  notice:
+    user:
+      created: Usuário criado com sucesso
+      updated: Usuário editado com sucesso
+      destroyed: Usuário apagado com sucesso
   activerecord:
     models:
       user:
@@ -49,3 +61,7 @@ pt-BR:
           one: Admin
           'true': SIM
           'false': NÃO
+        password: Senha
+        password_confirmation: Confirme a senha
+        updated_at: Atualizado em
+        created_at: Criado em

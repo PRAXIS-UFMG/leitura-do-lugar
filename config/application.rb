@@ -34,5 +34,10 @@ module LeituraDoLugar
     # config.eager_load_paths << Rails.root.join("extras")
     config.i18n.available_locales = :'pt-BR'
     config.i18n.default_locale    = :'pt-BR'
+
+    # Simple reset to stop Rails from adding the #field_with_errors div
+    ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+      html_tag.html_safe
+    end
   end
 end

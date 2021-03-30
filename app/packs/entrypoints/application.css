@@ -20,10 +20,17 @@
     textarea,
     select {
         &:focus {
-             /*@apply ring-praxis border-praxis;*/
              --tw-ring-color: theme('colors.praxis.500');
              border-color: theme('colors.praxis.500');
          }
+    }
+
+    [type='checkbox'] {
+        transition-property: background-color, border-color, color, fill, stroke;
+        transition-timing-function: ease-in-out;
+        transition-duration: 50ms;
+        color: theme('colors.praxis.600');
+        background-color: theme('colors.gray.100');
     }
 }
 
@@ -31,6 +38,6 @@
     font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
 
-a {
+a, button[type='submit'], button[type='reset'] {
     @apply hover:text-praxis active:text-gray-400;
 }
