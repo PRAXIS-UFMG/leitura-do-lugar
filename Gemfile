@@ -13,14 +13,12 @@ gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 5.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '6.0.0.beta.6'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 # A lightweight templating engine for Ruby
 gem 'slim-rails'
 # A framework for building reusable, testable & encapsulated view components
-gem "view_component", '~> 2.30', require: "view_component/engine"
+gem 'view_component', '~> 2.30', require: 'view_component/engine'
 # Track changes to your rails models
 gem 'paper_trail', '~> 12.0'
 # Use Active Storage variant

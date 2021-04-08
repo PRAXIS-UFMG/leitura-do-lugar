@@ -17,10 +17,10 @@
     = f.password_field :password_confirmation
   .flex.justify-between.mt-4.mb-2
     = link_to icon(:'arrow-left', alt =t('actions.back')), users_path
-    = f.button type: 'submit' do
-      = icon(:check, alt = t('actions.confirm'))
     - unless @user.new_record?
       = link_to icon(:eye, alt = t('actions.show')), @user
+    = f.button type: 'submit' do
+      = icon(:check, alt = t('actions.confirm'))
   - if @user.errors.any?
     ul.text-red-700.font-medium
       - @user.errors.full_messages.each do |message|

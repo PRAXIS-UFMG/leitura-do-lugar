@@ -17,4 +17,8 @@
     = link_to icon(:user, 'Usuário'), current_user
     = link_to icon(:logout, 'Logout'), logout_path, method: :delete, data: { confirm: 'Você tem certeza que deseja sair?' }
 
+- content_for :content do
+  main.flex.flex-col.items-center.justify-center
+    = yield
+
 = render template: 'layouts/application'

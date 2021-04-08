@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
+  resources :line_analyses
   scope :admin do
     get 'login', to: 'session#login', as: :login
     post 'login', to: 'session#create', as: :create_session

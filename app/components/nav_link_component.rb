@@ -6,5 +6,4 @@ class NavLinkComponent < ViewComponent::Base
     @label = label
     @path = path
   end
-
 end
