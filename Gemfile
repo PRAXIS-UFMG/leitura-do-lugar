@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.0'
+ruby '3.0.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3'
@@ -19,8 +19,10 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 # A lightweight templating engine for Ruby
 gem 'slim-rails'
-# Official AWS Ruby gem for Amazon Simple Storage Service (Amazon S3).
-# gem 'aws-sdk-s3', require: false
+# A framework for building reusable, testable & encapsulated view components
+gem "view_component", '~> 2.30', require: "view_component/engine"
+# Track changes to your rails models
+gem 'paper_trail', '~> 12.0'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'rack-timeout'

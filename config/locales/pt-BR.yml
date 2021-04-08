@@ -30,6 +30,12 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 pt-BR:
+  sections:
+    users: usuários
+    line_analysis: linhas de análise
+    periods: períodos
+    interviews: relatos
+    excerpts: trechos
   actions:
     back: Voltar
     show: Visualizar

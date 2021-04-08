@@ -4,6 +4,7 @@
 @import "../stylesheets/user.css";
 
 @layer base {
+    /* Form default styles */
     [type='text'],
     [type='email'],
     [type='url'],
@@ -24,7 +25,6 @@
              border-color: theme('colors.praxis.500');
          }
     }
-
     [type='checkbox'] {
         transition-property: background-color, border-color, color, fill, stroke;
         transition-timing-function: ease-in-out;
@@ -40,4 +40,13 @@
 
 a, button[type='submit'], button[type='reset'] {
     @apply hover:text-praxis active:text-gray-400;
+}
+
+/* Inline list separated by | */
+.list-vertical-separator li {
+    @apply inline;
+    &:not(:first-child):before {
+        @apply text-gray-400 align-top mx-2;
+        content: "|";
+    }
 }

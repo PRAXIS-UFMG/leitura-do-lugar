@@ -2,6 +2,7 @@ module.exports = {
     purge: [
         'app/helpers/*.rb',
         'app/views/**/*.slim',
+        'app/components/*.slim',
         'app/packs/javascript/controllers/**/*.js'
     ],
     darkMode: 'media', // or 'media' or 'class'
