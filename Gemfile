@@ -35,9 +35,6 @@ group :development, :test do
 end
 
 group :development do
-  # A RuboCop extension focused on enforcing Rails best practices and coding conventions
-  gem 'rubocop', require: false
-  gem 'rubocop-rails', require: false
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
