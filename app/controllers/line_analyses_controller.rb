@@ -42,7 +42,7 @@ class LineAnalysesController < AdminController
   # DELETE /line_analyses/1
   def destroy
     @line_analysis.destroy
-    format.html { redirect_to line_analyses_url, notice: 'Line analysis was successfully destroyed.' }
+    redirect_to line_analyses_url, notice: 'Line analysis was successfully destroyed.'
   end
 
   private
@@ -54,6 +54,6 @@ class LineAnalysesController < AdminController
 
   # Only allow a list of trusted parameters through.
   def line_analysis_params
-    params.require(:line_analysis).permit(:name, :type, :objective, :description)
+    params.require(:line_analysis).permit(:name, :line_type, :objective, :description)
   end
 end

@@ -46,9 +46,9 @@ class LineAnalysesControllerTest < ActionDispatch::IntegrationTest
     assert_difference('LineAnalysis.count') do
       post line_analyses_url, params: { line_analysis: {
         description: @line_analysis.description,
-        name:        @line_analysis.name,
-        objective:   @line_analysis.objective,
-        line_type:   @line_analysis.line_type
+        name: 'Another Line',
+        objective: @line_analysis.objective,
+        line_type: @line_analysis.line_type
       } }
     end
 
@@ -75,7 +75,7 @@ class LineAnalysesControllerTest < ActionDispatch::IntegrationTest
 
     patch line_analysis_url(@line_analysis),
           params: { line_analysis: { description: @line_analysis.description, name: @line_analysis.name,
-                                     objective:   @line_analysis.objective, line_type: @line_analysis.line_type } }
+                                     objective: @line_analysis.objective, line_type: @line_analysis.line_type } }
 
     assert_redirected_to line_analysis_url(@line_analysis)
   end

@@ -1,8 +1,10 @@
 table.table-fixed.border-collapse.mt-4 class="lg:mt-32"
   thead
     tr.leading-8
-      th.text-xl.font-semibold.pb-4 colspan='3' Usuários
-      th.pb-4 = link_to icon(:'user-add', 'Criar', class: 'mx-auto'), new_user_path if current_user.admin
+      th.text-xl.font-semibold.pb-4 colspan='3'= t('activerecord.models.user.other')
+      th.pb-4 = link_to icon(:'user-add', t('actions.create', model: User.model_name.human.downcase), class: 'mx-auto'), new_user_path if current_user.admin
+    tr
+      th.font-normal.text-gray-500.pb-4 colspan='3'= flash[:notice]
     tr.text-lg.text-left.border-b-2.border-black
       th.font-normal.w-24.border-r-2.border-black Username
       th.font-normal.w-56.border-r-2.border-black.ml-2.pl-2 Nome

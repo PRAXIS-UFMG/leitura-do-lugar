@@ -6,9 +6,8 @@ html
     meta content="width=device-width,initial-scale=1" name="viewport" /
     = csrf_meta_tags
     = csp_meta_tag
-    - unless Rails.env.test? # for some bizarre reason, Rails hangs
-      = stylesheet_pack_tag 'application', media: 'all'
-      = javascript_pack_tag 'application'
+    = stylesheet_pack_tag 'application', media: 'all'
+    = javascript_pack_tag 'application'
   body.flex.flex-col.h-screen.w-screen
     nav.flex.mt-2.mb-4.px-4.items-baseline.justify-between
       header

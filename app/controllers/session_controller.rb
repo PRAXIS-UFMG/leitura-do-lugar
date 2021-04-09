@@ -17,7 +17,7 @@ class SessionController < ApplicationController
   end
 
   def logout
-    flash[:notice] = "Sessão de #{current_user.username} terminada."
+    flash[:notice] = 'Sessão terminada.'
     reset_session
     redirect_to :login
   end

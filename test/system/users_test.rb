@@ -4,36 +4,36 @@ require 'application_system_test_case'
 
 class UsersTest < ApplicationSystemTestCase
   setup do
-    @user = users(:one)
-    login(@user.username)
+    login(users(:one).username)
   end
 
   test 'visiting the index' do
     visit users_url
-    assert_selector 'h2', text: 'Usuários - Pesquisadores'
+    assert_selector 'th', text: 'Usuários'
   end
 
   test 'creating a User' do
     visit users_url
-    click_on 'Cadastrar novo pesquisador'
+    click_icon 'Criar usuário'
 
-    fill_in 'Nome', with: @user.name
-    fill_in 'Nome de usuário', with: @user.username
-    fill_in 'Senha', with: 'testpassword'
-    fill_in 'Confirme a senha', with: 'testpassword'
-    check 'Adminitrador'
-    click_on 'Enviar'
+    fill_in 'Nome', with: 'A Name'
+    fill_in 'Username', with: 'someone'
+    fill_in 'Senha', with: 'mypassword'
+    fill_in 'Confirme a senha', with: 'mypassword'
+    check 'Admin'
+    click_icon 'Confirmar'
 
-    assert_text "#{@user.name} (#{@user.username} cadastrado com sucesso"
+    assert_text 'Usuário cadastrado com sucesso'
   end
 
   test 'updating a User' do
     visit users_url
-    click_on 'Editar', match: :first
+    click_icon 'Ações'
+    click_icon 'Editar'
 
-    fill_in 'Name', with: 'Another Name'
+    fill_in 'Nome', with: 'Another Name'
     fill_in 'Username', with: 'another'
-    click_on 'Update User'
+    click_icon 'Confirmar'
 
     assert_text 'Another Name'
     assert_text 'another'
@@ -42,9 +42,10 @@ class UsersTest < ApplicationSystemTestCase
   test 'destroying a User' do
     visit users_url
     page.accept_confirm do
-      click_on 'Deletar', match: :first
+      click_icon 'Ações'
+      click_icon 'Remover'
     end
 
-    assert_text "#{@user.name} (#{@user.username}) foi deletado com sucesso"
+    assert_text 'Usuário apagado com sucesso'
   end
 end

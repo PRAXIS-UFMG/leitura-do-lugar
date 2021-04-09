@@ -34,7 +34,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     login(@user.username)
     assert_difference('User.count') do
       post users_url, params: { user: {
-        name:     'A Name',
+        name: 'A Name',
         username: 'username',
         password: 'password'
       } }

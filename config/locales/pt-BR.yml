@@ -39,7 +39,7 @@ pt-BR:
   actions:
     back: Voltar
     show: Visualizar
-    create: Criar
+    create: "Criar %{model}"
     edit: Editar
     remove: Remover
     confirm: Confirmar
@@ -51,7 +51,7 @@ pt-BR:
       destroy: Tem certeza? Este usuário será apagado para sempre!
   notice:
     user:
-      created: Usuário criado com sucesso
+      created: Usuário cadastrado com sucesso
       updated: Usuário editado com sucesso
       destroyed: Usuário apagado com sucesso
   activerecord:

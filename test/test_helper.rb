@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start 'rails' do
+  enable_coverage :branch
+  minimum_coverage 50
+end
+Rails.application.eager_load!
 
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'

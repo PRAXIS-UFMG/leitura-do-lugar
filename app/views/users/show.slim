@@ -1,1 +1,4 @@
 = render ViewModelComponent.new @user, :name, :username, :admin
+.mt-4
+- if flash[:notice]
+  p.text-grey-600= flash[:notice]

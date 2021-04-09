@@ -28,10 +28,10 @@ class SessionControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'log out and unset session' do
-    login(users(:one))
+    login(users(:one).username)
     assert_not_nil session[:user_id]
 
-    session.delete logout_url
+    delete logout_url
 
     assert_redirected_to %r{example.com/}
     assert_nil session[:user_id]
