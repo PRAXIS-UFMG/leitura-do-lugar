@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  type: 
-  objective: MyString
-  description: MyString
+pressao:
+  name: pressão socioeconômica
+  line_type: 'no'
+  objective: analisar o impacto da valorização do bairro e da cidade no tempo, mediante observação temporal das alterações nos valores do metro quadrado nos bairros do entorno
+  description: valores por m² dos imóveis ao longo do tempo, por bairro, na cidade
 
-two:
-  name: MyString
-  type: 
-  objective: MyString
-  description: MyString
+capacidade:
+  name: capacidade urbana
+  line_type: 'do'
+  objective: analisar a capacidade urbana (mesoestrutura) da área em assentar casas, presença/ausência e quais os meios/agentes de produção (poder público/autoconstrução), como são adquiridos os materiais e as formas de financiá-los.
+  description: caracterização do abastecimento de água, esgotamento sanitário, drenagem pluvial, pavimentação, coleta de lixo,  do sistema viário e energia elétrica.

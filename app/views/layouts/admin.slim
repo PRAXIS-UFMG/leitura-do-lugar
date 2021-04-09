@@ -10,7 +10,7 @@
       = render NavLinkComponent.new(t('sections.excerpts'), '/')
   div.flex.gap-x-3.items-center
     h2.text-lg
-      =' current_user.name
+      => current_user.name
       | (
       span.underline= current_user.username
       | )

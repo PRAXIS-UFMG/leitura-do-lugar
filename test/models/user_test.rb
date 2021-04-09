@@ -18,7 +18,9 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'Validates uniqueness of username' do
-    users(:one).save!
+    users(:one).tap do |u|
+      u.password = 'testpassword'
+    end.save!
     user          = users :two
     user.username = users(:one).username
     assert_not user.save

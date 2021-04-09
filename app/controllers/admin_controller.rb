@@ -18,6 +18,12 @@ class AdminController < ApplicationController
     end
   end
 
+  class AuthorizationError < StandardError
+    def message
+      "#{current_user.name} is not allowed to #{action_name} #{controller_path.classify}"
+    end
+  end
+
   def permitted?(action)
     action.in? controller_path.classify.permissions(current_user&.admin)
   end

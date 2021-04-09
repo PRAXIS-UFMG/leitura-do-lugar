@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-class SessionController < AdminController
+class SessionController < ApplicationController
+  include Authentication
   skip_before_action :authenticate!, only: %i[login create]
 
   def login; end

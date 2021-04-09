@@ -12,6 +12,6 @@ module Authentication
   def authenticate!
     return if session['user_id']
 
-    redirect_to '/'
+    redirect_to 'public/404.html'
   end
 end

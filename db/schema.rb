@@ -13,12 +13,13 @@
 ActiveRecord::Schema.define(version: 2021_04_08_013945) do
 
   create_table "line_analyses", force: :cascade do |t|
-    t.string "name"
-    t.string "type"
-    t.string "objective"
-    t.string "description"
+    t.string "name", null: false
+    t.string "line_type", null: false
+    t.string "objective", null: false
+    t.string "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_line_analyses_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|

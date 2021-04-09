@@ -9,5 +9,5 @@ class User < ApplicationRecord
 
   validates :name, :username, presence: true
   validates :username, uniqueness: true
-  validates :password, length: { within: 8..72 }
+  validates :password, length: { within: 8..72 }, allow_nil: true
 end

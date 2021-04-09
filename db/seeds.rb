@@ -7,4 +7,4 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(username: 'admin', name: 'Admin', password: 'admin')
+User.create(username: 'admin', name: 'Admin', password: ENV.fetch('LEITURA_DO_LUGAR_ADMIN_PASS', 'praxis2021'))
