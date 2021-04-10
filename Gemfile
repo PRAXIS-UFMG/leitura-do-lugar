@@ -21,10 +21,13 @@ gem 'slim-rails'
 gem 'view_component', '~> 2.30', require: 'view_component/engine'
 # Track changes to your rails models
 gem 'paper_trail', '~> 12.0'
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
 gem 'rack-timeout'
 gem 'rails-i18n', '~> 6.0.0'
+# Use Active Storage variant
+# gem 'image_processing', '~> 1.2'
+
+# Default bundled gems
+gem 'rexml'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

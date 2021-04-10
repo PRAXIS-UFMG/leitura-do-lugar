@@ -153,6 +153,7 @@ GEM
     regexp_parser (2.1.1)
     request_store (1.5.0)
       rack (>= 1.4)
+    rexml (3.2.5)
     rubyzip (2.3.0)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
@@ -223,6 +224,7 @@ DEPENDENCIES
   rack-timeout
   rails (~> 6.1.3)
   rails-i18n (~> 6.0.0)
+  rexml
   selenium-webdriver
   simplecov
   slim-rails
@@ -238,4 +240,4 @@ RUBY VERSION
    ruby 3.0.1p64
 
 BUNDLED WITH
-   2.2.15
+   2.2.16

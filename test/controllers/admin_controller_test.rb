@@ -22,6 +22,6 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
   test 'requires authentication' do
     get '/test'
 
-    assert_redirected_to %r{public/404.html}
+    assert_response :redirect
   end
 end

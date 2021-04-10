@@ -1105,6 +1105,25 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="rexml (vbundled(3.2.5)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/rexml-3.2.5/doc" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/rexml-3.2.5/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/rexml-3.2.5/doc" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/rexml-3.2.5/lib" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/rexml-3.2.5/doc" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="rubyzip (vbundled(2.3.0)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -1562,7 +1581,7 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.2.15, asdf: 3.0.1) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.2.16, asdf: 3.0.1) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rbs (v1.0.4, asdf: 3.0.1) [gem]" level="application" />
   </component>
   <component name="RModuleSettingsStorage">

@@ -4,7 +4,7 @@ require 'test_helper'
 
 class LineAnalysesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @line_analysis = line_analyses(:pressao)
+    @line = line_analyses(:pressao)
   end
 
   test 'should require authentication' do
@@ -14,13 +14,13 @@ class LineAnalysesControllerTest < ActionDispatch::IntegrationTest
     get new_line_analysis_url
     assert_response :redirect
 
-    get edit_line_analysis_url(@line_analysis)
+    get edit_line_analysis_url(@line)
     assert_response :redirect
 
-    patch line_analysis_url(@line_analysis)
+    patch line_analysis_url(@line)
     assert_response :redirect
 
-    delete line_analysis_url(@line_analysis)
+    delete line_analysis_url(@line)
     assert_response :redirect
   end
 
@@ -45,10 +45,10 @@ class LineAnalysesControllerTest < ActionDispatch::IntegrationTest
 
     assert_difference('LineAnalysis.count') do
       post line_analyses_url, params: { line_analysis: {
-        description: @line_analysis.description,
+        description: @line.description,
         name: 'Another Line',
-        objective: @line_analysis.objective,
-        line_type: @line_analysis.line_type
+        objective: @line.objective,
+        line_type: @line.line_type
       } }
     end
 
@@ -58,7 +58,7 @@ class LineAnalysesControllerTest < ActionDispatch::IntegrationTest
   test 'should show line_analysis' do
     login(users(:one).username)
 
-    get line_analysis_url(@line_analysis)
+    get line_analysis_url(@line)
 
     assert_response :success
   end
@@ -66,25 +66,25 @@ class LineAnalysesControllerTest < ActionDispatch::IntegrationTest
   test 'should get edit' do
     login(users(:one).username)
 
-    get edit_line_analysis_url(@line_analysis)
+    get edit_line_analysis_url(@line)
     assert_response :success
   end
 
   test 'should update line_analysis' do
     login(users(:one).username)
 
-    patch line_analysis_url(@line_analysis),
-          params: { line_analysis: { description: @line_analysis.description, name: @line_analysis.name,
-                                     objective: @line_analysis.objective, line_type: @line_analysis.line_type } }
+    patch line_analysis_url(@line),
+          params: { line_analysis: { description: @line.description, name: @line.name,
+                            objective: @line.objective, line_type: @line.line_type } }
 
-    assert_redirected_to line_analysis_url(@line_analysis)
+    assert_redirected_to line_analysis_url(@line)
   end
 
   test 'should destroy line_analysis' do
     login(users(:one).username)
 
     assert_difference('LineAnalysis.count', -1) do
-      delete line_analysis_url(@line_analysis)
+      delete line_analysis_url(@line)
     end
 
     assert_redirected_to line_analyses_url

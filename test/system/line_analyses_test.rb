@@ -5,48 +5,51 @@ require 'application_system_test_case'
 class LineAnalysesTest < ApplicationSystemTestCase
   setup do
     login
-    @line_analysis = line_analyses(:pressao)
+    @line = line_analyses(:pressao)
   end
 
-  # test 'visiting the index' do
-  #   visit line_analyses_url
-  #   assert_selector 'th', text: 'Line Analyses'
-  # end
+  test 'visiting the index' do
+    visit line_analyses_url
 
-  # test 'creating a Line analysis' do
-  #   visit line_analyses_url
-  #   click_on 'New Line Analysis'
-  #
-  #   fill_in 'Description', with: @line_analysis.description
-  #   fill_in 'Name', with: @line_analysis.name
-  #   fill_in 'Objective', with: @line_analysis.objective
-  #   fill_in 'Type', with: @line_analysis.type
-  #   click_on 'Create Line analysis'
-  #
-  #   assert_text 'Line analysis was successfully created'
-  #   click_on 'Back'
-  # end
+    assert_selector 'th', text: 'Linhas de Análise'
+    assert_text line_analyses(:pressao).name
+    assert_text line_analyses(:capacidade).name
+  end
 
-  # test 'updating a Line analysis' do
-  #   visit line_analyses_url
-  #   click_on 'Edit', match: :first
-  #
-  #   fill_in 'Description', with: @line_analysis.description
-  #   fill_in 'Name', with: @line_analysis.name
-  #   fill_in 'Objective', with: @line_analysis.objective
-  #   fill_in 'Type', with: @line_analysis.type
-  #   click_on 'Update Line analysis'
-  #
-  #   assert_text 'Line analysis was successfully updated'
-  #   click_on 'Back'
-  # end
+  test 'creating a LineAnalysis' do
+    visit line_analyses_url
+    click_icon 'Criar linha de análise'
 
-  # test 'destroying a Line analysis' do
-  #   visit line_analyses_url
-  #   page.accept_confirm do
-  #     click_on 'Destroy', match: :first
-  #   end
-  #
-  #   assert_text 'Line analysis was successfully destroyed'
-  # end
+    fill_in 'Nome', with: 'Another Line'
+    fill_in 'Descrição', with: @line.description
+    fill_in 'Objetivo', with: @line.objective
+    fill_in 'Tipo', with: @line.type
+    click_icon 'Confirmar'
+
+    assert_text 'Linha de análise cadastrada com sucesso'
+    assert_text 'Another Line'
+  end
+
+  test 'updating a LineAnalysis' do
+    visit line_analyses_url
+    click_icon 'Ações'
+    click_icon 'Editar'
+
+    fill_in 'Description', with: 'Another description'
+    click_icon 'Confirmar'
+
+    assert_text 'Linha de análise atualizada com sucesso'
+    assert_text 'Another description'
+  end
+
+  test 'destroying a LineAnalysis' do
+    visit line_analyses_url
+    click_icon 'Ações'
+
+    page.accept_confirm do
+      click_icon 'Apagar'
+    end
+
+    assert_text 'Linha de análise apagada com sucesso'
+  end
 end

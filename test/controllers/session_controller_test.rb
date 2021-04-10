@@ -23,7 +23,7 @@ class SessionControllerTest < ActionDispatch::IntegrationTest
 
     post login_url, params: { session: { username: user.username, password: 'testpassword' } }
 
-    assert_response :redirect
+    assert_redirected_to admin_root_url
     assert_not_nil session[:user_id]
   end
 
@@ -33,7 +33,7 @@ class SessionControllerTest < ActionDispatch::IntegrationTest
 
     delete logout_url
 
-    assert_redirected_to %r{example.com/}
+    assert_redirected_to root_url
     assert_nil session[:user_id]
   end
 end

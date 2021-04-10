@@ -10,7 +10,7 @@ class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
     fill_in 'session_username', with: username
     fill_in 'session_password', with: pass
     click_button 'entrar'
-    assert_current_path '/admin/users'
+    assert_current_path admin_root_path
   end
 
   def click_icon(alt)

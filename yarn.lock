@@ -1345,12 +1345,12 @@ __metadata:
   linkType: hard
 
 "@types/eslint@npm:*":
-  version: 7.2.8
-  resolution: "@types/eslint@npm:7.2.8"
+  version: 7.2.9
+  resolution: "@types/eslint@npm:7.2.9"
   dependencies:
     "@types/estree": "*"
     "@types/json-schema": "*"
-  checksum: 6b46e394c212e93bafae63852373284a1e2d4282a0eeb70783fa7e51cbb7d8768b4ee51092035e4a53dbd8b86c93586bc84ccc4fc25cb7c0e3dca49b656a513f
+  checksum: c70977271412d61cabe971db380c7ff435e8d588c118346d08b4a3d0457f3f4bfae09659e4ab5dacafa1034cab682e28e5fa2491a8b3d0cd64e4f0e316715941
   languageName: node
   linkType: hard
 
@@ -5102,7 +5102,7 @@ fsevents@~2.3.1:
     postcss-preset-env: ^6.7.0
     stimulus: ^2.0.0
     tailwindcss: ^2.1.1
-    webpack: ^5.31.2
+    webpack: 5.29.0
     webpack-cli: ^4.6.0
     webpack-dev-server: ^3.11.2
   languageName: unknown
@@ -5399,12 +5399,12 @@ fsevents@~2.3.1:
   linkType: hard
 
 "micromatch@npm:^4.0.2":
-  version: 4.0.2
-  resolution: "micromatch@npm:4.0.2"
+  version: 4.0.3
+  resolution: "micromatch@npm:4.0.3"
   dependencies:
     braces: ^3.0.1
-    picomatch: ^2.0.5
-  checksum: 0cb0e11d647cbb65e398a0a8a1340a7fb751ae2722346219c435704cfac8b3275a94a6464236fe867f52ad46a24046d3bc4ac11b3d21ddb73bc44e27cf1e4904
+    picomatch: ^2.2.1
+  checksum: 66376ca60a6c0ae62b22383ae4d825304b7500a7151aff2fe4c52e60dcfe988fcb3e7903418e8790ee419e02212ddf12b280ef1238f769c3fbfa5f685ec8bb6d
   languageName: node
   linkType: hard
 
@@ -6211,7 +6211,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"picomatch@npm:^2.0.4, picomatch@npm:^2.0.5, picomatch@npm:^2.2.1":
+"picomatch@npm:^2.0.4, picomatch@npm:^2.2.1":
   version: 2.2.2
   resolution: "picomatch@npm:2.2.2"
   checksum: 20fa75e0a58b39d83425b3db68744d5f6f361fd4fd66ec7745d884036d502abba0d553a637703af79939b844164b13e60eea339ccb043d7fbd74c3da2592b864
@@ -8866,7 +8866,43 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"webpack@npm:^5.11.0, webpack@npm:^5.31.2":
+"webpack@npm:5.29.0":
+  version: 5.29.0
+  resolution: "webpack@npm:5.29.0"
+  dependencies:
+    "@types/eslint-scope": ^3.7.0
+    "@types/estree": ^0.0.46
+    "@webassemblyjs/ast": 1.11.0
+    "@webassemblyjs/wasm-edit": 1.11.0
+    "@webassemblyjs/wasm-parser": 1.11.0
+    acorn: ^8.0.4
+    browserslist: ^4.14.5
+    chrome-trace-event: ^1.0.2
+    enhanced-resolve: ^5.7.0
+    es-module-lexer: ^0.4.0
+    eslint-scope: ^5.1.1
+    events: ^3.2.0
+    glob-to-regexp: ^0.4.1
+    graceful-fs: ^4.2.4
+    json-parse-better-errors: ^1.0.2
+    loader-runner: ^4.2.0
+    mime-types: ^2.1.27
+    neo-async: ^2.6.2
+    schema-utils: ^3.0.0
+    tapable: ^2.1.1
+    terser-webpack-plugin: ^5.1.1
+    watchpack: ^2.0.0
+    webpack-sources: ^2.1.1
+  peerDependenciesMeta:
+    webpack-cli:
+      optional: true
+  bin:
+    webpack: bin/webpack.js
+  checksum: fff967261bf6a31b83a8c40fe539690a8b725b73cf172df671ab223b009da956e47b5c5bfe62fd9a7446da01aa309fc1383a790704afbbe39153d6128c943d21
+  languageName: node
+  linkType: hard
+
+"webpack@npm:^5.11.0":
   version: 5.31.2
   resolution: "webpack@npm:5.31.2"
   dependencies:

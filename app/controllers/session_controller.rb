@@ -10,7 +10,7 @@ class SessionController < ApplicationController
     user = User.find_by(username: session_params[:username])
     if user&.authenticate(session_params[:password])
       session['user_id'] = user.id
-      return redirect_to :users
+      return redirect_to admin_root_path
     end
     flash[:error] = 'Usuário ou senha incorretos'
     redirect_to :login
@@ -19,7 +19,7 @@ class SessionController < ApplicationController
   def logout
     flash[:notice] = 'Sessão terminada.'
     reset_session
-    redirect_to :login
+    redirect_to root_path
   end
 
   private
