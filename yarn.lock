@@ -1228,16 +1228,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rails/ujs@npm:^6.1.3-1":
+"@rails/ujs@npm:^6.1.3":
   version: 6.1.3
   resolution: "@rails/ujs@npm:6.1.3"
   checksum: 62be570822307c411ffcfbec5c103048d4d60624cdab42b9f60fc5e79626d5975e220fda09ef52f584ee7ca1024ca22757602d1ee25658ec46dba0ea96b67f47
   languageName: node
   linkType: hard
 
-"@rails/webpacker@npm:6.0.0-beta.6":
-  version: 6.0.0-beta.6
-  resolution: "@rails/webpacker@npm:6.0.0-beta.6"
+"@rails/webpacker@npm:6.0.0-beta.7":
+  version: 6.0.0-beta.7
+  resolution: "@rails/webpacker@npm:6.0.0-beta.7"
   dependencies:
     "@babel/core": ^7.12.9
     "@babel/plugin-proposal-class-properties": ^7.12.1
@@ -1260,7 +1260,7 @@ __metadata:
     webpack-cli: ^4.2.0
     webpack-merge: ^5.7.2
     webpack-sources: ^2.2.0
-  checksum: 3d6943be67188e24b058ab0379dd56b75349c951f8a6bc0bc1a8f006f33fe12f44c696158e8594a49f745eecbb855bf070392793fccd60abe92190207c7db030
+  checksum: f0d50100b12329761fdd040ab6865cb74e09dba3602c4d7add635921fbae99c0bae8ee7a3a59e09c3f9ea5bc01dd0fe9ab0011ed3667de52c589bb9f45270e39
   languageName: node
   linkType: hard
 
@@ -4891,15 +4891,15 @@ fsevents@~2.3.1:
   version: 0.0.0-use.local
   resolution: "leitura-do-lugar@workspace:."
   dependencies:
-    "@rails/ujs": ^6.1.3-1
-    "@rails/webpacker": 6.0.0-beta.6
+    "@rails/ujs": ^6.1.3
+    "@rails/webpacker": 6.0.0-beta.7
     "@tailwindcss/forms": ^0.3.2
     "@tailwindcss/jit": ^0.1.18
     "@webpack-cli/serve": ^1.3.1
     autoprefixer: ^10.2.5
     css-loader: ^5.2.4
     css-minimizer-webpack-plugin: ^2.0.0
-    mini-css-extract-plugin: ^1.5.0
+    mini-css-extract-plugin: ^1.5.1
     postcss: ^8.2.13
     postcss-flexbugs-fixes: ^5.0.2
     postcss-import: ^14.0.1
@@ -4907,7 +4907,7 @@ fsevents@~2.3.1:
     postcss-preset-env: ^6.7.0
     stimulus: ^2.0.0
     tailwindcss: ^2.1.2
-    webpack: 5.36.0
+    webpack: 5.36.1
     webpack-cli: ^4.6.0
     webpack-dev-server: ^3.11.2
   languageName: unknown
@@ -5247,16 +5247,16 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"mini-css-extract-plugin@npm:^1.5.0":
-  version: 1.5.0
-  resolution: "mini-css-extract-plugin@npm:1.5.0"
+"mini-css-extract-plugin@npm:^1.5.1":
+  version: 1.5.1
+  resolution: "mini-css-extract-plugin@npm:1.5.1"
   dependencies:
     loader-utils: ^2.0.0
     schema-utils: ^3.0.0
     webpack-sources: ^1.1.0
   peerDependencies:
     webpack: ^4.4.0 || ^5.0.0
-  checksum: b666770b3bff39afd066e4b545ad95d53b8d82dd01863c4c22aa6b866d48e44c97f27aa8c5cdfd011f727dbaf60f2a21e69c4d55ab771fc4ac00575f36342060
+  checksum: dfdb5ed1faa5926dbe638fb1dff8bb573387a778d9937ebbd800b42a213e32c5e0abc08fdb80df39fc5de7a7acda28319b73498672c1cfa48f8c548d2c02cfdb
   languageName: node
   linkType: hard
 
@@ -8569,9 +8569,9 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"webpack@npm:5.36.0, webpack@npm:^5.11.0":
-  version: 5.36.0
-  resolution: "webpack@npm:5.36.0"
+"webpack@npm:5.36.1, webpack@npm:^5.11.0":
+  version: 5.36.1
+  resolution: "webpack@npm:5.36.1"
   dependencies:
     "@types/eslint-scope": ^3.7.0
     "@types/estree": ^0.0.47
@@ -8601,7 +8601,7 @@ fsevents@~2.3.1:
       optional: true
   bin:
     webpack: bin/webpack.js
-  checksum: 418a72d18e1c28ee956a50d88cccc8ad3c58b7bad9e2315cd1d7726cdf10979c85f40316b901645ab4d065c5ee524c989e448d4aaf19a7d0112c3f7f43375fb1
+  checksum: d68088da31b8db6a55e2952b3fe8aa0603b96e53eeb26c864a3e653918e745b205c02f3e3b21b55b7bbe97e4b245d63b8aacb3a6e17eb71ec85acfc6c32cdc2c
   languageName: node
   linkType: hard
 

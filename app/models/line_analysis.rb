@@ -10,6 +10,6 @@ class LineAnalysis < ApplicationRecord
   validates :line_type, :name, :objective, :description, presence: true
 
   def self.permissions(user)
-    [:view, :create, (%i[update destroy] if user.admin?)].flatten
+    super(user) << :create
   end
 end

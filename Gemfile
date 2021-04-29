@@ -6,19 +6,19 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.1.3'
+gem 'rails', '~> 6.1'
 # Use sqlite as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '6.0.0.beta.6'
+gem 'webpacker', '6.0.0.beta.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 # A lightweight templating engine for Ruby
 gem 'slim-rails'
 # A framework for building reusable, testable & encapsulated view components
-gem 'view_component', '~> 2.30', require: 'view_component/engine'
+gem 'view_component', '2.30.0', require: 'view_component/engine'
 # Track changes to your rails models
 gem 'paper_trail', '~> 12.0'
 gem 'rack-timeout'

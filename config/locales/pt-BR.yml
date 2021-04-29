@@ -52,6 +52,9 @@ pt-BR:
     created: "%{model} cadastrado(a) com sucesso"
     updated: "%{model} editado(a) com sucesso"
     destroyed: "%{model} apagado(a) com sucesso"
+  attributes:
+    updated_at: Atualizado em
+    created_at: Criado em
   activerecord:
     models:
       user:
@@ -70,10 +73,11 @@ pt-BR:
           'false': NÃO
         password: Senha
         password_confirmation: Confirme a senha
-        updated_at: Atualizado em
-        created_at: Criado em
       line_analysis:
         name: Nome
         objective: Objetivo
         description: Descrição
-        line_type: Tipo
+        line_type:
+          one: Tipo
+          no: No Lugar
+          do: Do Lugar

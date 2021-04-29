@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
 class AdminDashboardController < AdminController
-  def index; end
+  def index
+    # head :ok
+  end
 end

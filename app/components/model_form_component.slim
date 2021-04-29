@@ -5,12 +5,16 @@ div.flex.flex-col.justify-center.mt-4 class="lg:mt-32"
       span.font-medium= @model[@head_attr]
   = form_for @model, html: { class: 'flex flex-col gap-2 lg:gap-4' } do |f|
     - @attributes.each do |attr|
-      - case @model[attr]
-      - when TrueClass, FalseClass
+      - case attr_type attr
+      - when :boolean
         .flex.items-center
-          = f.label attr, class: 'leading-10' do |l|
+          = f.label attr, class: 'leading-relaxed' do |l|
             span.mr-3= l.translation
             = f.check_box attr
+      - when :enum
+        = f.label attr do |l|
+          p= l.translation
+          = f.select attr, attr_select(attr)
       - else
         = f.label attr do |l|
           p= l.translation

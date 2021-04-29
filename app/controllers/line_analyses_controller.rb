@@ -7,23 +7,23 @@ class LineAnalysesController < AdminController
   def index
     @line_analyses = LineAnalysis.all
     render CollectionIndexComponent.new LineAnalysis, @line_analyses, :'document-add',
-                                        name: { header: 'w-56' }, line_type: { header: 'w-16', cell: 'uppercase' }
+                                        name: { header: 'w-56' }, line_type: { header: 'w-24', cell: 'text-sm uppercase' }
   end
 
   # GET /line_analyses/1
   def show
-    render ModelViewComponent.new model: @line_analysis
+    render ModelViewComponent.new @line_analysis
   end
 
   # GET /line_analyses/new
   def new
     @line_analysis = LineAnalysis.new
-    render ModelFormComponent.new model: @line_analysis
+    render render_form
   end
 
   # GET /line_analyses/1/edit
   def edit
-    render ModelFormComponent.new model: @line_analysis
+    render render_form
   end
 
   # POST /line_analyses
@@ -33,8 +33,7 @@ class LineAnalysesController < AdminController
     if @line_analysis.save
       redirect_to @line_analysis, notice: 'Line analysis was successfully created.'
     else
-      flash[:error] = @line_analysis.errors.full_messages
-      render ModelFormComponent.new(model: @line_analysis), status: :unprocessable_entity
+      render render_form, status: :unprocessable_entity
     end
   end
 
@@ -43,9 +42,13 @@ class LineAnalysesController < AdminController
     if @line_analysis.update(line_analysis_params)
       redirect_to @line_analysis, notice: 'Line analysis was successfully updated.'
     else
-      flash[:error] = @line_analysis.errors.full_messages
-      render ModelFormComponent.new(model: @line_analysis), status: :unprocessable_entity
+      render render_form, status: :unprocessable_entity
     end
+  end
+
+  def render_form
+    flash[:error] = @line_analysis.errors.full_messages
+    ModelFormComponent.new @line_analysis
   end
 
   # DELETE /line_analyses/1

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ModelComponent < ViewComponent::Base
-  def initialize(model:, head_attr: :name, attributes: [])
+  def initialize(model, head_attr = :name, attributes = [])
     super
     @model      = model
     @model_name = model.class.name.underscore

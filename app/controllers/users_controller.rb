@@ -5,23 +5,26 @@ class UsersController < AdminController
 
   # GET /users or /users.json
   def index
-    @users = User.all
+    render CollectionIndexComponent.new User, User.all, :'user-add',
+                                        username: { header: 'w-32' },
+                                        name:     { header: 'w-56' },
+                                        admin:    { header: 'text-right', cell: 'text-sm font-bold text-right text-gray-800' }
   end
 
   # GET /users/1 or /users/1.json
   def show
-    render ModelViewComponent.new model: @user, attributes: %i[name username admin]
+    render ModelViewComponent.new @user, :name, :name, :username, :admin
   end
 
   # GET /users/new
   def new
     @user = User.new
-    render ModelFormComponent.new model: @user, attributes: USER_ATTR
+    render render_form
   end
 
   # GET /users/1/edit
   def edit
-    render ModelFormComponent.new model: @user, attributes: USER_ATTR
+    render render_form
   end
 
   # POST /users or /users.json
@@ -31,8 +34,7 @@ class UsersController < AdminController
     if @user.save
       redirect_to @user, notice: t('notice.user.created')
     else
-      flash[:error] = @user.errors.full_messages
-      render ModelFormComponent.new(model: @user, attributes: USER_ATTR), status: :unprocessable_entity
+      render render_form, status: :unprocessable_entity
     end
   end
 
@@ -41,9 +43,12 @@ class UsersController < AdminController
     if @user.update(user_params)
       redirect_to @user, notice: t('notice.user.updated')
     else
-      flash[:error] = @user.errors.full_messages
-      render ModelFormComponent.new(model: @user, attributes: USER_ATTR), status: :unprocessable_entity
+      render render_form, status: :unprocessable_entity
     end
+  end
+
+  def render_form
+    ModelFormComponent.new @user, :name, *USER_ATTR
   end
 
   # DELETE /users/1 or /users/1.json
