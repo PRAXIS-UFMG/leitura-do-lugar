@@ -9,15 +9,20 @@ class UsersController < AdminController
   end
 
   # GET /users/1 or /users/1.json
-  def show; end
+  def show
+    render ModelViewComponent.new model: @user, attributes: %i[name username admin]
+  end
 
   # GET /users/new
   def new
     @user = User.new
+    render ModelFormComponent.new model: @user, attributes: USER_ATTR
   end
 
   # GET /users/1/edit
-  def edit; end
+  def edit
+    render ModelFormComponent.new model: @user, attributes: USER_ATTR
+  end
 
   # POST /users or /users.json
   def create
@@ -26,7 +31,8 @@ class UsersController < AdminController
     if @user.save
       redirect_to @user, notice: t('notice.user.created')
     else
-      render :new, status: :unprocessable_entity
+      flash[:error] = @user.errors.full_messages
+      render ModelFormComponent.new(model: @user, attributes: USER_ATTR), status: :unprocessable_entity
     end
   end
 
@@ -35,7 +41,8 @@ class UsersController < AdminController
     if @user.update(user_params)
       redirect_to @user, notice: t('notice.user.updated')
     else
-      render :edit, status: :unprocessable_entity
+      flash[:error] = @user.errors.full_messages
+      render ModelFormComponent.new(model: @user, attributes: USER_ATTR), status: :unprocessable_entity
     end
   end
 
@@ -47,6 +54,8 @@ class UsersController < AdminController
 
   private
 
+  USER_ATTR = %i[name username admin password password_confirmation].freeze
+
   # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = User.find(params[:id])
@@ -54,6 +63,6 @@ class UsersController < AdminController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:name, :username, :admin, :password, :password_confirmation)
+    params.require(:user).permit USER_ATTR
   end
 end

@@ -4,18 +4,15 @@ class AdminController < ApplicationController
   include Authentication
 
   layout 'admin'
-  helper_method :current_user
   before_action :set_paper_trail_whodunnit
+  helper_method :current_user
 
+  # @return [User]
   def current_user
-    return unless session['user_id']
-
-    begin
-      User.find(session['user_id'])
-    rescue ActiveRecord::RecordNotFound => e
-      reset_session
-      raise e
-    end
+    @current_user ||= User.find(session['user_id'])
+  rescue ActiveRecord::RecordNotFound => e
+    reset_session
+    raise e
   end
 
   class AuthorizationError < StandardError
@@ -25,6 +22,6 @@ class AdminController < ApplicationController
   end
 
   def permitted?(action)
-    action.in? controller_path.classify.permissions(current_user&.admin)
+    action.in? controller_path.classify.permissions(current_user)
   end
 end

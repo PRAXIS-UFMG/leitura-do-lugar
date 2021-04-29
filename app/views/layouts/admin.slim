@@ -3,11 +3,8 @@
 - content_for :topbar do
   div.flex-grow.flex.justify-center
     ul.text-sm.uppercase.text-gray-800.list-vertical-separator.inline
-      = render NavLinkComponent.new(t('sections.users'), users_path)
-      = render NavLinkComponent.new(t('sections.line_analysis'), '/')
-      = render NavLinkComponent.new(t('sections.periods'), '/')
-      = render NavLinkComponent.new(t('sections.interviews'), '/')
-      = render NavLinkComponent.new(t('sections.excerpts'), '/')
+      - t('sections').each do |key, value|
+        = render NavLinkComponent.new(value, send("#{key}_path"))
   div.flex.gap-x-3.items-center
     h2.text-lg
       => current_user.name
@@ -20,5 +17,10 @@
 - content_for :content do
   main.flex.flex-col.items-center.justify-center
     = yield
+    .mt-4
+    - if flash[:notice]
+      p.text-grey-600= flash[:notice]
+    - if flash[:error]
+      p.text-red-800 = flash[:error]
 
 = render template: 'layouts/application'

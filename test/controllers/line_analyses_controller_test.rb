@@ -4,7 +4,7 @@ require 'test_helper'
 
 class LineAnalysesControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @line = line_analyses(:pressao)
+    @line = line_analyses :pressao
   end
 
   test 'should require authentication' do
@@ -25,7 +25,7 @@ class LineAnalysesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index' do
-    login(users(:one).username)
+    login(users(:admin).username)
 
     get line_analyses_url
 
@@ -33,7 +33,7 @@ class LineAnalysesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get new' do
-    login(users(:one).username)
+    login(users(:admin).username)
 
     get new_line_analysis_url
 
@@ -41,7 +41,7 @@ class LineAnalysesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create line_analysis' do
-    login(users(:one).username)
+    login(users(:admin).username)
 
     assert_difference('LineAnalysis.count') do
       post line_analyses_url, params: { line_analysis: {
@@ -56,7 +56,7 @@ class LineAnalysesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should show line_analysis' do
-    login(users(:one).username)
+    login(users(:admin).username)
 
     get line_analysis_url(@line)
 
@@ -64,14 +64,14 @@ class LineAnalysesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get edit' do
-    login(users(:one).username)
+    login(users(:admin).username)
 
     get edit_line_analysis_url(@line)
     assert_response :success
   end
 
   test 'should update line_analysis' do
-    login(users(:one).username)
+    login(users(:admin).username)
 
     patch line_analysis_url(@line),
           params: { line_analysis: { description: @line.description, name: @line.name,
@@ -81,7 +81,7 @@ class LineAnalysesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should destroy line_analysis' do
-    login(users(:one).username)
+    login(users(:admin).username)
 
     assert_difference('LineAnalysis.count', -1) do
       delete line_analysis_url(@line)

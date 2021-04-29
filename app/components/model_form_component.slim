@@ -1,0 +1,27 @@
+div.flex.flex-col.justify-center.mt-4 class="lg:mt-32"
+  h2.text-center.leading-8.text-xl.mb-6
+    => @model.new_record? ? t('headers.creating', model: @model.model_name.human) : t('headers.editing')
+    - unless @model.new_record?
+      span.font-medium= @model[@head_attr]
+  = form_for @model, html: { class: 'flex flex-col gap-2 lg:gap-4' } do |f|
+    - @attributes.each do |attr|
+      - case @model[attr]
+      - when TrueClass, FalseClass
+        .flex.items-center
+          = f.label attr, class: 'leading-10' do |l|
+            span.mr-3= l.translation
+            = f.check_box attr
+      - else
+        = f.label attr do |l|
+          p= l.translation
+          = f.text_field attr, class: 'w-full'
+    .flex.justify-between.mt-4.mb-2
+      = link_to back_icon, send("#{@model_name.pluralize}_path")
+      - unless @model.new_record?
+        = link_to show_icon, @model
+      = f.button type: 'submit' do
+        = confirm_icon
+    - if @model.errors.any?
+      ul.text-red-700.font-medium
+        - @model.errors.full_messages.each do |message|
+          li= message

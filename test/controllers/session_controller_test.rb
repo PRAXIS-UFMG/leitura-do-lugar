@@ -10,7 +10,7 @@ class SessionControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'log in with wrong password' do
-    user = users :one
+    user = users :admin
 
     post login_url, params: { session: { username: user.username, password: 'wrong' } }
 
@@ -19,7 +19,7 @@ class SessionControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'log in and set session' do
-    user = users :one
+    user = users :admin
 
     post login_url, params: { session: { username: user.username, password: 'testpassword' } }
 
@@ -28,7 +28,7 @@ class SessionControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'log out and unset session' do
-    login(users(:one).username)
+    login(users(:admin).username)
     assert_not_nil session[:user_id]
 
     delete logout_url

@@ -4,7 +4,7 @@ require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user = users :two
+    @user = users :common
   end
 
   test 'should require authentication' do
@@ -66,7 +66,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test 'should destroy user' do
     login(@user.username)
-    an_user = users(:two)
+    an_user = users(:common)
 
     assert_difference('User.count', -1) do
       delete user_url(an_user)

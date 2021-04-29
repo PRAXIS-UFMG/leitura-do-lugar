@@ -6,18 +6,25 @@ class LineAnalysesController < AdminController
   # GET /line_analyses
   def index
     @line_analyses = LineAnalysis.all
+    render CollectionIndexComponent.new LineAnalysis, @line_analyses, :'document-add',
+                                        name: { header: 'w-56' }, line_type: { header: 'w-16', cell: 'uppercase' }
   end
 
   # GET /line_analyses/1
-  def show; end
+  def show
+    render ModelViewComponent.new model: @line_analysis
+  end
 
   # GET /line_analyses/new
   def new
     @line_analysis = LineAnalysis.new
+    render ModelFormComponent.new model: @line_analysis
   end
 
   # GET /line_analyses/1/edit
-  def edit; end
+  def edit
+    render ModelFormComponent.new model: @line_analysis
+  end
 
   # POST /line_analyses
   def create
@@ -26,7 +33,8 @@ class LineAnalysesController < AdminController
     if @line_analysis.save
       redirect_to @line_analysis, notice: 'Line analysis was successfully created.'
     else
-      render :new, status: :unprocessable_entity
+      flash[:error] = @line_analysis.errors.full_messages
+      render ModelFormComponent.new(model: @line_analysis), status: :unprocessable_entity
     end
   end
 
@@ -35,7 +43,8 @@ class LineAnalysesController < AdminController
     if @line_analysis.update(line_analysis_params)
       redirect_to @line_analysis, notice: 'Line analysis was successfully updated.'
     else
-      render :edit, status: :unprocessable_entity
+      flash[:error] = @line_analysis.errors.full_messages
+      render ModelFormComponent.new(model: @line_analysis), status: :unprocessable_entity
     end
   end
 

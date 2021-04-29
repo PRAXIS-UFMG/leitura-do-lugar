@@ -32,10 +32,10 @@
 pt-BR:
   sections:
     users: usuários
-    line_analysis: linhas de análise
-    periods: períodos
-    interviews: relatos
-    excerpts: trechos
+    line_analyses: linhas de análise
+#    periods: períodos
+#    interviews: relatos
+#    excerpts: trechos
   actions:
     back: Voltar
     show: Visualizar
@@ -45,20 +45,21 @@ pt-BR:
     confirm: Confirmar
   headers:
     editing: Editando
-    creating: Novo Usuário
+    creating: "Criando novo %{model}"
   confirm:
-    user:
-      destroy: Tem certeza? Este usuário será apagado para sempre!
+    destroy: "Tem certeza? Este(a) %{model} será apagada para sempre!"
   notice:
-    user:
-      created: Usuário cadastrado com sucesso
-      updated: Usuário editado com sucesso
-      destroyed: Usuário apagado com sucesso
+    created: "%{model} cadastrado(a) com sucesso"
+    updated: "%{model} editado(a) com sucesso"
+    destroyed: "%{model} apagado(a) com sucesso"
   activerecord:
     models:
       user:
         one: Usuário
         other: Usuários
+      line_analysis:
+        one: Linha de Análise
+        other: Linhas de Análise
     attributes:
       user:
         username: Username
@@ -71,3 +72,8 @@ pt-BR:
         password_confirmation: Confirme a senha
         updated_at: Atualizado em
         created_at: Criado em
+      line_analysis:
+        name: Nome
+        objective: Objetivo
+        description: Descrição
+        line_type: Tipo

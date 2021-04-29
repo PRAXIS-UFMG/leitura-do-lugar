@@ -3,9 +3,10 @@
 require 'test_helper'
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
+  # parallelize(workers: 1)
   driven_by :selenium, using: :chrome, screen_size: [1280, 720]
 
-  def login(username = users(:two).username, pass = 'testpassword')
+  def login(username = users(:common).username, pass = 'testpassword')
     visit login_url
     fill_in 'session_username', with: username
     fill_in 'session_password', with: pass

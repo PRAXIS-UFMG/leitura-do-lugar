@@ -1,0 +1,22 @@
+table.table-fixed.border-collapse.mt-4 class="lg:mt-32"
+  tbody
+    tr.border-b.border-black
+      td.w-36= @model.class.human_attribute_name(@head_attr)
+      td.w-36.pl-2= @model[@head_attr]
+    - @attributes.each do |attr|
+      tr
+        - case @model[attr]
+        - when TrueClass, FalseClass
+          td.border-r.border-gray-400= @model.class.human_attribute_name(attr)
+          td.pl-2.text-sm.font-bold.text-gray-700= t "activerecord.attributes.#{@model_name}.#{attr}.#{@model[attr]}"
+        - else
+          td.border-r.border-gray-400= @model.class.human_attribute_name(attr)
+          td.pl-2= @model[attr]
+    - [:updated_at, :created_at].each do |a|
+      tr
+        td.border-r.border-gray-400= @model.class.human_attribute_name(a)
+        td.pl-2.text-sm= l @model[a], format: :short
+.mt-4.flex.w-72.justify-between
+  = link_to back_icon, send("#{@model_name.pluralize}_path")
+  = link_to edit_icon, send("edit_#{@model_name}_path", @model) if user_permitted_to? :update
+  = link_to delete_icon, send("#{@model_name}_path", @model), method: :delete, data: { confirm: t("confirm.#{@model_name}.destroy") } if user_permitted_to? :destroy
