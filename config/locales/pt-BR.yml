@@ -47,7 +47,7 @@ pt-BR:
     editing: Editando
     creating: "Criando novo %{model}"
   confirm:
-    destroy: "Tem certeza? Este(a) %{model} será apagada para sempre!"
+    destroy: "Tem certeza? Este(a) %{model} será apagado(a) para sempre!"
   notice:
     created: "%{model} cadastrado(a) com sucesso"
     updated: "%{model} editado(a) com sucesso"
@@ -79,5 +79,5 @@ pt-BR:
         description: Descrição
         line_type:
           one: Tipo
-          no: No Lugar
+          'no': No Lugar
           do: Do Lugar

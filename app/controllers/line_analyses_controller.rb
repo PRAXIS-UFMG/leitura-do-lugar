@@ -31,7 +31,7 @@ class LineAnalysesController < AdminController
     @line_analysis = LineAnalysis.new(line_analysis_params)
 
     if @line_analysis.save
-      redirect_to @line_analysis, notice: 'Line analysis was successfully created.'
+      redirect_to @line_analysis, notice: t('notice.created', model: LineAnalysis.lowercase_human_name)
     else
       render render_form, status: :unprocessable_entity
     end
@@ -40,21 +40,21 @@ class LineAnalysesController < AdminController
   # PATCH/PUT /line_analyses/1
   def update
     if @line_analysis.update(line_analysis_params)
-      redirect_to @line_analysis, notice: 'Line analysis was successfully updated.'
+      redirect_to @line_analysis, notice: t('notice.updated', model: LineAnalysis.lowercase_human_name)
     else
       render render_form, status: :unprocessable_entity
     end
   end
 
   def render_form
-    flash[:error] = @line_analysis.errors.full_messages
-    ModelFormComponent.new @line_analysis
+    ModelFormComponent.new @line_analysis, :name,
+                           :name, :objective, :description, line_type: { as: :enum }
   end
 
   # DELETE /line_analyses/1
   def destroy
     @line_analysis.destroy
-    redirect_to line_analyses_url, notice: 'Line analysis was successfully destroyed.'
+    redirect_to line_analyses_url, notice: t('notice.destroyed', model: LineAnalysis.lowercase_human_name)
   end
 
   private

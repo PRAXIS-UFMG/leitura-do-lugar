@@ -19,7 +19,7 @@ class ModelFormComponent < ModelComponent
     values = @attr_options.dig(attr, :values)
     return values.map { |v| [t("activerecord.attributes.#{@model_name}.#{attr}.#{v}"), v] } if values
 
-    t("activerecord.attributes.#{@model_name}.#{attr}").to_a
+    t("activerecord.attributes.#{@model_name}.#{attr}").to_a.reject { |i| i.first == :one }.map(&:reverse)
   end
 
   def show_icon

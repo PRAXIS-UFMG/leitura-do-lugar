@@ -7,8 +7,8 @@ class UsersController < AdminController
   def index
     render CollectionIndexComponent.new User, User.all, :'user-add',
                                         username: { header: 'w-32' },
-                                        name:     { header: 'w-56' },
-                                        admin:    { header: 'text-right', cell: 'text-sm font-bold text-right text-gray-800' }
+                                        name: { header: 'w-56' },
+                                        admin: { header: 'text-right', cell: 'text-sm font-bold text-right text-gray-800' }
   end
 
   # GET /users/1 or /users/1.json
@@ -32,7 +32,7 @@ class UsersController < AdminController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to @user, notice: t('notice.user.created')
+      redirect_to @user, notice: t('notice.created', model: User.lowercase_human_name)
     else
       render render_form, status: :unprocessable_entity
     end
@@ -41,7 +41,7 @@ class UsersController < AdminController
   # PATCH/PUT /users/1 or /users/1.json
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: t('notice.user.updated')
+      redirect_to @user, notice: t('notice.updated', model: User.lowercase_human_name)
     else
       render render_form, status: :unprocessable_entity
     end
@@ -54,7 +54,7 @@ class UsersController < AdminController
   # DELETE /users/1 or /users/1.json
   def destroy
     @user.destroy
-    redirect_to users_url, notice: t('notice.user.destroyed')
+    redirect_to users_url, notice: t('notice.destroyed', model: User.lowercase_human_name)
   end
 
   private
@@ -68,6 +68,10 @@ class UsersController < AdminController
 
   # Only allow a list of trusted parameters through.
   def user_params
+    unless current_user.admin? && params.dig(:user, :admin)
+      flash[:error] = 'Você não tem permissão para alterar o atributo `admin`'
+      return params.require(:user).permit USER_ATTR - [:admin]
+    end
     params.require(:user).permit USER_ATTR
   end
 end

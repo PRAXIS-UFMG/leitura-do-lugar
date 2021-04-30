@@ -19,4 +19,5 @@ table.table-fixed.border-collapse.mt-4 class="lg:mt-32"
 .mt-4.flex.w-72.justify-between
   = link_to back_icon, send("#{@model_name.pluralize}_path")
   = link_to edit_icon, send("edit_#{@model_name}_path", @model) if user_permitted_to? :update
-  = link_to delete_icon, send("#{@model_name}_path", @model), method: :delete, data: { confirm: t("confirm.#{@model_name}.destroy") } if user_permitted_to? :destroy
+  = link_to delete_icon, send("#{@model_name}_path", @model), method: :delete,
+    data: { confirm: t("confirm.destroy", model: @model.lowercase_human_name) } if user_permitted_to? :destroy

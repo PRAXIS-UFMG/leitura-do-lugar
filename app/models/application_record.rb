@@ -4,6 +4,10 @@ class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
   has_paper_trail
 
+  def self.lowercase_human_name
+    model_name.human.downcase
+  end
+
   # @param [User] user
   def self.permissions(user)
     [:show, (%i[create update destroy] if user.admin?)].flatten
@@ -19,4 +23,5 @@ class ApplicationRecord < ActiveRecord::Base
   def permitted_to?(user, action)
     action.in? permissions(user)
   end
+
 end
