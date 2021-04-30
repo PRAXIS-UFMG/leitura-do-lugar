@@ -1,7 +1,6 @@
 module.exports = {
     plugins: [
         require('postcss-import'),
-        require('postcss-flexbugs-fixes'),
         require('postcss-preset-env')({
             stage: 3,
             autoprefixer: {
@@ -11,7 +10,7 @@ module.exports = {
                 'nesting-rules': true
             }
         }),
-        require('@tailwindcss/jit'),
+        require('tailwindcss'),
         require('autoprefixer')
     ]
 }

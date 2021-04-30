@@ -1,4 +1,5 @@
 module.exports = {
+    mode: 'jit',
     purge: [
         'app/helpers/*.rb',
         'app/views/**/*.slim',
@@ -8,6 +9,12 @@ module.exports = {
         'app/packs/javascript/controllers/**/*.js'
     ],
     darkMode: 'media', // or 'media' or 'class'
+    variants: {
+        extend: {
+            backgroundColor: ['active']
+        },
+    },
+    plugins: [require('@tailwindcss/forms')],
     theme: {
         extend: {
             colors: {
@@ -27,10 +34,4 @@ module.exports = {
             }
         },
     },
-    variants: {
-        extend: {
-            backgroundColor: ['active']
-        },
-    },
-    plugins: [require('@tailwindcss/forms')],
 }

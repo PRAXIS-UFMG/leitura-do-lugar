@@ -18,16 +18,15 @@ gem 'bcrypt', '~> 3.1.7'
 # A lightweight templating engine for Ruby
 gem 'slim-rails'
 # A framework for building reusable, testable & encapsulated view components
-gem 'view_component', '2.30.0', require: 'view_component/engine'
+gem 'view_component', '~> 2.31', require: 'view_component/engine'
 # Track changes to your rails models
 gem 'paper_trail', '~> 12.0'
+
 gem 'rack-timeout'
 gem 'rails-i18n', '~> 6.0.0'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
-# Default bundled gems
-gem 'rexml'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
@@ -50,6 +49,8 @@ group :development do
 end
 
 group :test do
+  # Used to be bundled with ruby
+  gem 'rexml'
   # Code coverage for Ruby
   gem 'simplecov', require: false
   # Adds support for Capybara system testing and selenium driver
