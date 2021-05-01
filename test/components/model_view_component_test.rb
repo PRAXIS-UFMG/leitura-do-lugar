@@ -23,7 +23,7 @@ class ModelViewComponentTest < ViewComponent::TestCase
 
       render_inline ModelViewComponent.new users(:admin)
 
-      assert_no_selector 'svg[alt="Editar"]'
+      assert_no_selector 'svg[alt="Remover"]'
     end
   end
 end

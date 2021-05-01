@@ -1,7 +1,7 @@
 table.table-fixed.border-collapse.mt-4 class="lg:mt-32"
   thead
     tr.leading-8
-      th.text-xl.font-semibold.pb-4 colspan=@attributes.size = t("activerecord.models.#{@model_name}.other")
+      th.text-xl.font-semibold.pb-4 colspan=@attributes.size = @model.model_name.human
       th.pb-4 = link_to add_icon, send("new_#{@model_name}_path") if user_permitted_to? :create
     tr
       th.font-normal.text-gray-500.pb-4 colspan=@attributes.size = flash[:notice]

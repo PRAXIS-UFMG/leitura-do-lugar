@@ -6,12 +6,8 @@ class ModelComponent < ViewComponent::Base
     @model      = model
     @model_name = model.class.name.underscore
     @head_attr  = head_attr
-    @attributes = if attributes.any?
-                    attributes
-                  else
-                    model.attribute_names -
-                      %w[id created_at updated_at]
-                  end
+    @attributes = attributes.presence || (model.attribute_names - %w[id created_at updated_at]).map!(&:to_sym)
+    @attributes -= [head_attr]
   end
 
   delegate :back_icon, to: :helpers
@@ -19,5 +15,18 @@ class ModelComponent < ViewComponent::Base
 
   def user_permitted_to?(action)
     helpers.user_permitted_to? @model, action
+  end
+
+  def t_header(attr)
+    @model.class.human_attribute_name attr.to_s
+  end
+
+  def t_attribute(attr, value = nil)
+    value ||= @model[attr]
+    if @model.type_for_attribute(attr.to_s).type == :date
+      localize value
+    else
+      translate "activerecord.attributes.#{@model_name}.#{attr}.#{value}", default: value
+    end
   end
 end

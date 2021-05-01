@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  interviewee: MyString
+  resides_since: 2019
+  full_text: MyText
+  address: MyString
+  interview_date: 2021-04-30
+  approved: false
+
+two:
+  interviewee: MyString
+  resides_since: 1
+  full_text: MyText
+  address: MyString
+  addr_lat: 1.5
+  addr_lon: 1.5
+  interview_date: 2021-04-30
+  approved: false

@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates :password, length: { within: 8..72 }, allow_nil: true
 
   def permissions(user)
-    p = self.class.permissions user
+    p = super user
     p << :update if user == self
     p
   end

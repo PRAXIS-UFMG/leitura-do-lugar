@@ -72,3 +72,15 @@ a, button[type='submit'], button[type='reset'] {
 [data-dropdown-open-value='true'] .table-menu {
     @apply visible transition opacity-100;
 }
+
+/* ModelView */
+pre {
+    @apply whitespace-pre-line prose-sm max-h-[45vh];
+}
+pre, textarea {
+    @apply w-64 max-w-screen-sm md:w-96 md:max-w-screen-md lg:w-[50vw] lg:max-w-prose;
+    @apply overflow-y-scroll;
+}
+textarea {
+    @apply h-[45vh];
+}

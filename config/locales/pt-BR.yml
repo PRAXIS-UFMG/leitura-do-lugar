@@ -33,6 +33,7 @@ pt-BR:
   sections:
     users: usuários
     line_analyses: linhas de análise
+    reports: Relatos
 #    periods: períodos
 #    interviews: relatos
 #    excerpts: trechos
@@ -63,6 +64,9 @@ pt-BR:
       line_analysis:
         one: Linha de Análise
         other: Linhas de Análise
+      report:
+        one: Relato
+        other: Relatos
     attributes:
       user:
         username: Username
@@ -81,3 +85,13 @@ pt-BR:
           one: Tipo
           'no': No Lugar
           do: Do Lugar
+      report:
+        interviewee: Entrevistado
+        resides_since: Morador Desde
+        full_text: Texto Completo
+        address: Endereço
+        interview_date: Data da Entrevista
+        approved:
+          one: Aprovado
+          'true': sim
+          'false': não

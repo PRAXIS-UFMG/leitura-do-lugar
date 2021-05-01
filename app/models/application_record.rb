@@ -9,13 +9,8 @@ class ApplicationRecord < ActiveRecord::Base
   end
 
   # @param [User] user
-  def self.permissions(user)
-    [:show, (%i[create update destroy] if user.admin?)].flatten
-  end
-
-  # @param [User] user
   def permissions(user)
-    self.class.permissions user
+    [:show, (%i[create update destroy] if user.admin?)].flatten
   end
 
   # @param [User] user
@@ -23,5 +18,4 @@ class ApplicationRecord < ActiveRecord::Base
   def permitted_to?(user, action)
     action.in? permissions(user)
   end
-
 end

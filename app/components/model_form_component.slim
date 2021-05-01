@@ -1,8 +1,8 @@
-div.flex.flex-col.justify-center.mt-4 class="lg:mt-32"
+div.flex.flex-col.justify-center.mt-4 class="lg:mt-16"
   h2.text-center.leading-8.text-xl.mb-6
     => @model.new_record? ? t('headers.creating', model: @model.model_name.human) : t('headers.editing')
     - unless @model.new_record?
-      span.font-medium= @model[@head_attr]
+      span.font-medium= @model.send(@head_attr)
   = form_for @model, html: { class: 'flex flex-col gap-2 lg:gap-4' } do |f|
     - @attributes.each do |attr|
       - case attr_type attr
@@ -11,6 +11,10 @@ div.flex.flex-col.justify-center.mt-4 class="lg:mt-32"
           = f.label attr, class: 'leading-relaxed' do |l|
             span.mr-3= l.translation
             = f.check_box attr
+      - when :text
+        = f.label attr do |l|
+          p= l.translation
+          = f.text_area attr, class: 'w-56 md:w-96 lg:w-[50vw] lg:max-w-prose min-h-[10rem]'
       - when :enum
         = f.label attr do |l|
           p= l.translation

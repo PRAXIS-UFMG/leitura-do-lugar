@@ -17,6 +17,9 @@ class LineAnalysesControllerTest < ActionDispatch::IntegrationTest
     get edit_line_analysis_url(@line)
     assert_response :redirect
 
+    get line_analysis_url(@line)
+    assert_response :redirect
+
     patch line_analysis_url(@line)
     assert_response :redirect
 
@@ -33,7 +36,7 @@ class LineAnalysesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get new' do
-    login(users(:admin).username)
+    login(users(:common).username)
 
     get new_line_analysis_url
 
@@ -41,14 +44,14 @@ class LineAnalysesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create line_analysis' do
-    login(users(:admin).username)
+    login(users(:common).username)
 
     assert_difference('LineAnalysis.count') do
       post line_analyses_url, params: { line_analysis: {
         description: @line.description,
-        name:        'Another Line',
-        objective:   @line.objective,
-        line_type:   @line.line_type
+        name: 'Another Line',
+        objective: @line.objective,
+        line_type: @line.line_type
       } }
     end
 
@@ -56,7 +59,7 @@ class LineAnalysesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should show line_analysis' do
-    login(users(:admin).username)
+    login(users(:common).username)
 
     get line_analysis_url(@line)
 
@@ -75,7 +78,7 @@ class LineAnalysesControllerTest < ActionDispatch::IntegrationTest
 
     patch line_analysis_url(@line),
           params: { line_analysis: { description: @line.description, name: @line.name,
-                                     objective:   @line.objective, line_type: @line.line_type } }
+                                     objective: @line.objective, line_type: @line.line_type } }
 
     assert_redirected_to line_analysis_url(@line)
   end

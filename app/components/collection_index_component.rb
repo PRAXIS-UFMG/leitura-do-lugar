@@ -3,7 +3,7 @@
 class CollectionIndexComponent < ModelComponent
   def initialize(model, collection, add_icon, *attributes)
     attr_options = attributes.extract_options!
-    super model.new, nil, attributes + attr_options.keys
+    super model.new, nil, (attributes + attr_options.keys)
     @collection     = collection
     @add_icon       = add_icon
     @header_classes = attr_options.transform_values { |opts| opts[:header] }
@@ -12,19 +12,6 @@ class CollectionIndexComponent < ModelComponent
 
   def user_permissions
     @model.permissions(current_user)
-  end
-
-  def t_header(attr)
-    txt_or_hash = t "activerecord.attributes.#{@model_name}.#{attr}"
-    if txt_or_hash.is_a? Hash
-      txt_or_hash[:one]
-    else
-      txt_or_hash
-    end
-  end
-
-  def t_attribute(attr, value)
-    translate "activerecord.attributes.#{@model_name}.#{attr}.#{value}", default: value
   end
 
   def header_classes(attr, index)

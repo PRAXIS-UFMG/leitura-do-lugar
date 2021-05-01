@@ -11,7 +11,7 @@ class ModelFormComponent < ModelComponent
     supplied_type = @attr_options.dig(attr, :as)
     return supplied_type if supplied_type
 
-    @model.class.attribute_types[attr.to_s].type
+    @model.class.type_for_attribute(attr.to_s).type
   end
 
   # @return [Array]

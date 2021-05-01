@@ -2,7 +2,7 @@
 
 class ModelViewComponent < ModelComponent
   def initialize(model, head_attr = :name, *attributes)
-    super model, head_attr, (attributes - [head_attr.to_s])
+    super model, head_attr, attributes
   end
 
   def edit_icon
