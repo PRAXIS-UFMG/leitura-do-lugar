@@ -7,15 +7,10 @@ class ModelComponent < ViewComponent::Base
     @model_name = model.class.name.underscore
     @head_attr  = head_attr
     @attributes = attributes.presence || (model.attribute_names - %w[id created_at updated_at]).map!(&:to_sym)
-    @attributes -= [head_attr]
   end
 
   delegate :back_icon, to: :helpers
   delegate :current_user, to: :helpers
-
-  def user_permitted_to?(action)
-    helpers.user_permitted_to? @model, action
-  end
 
   def t_header(attr)
     @model.class.human_attribute_name attr.to_s

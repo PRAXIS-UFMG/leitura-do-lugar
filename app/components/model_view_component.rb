@@ -3,6 +3,7 @@
 class ModelViewComponent < ModelComponent
   def initialize(model, head_attr = :name, *attributes)
     super model, head_attr, attributes
+    @attributes -= [head_attr]
   end
 
   def edit_icon

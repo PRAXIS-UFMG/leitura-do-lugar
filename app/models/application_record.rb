@@ -8,14 +8,7 @@ class ApplicationRecord < ActiveRecord::Base
     model_name.human.downcase
   end
 
-  # @param [User] user
-  def permissions(user)
-    [:show, (%i[create update destroy] if user.admin?)].flatten
-  end
-
-  # @param [User] user
-  # @param [:show,:create,:update,:destroy] action
-  def permitted_to?(user, action)
-    action.in? permissions(user)
+  def self.human_title_name
+    model_name.human.capitalize
   end
 end

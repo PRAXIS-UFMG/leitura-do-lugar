@@ -10,10 +10,6 @@ class Report < ApplicationRecord
   attribute :interview_date, :date
   attribute :approved, :boolean
 
-  def permissions(user)
-    super(user) + [:create]
-  end
-
   def name
     "Entrevista com #{interviewee.split.first} em #{I18n.l interview_date}"
   end

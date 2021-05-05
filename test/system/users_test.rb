@@ -4,7 +4,7 @@ require 'application_system_test_case'
 
 class UsersTest < ApplicationSystemTestCase
   setup do
-    login(users(:admin).username)
+    login(users(:common).username)
   end
 
   test 'visiting the index' do
@@ -23,7 +23,7 @@ class UsersTest < ApplicationSystemTestCase
     check 'Admin'
     click_icon 'Confirmar'
 
-    assert_text 'Usuário cadastrado com sucesso'
+    assert_text 'Usuário cadastrado(a) com sucesso'
   end
 
   test 'updating a User' do
@@ -37,6 +37,7 @@ class UsersTest < ApplicationSystemTestCase
 
     assert_text 'Another Name'
     assert_text 'another'
+    assert_text 'Usuário editado(a) com sucesso'
   end
 
   test 'destroying a User' do
@@ -46,6 +47,6 @@ class UsersTest < ApplicationSystemTestCase
       click_icon 'Remover'
     end
 
-    assert_text 'Usuário apagado com sucesso'
+    assert_text 'Usuário apagado(a) com sucesso'
   end
 end

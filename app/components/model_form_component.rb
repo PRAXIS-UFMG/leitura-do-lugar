@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ModelFormComponent < ModelComponent
-  def initialize(model, head_attr = nil, *attributes)
+  def initialize(model, head_attr = :name, *attributes)
     @attr_options = attributes.extract_options!
     super model, head_attr, attributes + @attr_options.keys
   end

@@ -6,6 +6,7 @@ module.exports = {
         'app/controllers/*.rb',
         'app/components/*.slim',
         'app/components/*.rb',
+        'app/packs/**/*.css',
         'app/packs/javascript/controllers/**/*.js'
     ],
     darkMode: 'media', // or 'media' or 'class'

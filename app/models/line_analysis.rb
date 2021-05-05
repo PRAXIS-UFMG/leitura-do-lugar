@@ -8,8 +8,4 @@ class LineAnalysis < ApplicationRecord
 
   validates :name, uniqueness: true
   validates :line_type, :name, :objective, :description, presence: true
-
-  def self.permissions(user)
-    super(user) << :create
-  end
 end

@@ -10,10 +10,4 @@ class User < ApplicationRecord
   validates :name, :username, presence: true
   validates :username, uniqueness: true
   validates :password, length: { within: 8..72 }, allow_nil: true
-
-  def permissions(user)
-    p = super user
-    p << :update if user == self
-    p
-  end
 end

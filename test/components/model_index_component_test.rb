@@ -6,8 +6,4 @@ class ModelIndexComponentTest < ViewComponent::TestCase
   test 'renders correct headers' do
     skip_until(2021, 5, 4, '0.1.0')
   end
-
-  test 'respects user permissions' do
-    skip_until(2021, 5, 4, '0.1.0')
-  end
 end

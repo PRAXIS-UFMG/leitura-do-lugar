@@ -24,7 +24,9 @@ class ModelFormComponentTest < ViewComponent::TestCase
     assert_selector 'select'
   end
 
-  test 'correctly renders ActiveText columns' do
-    skip_until(2021, 5, 4, '0.1.0')
+  test 'correctly renders text columns' do
+    render_inline ModelFormComponent.new LineAnalysis.new, :name, :description
+
+    assert_selector 'textarea'
   end
 end

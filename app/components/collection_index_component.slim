@@ -1,8 +1,8 @@
 table.table-fixed.border-collapse.mt-4 class="lg:mt-32"
   thead
     tr.leading-8
-      th.text-xl.font-semibold.pb-4 colspan=@attributes.size = @model.model_name.human
-      th.pb-4 = link_to add_icon, send("new_#{@model_name}_path") if user_permitted_to? :create
+      th.text-xl.font-semibold.pb-4 colspan=@attributes.size = @model.model_name.human(:count => 2)
+      th.pb-4 = link_to add_icon, send("new_#{@model_name}_path")
     tr
       th.font-normal.text-gray-500.pb-4 colspan=@attributes.size = flash[:notice]
     tr.text-lg.text-left.border-b-2.border-black
@@ -14,21 +14,9 @@ table.table-fixed.border-collapse.mt-4 class="lg:mt-32"
       tr.border-b.border-gray-400.leading-10
         - @attributes.each_with_index do |attr, idx|
           td class=cell_classes(attr, idx) = t_attribute(attr, item[attr])
-        - if user_permissions.size < 2
-          td
-            - if user_permitted_to?(:show)
-              = link_to show_icon('mx-auto'), item
-            - if user_permitted_to?(:update)
-              = link_to edit_icon('mx-auto'), send("edit_#{@model_name}_path", item)
-            - if user_permitted_to?(:destroy)
-              = link_to remove_icon('mx-auto'), item, method: :delete, data: { confirm: t("confirm.#{@model_name}.destroy") }
-        - else
-          td.relative data-controller='dropdown' data-dropdown-open-value='false'
-            button.table-toggle data-action="click->dropdown#toggle"= dropdown_icon
-            div.table-menu
-              - if user_permitted_to?(:show)
-                = link_to show_icon, item
-              - if user_permitted_to?(:update)
-                = link_to edit_icon, send("edit_#{@model_name}_path", item)
-              - if user_permitted_to?(:destroy)
-                = link_to remove_icon, item, method: :delete, data: { confirm: t("confirm.#{@model_name}.destroy") }
+        td.relative data-controller='dropdown' data-dropdown-open-value='false'
+          button.table-toggle data-action="click->dropdown#toggle"= dropdown_icon
+          div.table-menu
+            = link_to show_icon, item
+            = link_to edit_icon, send("edit_#{@model_name}_path", item)
+            = link_to remove_icon, item, method: :delete, data: { confirm: t("confirm.#{@model_name}.destroy") }

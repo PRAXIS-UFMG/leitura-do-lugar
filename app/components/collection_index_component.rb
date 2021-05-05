@@ -38,7 +38,7 @@ class CollectionIndexComponent < ModelComponent
   end
 
   def add_icon
-    icon @add_icon, t('actions.create', model: @model_name), 'mx-auto'
+    icon @add_icon, t('actions.create', model: @model.class.lowercase_human_name), 'mx-auto'
   end
 
   def show_icon(klass = nil)

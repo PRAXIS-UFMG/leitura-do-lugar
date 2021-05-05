@@ -9,25 +9,25 @@ class ReportsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should require authentication' do
-    using_session 'unathorized' do
-      get reports_url
-      assert_response :redirect
+    delete logout_url
 
-      get new_report_url
-      assert_response :redirect
+    get reports_url
+    assert_response :redirect
 
-      get edit_report_url @report
-      assert_response :redirect
+    get new_report_url
+    assert_response :redirect
 
-      get report_url @report
-      assert_response :redirect
+    get edit_report_url @report
+    assert_response :redirect
 
-      patch report_url @report
-      assert_response :redirect
+    get report_url @report
+    assert_response :redirect
 
-      delete report_url @report
-      assert_response :redirect
-    end
+    patch report_url @report
+    assert_response :redirect
+
+    delete report_url @report
+    assert_response :redirect
   end
 
   test 'should get index' do

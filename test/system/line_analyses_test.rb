@@ -23,7 +23,7 @@ class LineAnalysesTest < ApplicationSystemTestCase
     fill_in 'Nome', with: 'Another Line'
     fill_in 'Descrição', with: @line.description
     fill_in 'Objetivo', with: @line.objective
-    fill_in 'Tipo', with: @line.type
+    fill_in 'Tipo', with: @line.line_type
     click_icon 'Confirmar'
 
     assert_text 'Linha de análise cadastrada com sucesso'
@@ -35,7 +35,7 @@ class LineAnalysesTest < ApplicationSystemTestCase
     click_icon 'Ações'
     click_icon 'Editar'
 
-    fill_in 'Description', with: 'Another description'
+    fill_in 'Descrição', with: 'Another description'
     click_icon 'Confirmar'
 
     assert_text 'Linha de análise atualizada com sucesso'
@@ -47,7 +47,7 @@ class LineAnalysesTest < ApplicationSystemTestCase
     click_icon 'Ações'
 
     page.accept_confirm do
-      click_icon 'Apagar'
+      click_icon 'Remover'
     end
 
     assert_text 'Linha de análise apagada com sucesso'
