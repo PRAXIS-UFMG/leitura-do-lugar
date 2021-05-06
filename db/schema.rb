@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_30_233210) do
+ActiveRecord::Schema.define(version: 2021_05_06_014403) do
 
   create_table "line_analyses", force: :cascade do |t|
     t.string "name", null: false
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2021_04_30_233210) do
     t.text "description", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "description_md"
     t.index ["name"], name: "index_line_analyses_on_name", unique: true
   end
 
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(version: 2021_04_30_233210) do
     t.boolean "approved", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "full_text_md"
   end
 
   create_table "users", force: :cascade do |t|

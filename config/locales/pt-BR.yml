@@ -81,6 +81,7 @@ pt-BR:
         name: Nome
         objective: Objetivo
         description: Descrição
+        description_md: Descrição
         line_type:
           one: Tipo
           'no': No Lugar
@@ -89,6 +90,7 @@ pt-BR:
         interviewee: Entrevistado
         resides_since: Morador Desde
         full_text: Texto Completo
+        full_text_md: Texto Completo
         address: Endereço
         interview_date: Data da Entrevista
         approved:

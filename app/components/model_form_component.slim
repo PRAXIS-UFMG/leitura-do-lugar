@@ -5,24 +5,29 @@ div.flex.flex-col.justify-center.mt-4 class="lg:mt-16"
       span.font-medium= @model.send(@head_attr)
   = form_for @model, html: { class: 'flex flex-col gap-2 lg:gap-4' } do |f|
     - @attributes.each do |attr|
-      - case attr_type attr
+      - case (type = attr_type attr)
       - when :boolean
         .flex.items-center
           = f.label attr, class: 'leading-relaxed' do |l|
             span.mr-3= l.translation
             = f.check_box attr
       - when :text
-        = f.label attr do |l|
+        = f.label attr, data: { controller: 'markdown-editor' } do |l|
           p= l.translation
-          = f.text_area attr, class: 'w-56 md:w-96 lg:w-[50vw] lg:max-w-prose min-h-[10rem]'
-      - when :enum
-        = f.label attr do |l|
-          p= l.translation
-          = f.select attr, attr_select(attr)
+          = f.hidden_field :"#{attr}_md", data: { 'markdown-editor-target': 'mdField' }
+          = f.text_area attr, data: { 'markdown-editor-target': 'editorField' }
       - else
         = f.label attr do |l|
           p= l.translation
-          = f.text_field attr, class: 'w-full'
+          - case type
+          - when :enum
+            = f.select attr, attr_select(attr), class: 'w-1/2'
+          - when :integer
+            = f.number_field attr, class: 'w-1/2'
+          - when :date
+            = f.date_field attr, class: 'w-1/2'
+          - else
+            = f.text_field attr, class: 'w-full'
     .flex.justify-between.mt-4.mb-2
       = link_to back_icon, send("#{@model_name.pluralize}_path")
       - unless @model.new_record?

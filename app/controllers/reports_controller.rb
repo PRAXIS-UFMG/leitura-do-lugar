@@ -6,26 +6,26 @@ class ReportsController < AdminController
   # GET /reports
   def index
     render CollectionIndexComponent.new Report, Report.all, :'document-add',
-                                        interviewee: { header: 'w-56' },
+                                        interviewee:    { header: 'w-56' },
                                         interview_date: { cell: 'text-center' },
-                                        approved: { cell: 'text-right uppercase text-sm' }
+                                        approved:       { cell: 'text-right uppercase text-sm' }
   end
 
   # GET /reports/1
   def show
     render ModelViewComponent.new @report, :name,
-                                  :resides_since, :interview_date, :address, :full_text, :approved
+                                  :resides_since, :interview_date, :address, :full_text_md, :approved
   end
 
   # GET /reports/new
   def new
     @report = Report.new
-    report_form
+    render_report_form
   end
 
   # GET /reports/1/edit
   def edit
-    report_form
+    render_report_form
   end
 
   # POST /reports
@@ -35,7 +35,7 @@ class ReportsController < AdminController
     if @report.save
       redirect_to @report, notice: 'Report was successfully created.'
     else
-      render :new
+      render_report_form
     end
   end
 
@@ -44,7 +44,7 @@ class ReportsController < AdminController
     if @report.update(report_params)
       redirect_to @report, notice: 'Report was successfully updated.'
     else
-      render :edit
+      render_report_form
     end
   end
 
@@ -56,9 +56,9 @@ class ReportsController < AdminController
 
   private
 
-  def report_form
+  def render_report_form
     render ModelFormComponent.new @report, :name,
-                                  :resides_since, :address, :interview_date, :approved, :full_text
+                                  :interviewee, :resides_since, :interview_date, :approved, :address, :full_text
   end
 
   # Use callbacks to share common setup or constraints between actions.
@@ -68,7 +68,7 @@ class ReportsController < AdminController
 
   # Only allow a list of trusted parameters through.
   def report_params
-    params.require(:report).permit(:interviewee, :resides_since, :full_text, :address, :addr_lat, :addr_lon,
-                                   :interview_date, :approved)
+    params.require(:report).permit(:interviewee, :resides_since, :full_text, :full_text_md,
+                                   :address, :addr_lat, :addr_lon, :interview_date, :approved)
   end
 end

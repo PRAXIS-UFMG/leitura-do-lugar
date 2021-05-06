@@ -16,7 +16,7 @@ table.table-fixed.border-collapse.mt-4 class="lg:mt-32 model_view"
           td.pl-2.text-sm.uppercase.font-medium.text-gray-700= t_attribute attr
         - when :text
           td.pl-2.h-auto.font-sm.border-t.border-b.block
-            article = @model[attr]
+            article == @model[attr]
         - else
           td.pl-2 = t_attribute attr
     tr

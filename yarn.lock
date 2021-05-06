@@ -1335,6 +1335,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/codemirror@npm:0.0.109":
+  version: 0.0.109
+  resolution: "@types/codemirror@npm:0.0.109"
+  dependencies:
+    "@types/tern": "*"
+  checksum: 3726e00826eab6a16cd43ac19c3208f16ef1a5a43d2564fb09fc4501405f140bcf0ab7daa06e07c09af73bbb12b0e80a38962ed932d809b359519bbd4810afd8
+  languageName: node
+  linkType: hard
+
 "@types/eslint-scope@npm:^3.7.0":
   version: 3.7.0
   resolution: "@types/eslint-scope@npm:3.7.0"
@@ -1379,6 +1388,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/marked@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "@types/marked@npm:2.0.2"
+  checksum: 2800769bbab52a8812f9671404bbaccc5eee5ed9e140d0236a4e70ef629f9e789debb2445a27800f316d40834a6ea58375e868317ee7d64d2c4328e8c015a0c2
+  languageName: node
+  linkType: hard
+
 "@types/minimatch@npm:*":
   version: 3.0.4
   resolution: "@types/minimatch@npm:3.0.4"
@@ -1397,6 +1413,15 @@ __metadata:
   version: 4.0.0
   resolution: "@types/parse-json@npm:4.0.0"
   checksum: 4a8f720afac47b474d3f2eece312340e72bc31bc9561cda37b596ce2ed218c0099765d302625bb67d659a8452a1f93d514f4863c11c7ebaf65430428687dc426
+  languageName: node
+  linkType: hard
+
+"@types/tern@npm:*":
+  version: 0.23.3
+  resolution: "@types/tern@npm:0.23.3"
+  dependencies:
+    "@types/estree": "*"
+  checksum: 60b406943883b329a31be6d1df9c9980688c6add3533d8ad8f8d18b5ec7829a3997e012b31e62a74be216b60b2e2678fd543bc8983da1c57fa71c831374a708f
   languageName: node
   linkType: hard
 
@@ -2445,6 +2470,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"codemirror-spell-checker@npm:1.1.2":
+  version: 1.1.2
+  resolution: "codemirror-spell-checker@npm:1.1.2"
+  dependencies:
+    typo-js: "*"
+  checksum: 5d4c95093cb1fc6e01a02fdb508f31692fbf3f7bec4708e2cd306d70c03ef272c15f1da272a4c9ba91a7e11728f31dcb70724865e6cec384903a056daf35aa4b
+  languageName: node
+  linkType: hard
+
+"codemirror@npm:^5.61.0":
+  version: 5.61.0
+  resolution: "codemirror@npm:5.61.0"
+  checksum: 6b1744872b163fae39d8e1e331e4ab355f0a004995c9261795705bb261b9a5a0d6c50f4e0664815ba00d72035ca41effdab3eff3e92497c9fa062ec77508cc69
+  languageName: node
+  linkType: hard
+
 "collection-visit@npm:^1.0.0":
   version: 1.0.0
   resolution: "collection-visit@npm:1.0.0"
@@ -3206,6 +3247,19 @@ __metadata:
   dependencies:
     is-obj: ^2.0.0
   checksum: 76e6693d8803eeff9cb920988446bf223cf1f6e5b1c0c2fe07a66906392134931a481b11e3c0bd852c5cfc97fad65258bcb4359169ad1d8d624cb3f56932be98
+  languageName: node
+  linkType: hard
+
+"easymde@npm:^2.15.0":
+  version: 2.15.0
+  resolution: "easymde@npm:2.15.0"
+  dependencies:
+    "@types/codemirror": 0.0.109
+    "@types/marked": ^2.0.2
+    codemirror: ^5.61.0
+    codemirror-spell-checker: 1.1.2
+    marked: ^2.0.3
+  checksum: 4bd9d628342b57900f006ed057d70dfd56eb990bb44b148d6adbfad1686f48263f6176f83f8b5ed2cb3df21f11a241a459e994532388f8ce0875349edba33d5d
   languageName: node
   linkType: hard
 
@@ -4892,6 +4946,8 @@ fsevents@~2.3.1:
     autoprefixer: ^10.2.5
     css-loader: ^5.2.4
     css-minimizer-webpack-plugin: ^2.0.0
+    easymde: ^2.15.0
+    marked: ^2.0.3
     mini-css-extract-plugin: ^1.5.1
     postcss: ^8.2.13
     postcss-import: ^14.0.1
@@ -5133,6 +5189,15 @@ fsevents@~2.3.1:
   dependencies:
     object-visit: ^1.0.0
   checksum: 9e85e6d802183927229d9ad04d70a0e0c7225451994605674d3ed4e4a21f817b4d9aba42a775e98078ffe47cf67df44a50eb07f965f14afead5015c8692503bd
+  languageName: node
+  linkType: hard
+
+"marked@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "marked@npm:2.0.3"
+  bin:
+    marked: bin/marked
+  checksum: 18940065203f4eacf84538d57478cdab170ca024c01e8cb992871f48fedb8a534bb69a908edd5b2c4d0468fb751ed4da52996cda5a45f063e71e433bbb7f04f7
   languageName: node
   linkType: hard
 
@@ -8203,6 +8268,13 @@ fsevents@~2.3.1:
     media-typer: 0.3.0
     mime-types: ~2.1.24
   checksum: 20a3514f1d835c979237995129d1f8c564325301e3a8f1c732bcbe1d7fa0ca1f65994e41a79e9030d79f31e5459bb9be5c377848fcb477cb3049a661b3713d74
+  languageName: node
+  linkType: hard
+
+"typo-js@npm:*":
+  version: 1.2.0
+  resolution: "typo-js@npm:1.2.0"
+  checksum: debb5bcc3e31119a52820a7626e8a3b156bf79e754a65ee0b622a43199b5408c757cbfac0e7b4aea28a0389bcb659796e1e6b0fca8aed70a2377f16217406e00
   languageName: node
   linkType: hard
 
