@@ -6,9 +6,9 @@ class ReportsController < AdminController
   # GET /reports
   def index
     render CollectionIndexComponent.new Report, Report.all, :'document-add',
-                                        interviewee:    { header: 'w-56' },
+                                        interviewee: { header: 'w-56' },
                                         interview_date: { cell: 'text-center' },
-                                        approved:       { cell: 'text-right uppercase text-sm' }
+                                        approved: { cell: 'text-right uppercase text-sm' }
   end
 
   # GET /reports/1

@@ -2,7 +2,7 @@
 
 class LineAnalysis < ApplicationRecord
   enum line_type: { no: 'no', do: 'do' }
-  
+
   attribute :name
   attribute :objective
   attribute :description

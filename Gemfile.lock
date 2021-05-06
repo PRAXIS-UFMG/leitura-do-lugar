@@ -99,14 +99,19 @@ GEM
     marcel (1.0.1)
     method_source (1.0.0)
     mini_mime (1.0.3)
+    mini_portile2 (2.5.1)
     minitest (5.14.4)
     msgpack (1.4.2)
     nio4r (2.5.7)
+    nokogiri (1.11.3)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
     nokogiri (1.11.3-x86_64-darwin)
       racc (~> 1.4)
     paper_trail (12.0.0)
       activerecord (>= 5.2)
       request_store (~> 1.1)
+    pg (1.2.3)
     public_suffix (4.0.6)
     puma (5.2.2)
       nio4r (~> 2.0)
@@ -182,7 +187,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     temple (0.8.2)
     thor (1.1.0)
     tilt (2.0.10)
@@ -212,6 +216,7 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+  ruby
   x86_64-darwin-20
 
 DEPENDENCIES
@@ -222,6 +227,7 @@ DEPENDENCIES
   i18n-debug
   listen (~> 3.3)
   paper_trail (~> 12.0)
+  pg
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rack-timeout
@@ -232,7 +238,6 @@ DEPENDENCIES
   simplecov
   slim-rails
   spring
-  sqlite3 (~> 1.4)
   tzinfo-data
   view_component (~> 2.31)
   web-console (>= 4.1.0)

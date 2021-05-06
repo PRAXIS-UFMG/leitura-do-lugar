@@ -44,12 +44,12 @@ class ReportsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('Report.count') do
       post reports_url,
            params: { report: {
-             address:        @report.address,
-             approved:       @report.approved,
-             full_text:      @report.full_text,
+             address: @report.address,
+             approved: @report.approved,
+             full_text: @report.full_text,
              interview_date: @report.interview_date,
-             interviewee:    @report.interviewee,
-             resides_since:  @report.resides_since
+             interviewee: @report.interviewee,
+             resides_since: @report.resides_since
            } }
     end
 
@@ -69,12 +69,12 @@ class ReportsControllerTest < ActionDispatch::IntegrationTest
   test 'should update report' do
     patch report_url(@report),
           params: { report: {
-            address:        @report.address,
-            approved:       @report.approved,
-            full_text:      @report.full_text,
+            address: @report.address,
+            approved: @report.approved,
+            full_text: @report.full_text,
             interview_date: @report.interview_date,
-            interviewee:    @report.interviewee,
-            resides_since:  @report.resides_since
+            interviewee: @report.interviewee,
+            resides_since: @report.resides_since
           } }
     assert_redirected_to report_url(@report)
   end

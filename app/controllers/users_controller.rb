@@ -7,8 +7,8 @@ class UsersController < AdminController
   def index
     render CollectionIndexComponent.new User, User.all, :'user-add',
                                         username: { header: 'w-32' },
-                                        name:     { header: 'w-56' },
-                                        admin:    { cell: 'text-sm text-right' }
+                                        name: { header: 'w-56' },
+                                        admin: { cell: 'text-sm text-right' }
   end
 
   # GET /users/1 or /users/1.json

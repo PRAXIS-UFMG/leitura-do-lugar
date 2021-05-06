@@ -7,7 +7,7 @@ class LineAnalysesController < AdminController
   def index
     @line_analyses = LineAnalysis.all
     render CollectionIndexComponent.new LineAnalysis, @line_analyses, :'document-add',
-                                        name:      { header: 'w-56' },
+                                        name: { header: 'w-56' },
                                         line_type: { header: 'w-24', cell: 'text-sm uppercase' }
   end
 

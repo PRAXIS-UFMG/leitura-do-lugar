@@ -3,14 +3,14 @@
 class CreateReports < ActiveRecord::Migration[6.1]
   def change
     create_table :reports do |t|
-      t.string :interviewee, null: false
-      t.integer :resides_since, null: false
-      t.text :full_text, null: false
-      t.string :address, null: false
+      t.string :interviewee
+      t.integer :resides_since
+      t.text :full_text
+      t.string :address
       t.float :addr_lat
       t.float :addr_lon
-      t.date :interview_date, null: false
-      t.boolean :approved, default: false
+      t.date :interview_date
+      t.boolean :approved, null: false, default: false
 
       t.timestamps
     end

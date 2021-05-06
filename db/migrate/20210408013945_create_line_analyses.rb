@@ -3,10 +3,10 @@
 class CreateLineAnalyses < ActiveRecord::Migration[6.1]
   def change
     create_table :line_analyses do |t|
-      t.string :name, null: false
-      t.string :line_type, null: false
-      t.string :objective, null: false
-      t.string :description, null: false
+      t.string :name
+      t.string :line_type
+      t.string :objective
+      t.string :description
 
       t.timestamps
     end

@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2021_05_06_014403) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "line_analyses", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "line_type", null: false
-    t.string "objective", null: false
-    t.text "description", null: false
+    t.string "name"
+    t.string "line_type"
+    t.string "objective"
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "description_md"
@@ -24,14 +27,14 @@ ActiveRecord::Schema.define(version: 2021_05_06_014403) do
   end
 
   create_table "reports", force: :cascade do |t|
-    t.string "interviewee", null: false
-    t.integer "resides_since", null: false
-    t.text "full_text", null: false
-    t.string "address", null: false
+    t.string "interviewee"
+    t.integer "resides_since"
+    t.text "full_text"
+    t.string "address"
     t.float "addr_lat"
     t.float "addr_lon"
-    t.date "interview_date", null: false
-    t.boolean "approved", default: false
+    t.date "interview_date"
+    t.boolean "approved", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "full_text_md"
@@ -39,9 +42,9 @@ ActiveRecord::Schema.define(version: 2021_05_06_014403) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.string "username", null: false
-    t.boolean "admin", default: false
-    t.string "password_digest", null: false
+    t.string "username"
+    t.boolean "admin", default: false, null: false
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["username"], name: "index_users_on_username", unique: true
@@ -53,7 +56,7 @@ ActiveRecord::Schema.define(version: 2021_05_06_014403) do
     t.bigint "item_id", null: false
     t.string "event", null: false
     t.string "whodunnit"
-    t.text "object", limit: 1073741823
+    t.text "object"
     t.datetime "created_at"
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end

@@ -1,16 +1,16 @@
 default: &default
-  adapter: sqlite3
-  encoding: utf8
+  adapter: postgresql
+  encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: leitura_do_lugar_development
 
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: leitura_do_lugar_test
 
 production:
   <<: *default
-  database: <%= ENV['LEITURA_DO_LUGAR_DATABASE_PATH'] %>
+  url: <%= ENV['DATABASE_URL'] %>
