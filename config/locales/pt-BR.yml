@@ -33,8 +33,8 @@ pt-BR:
   sections:
     users: usuários
     line_analyses: linhas de análise
-    reports: Relatos
-#    periods: períodos
+    reports: relatos
+    periods: períodos
 #    interviews: relatos
 #    excerpts: trechos
   actions:
@@ -54,6 +54,7 @@ pt-BR:
     updated: "%{model} editado(a) com sucesso"
     destroyed: "%{model} apagado(a) com sucesso"
   attributes:
+    name: Nome
     updated_at: Atualizado em
     created_at: Criado em
   activerecord:
@@ -67,10 +68,12 @@ pt-BR:
       report:
         one: Relato
         other: Relatos
+      period:
+        one: Período
+        other: Períodos
     attributes:
       user:
         username: Username
-        name: Nome
         admin:
           one: Admin
           'true': SIM
@@ -78,7 +81,6 @@ pt-BR:
         password: Senha
         password_confirmation: Confirme a senha
       line_analysis:
-        name: Nome
         objective: Objetivo
         description: Descrição
         description_md: Descrição
@@ -99,3 +101,8 @@ pt-BR:
           one: Aprovado
           'true': sim
           'false': não
+      period:
+        description: Descrição
+        description_md: Descrição
+        start_date: Início
+        end_date: Fim

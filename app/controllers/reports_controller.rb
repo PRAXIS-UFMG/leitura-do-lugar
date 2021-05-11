@@ -20,12 +20,12 @@ class ReportsController < AdminController
   # GET /reports/new
   def new
     @report = Report.new
-    render_report_form
+    render_form
   end
 
   # GET /reports/1/edit
   def edit
-    render_report_form
+    render_form
   end
 
   # POST /reports
@@ -36,7 +36,7 @@ class ReportsController < AdminController
       check_geocoding
       redirect_to @report, notice: I18n.t('notice.created', model: Report.lowercase_human_name)
     else
-      render_report_form
+      render_form
     end
   end
 
@@ -46,7 +46,7 @@ class ReportsController < AdminController
       check_geocoding
       redirect_to @report, notice: I18n.t('notice.updated', model: Report.lowercase_human_name)
     else
-      render_report_form
+      render_form
     end
   end
 
@@ -62,7 +62,7 @@ class ReportsController < AdminController
     flash[:error] = I18n.t('activerecord.attributes.report.address.invalid') unless @report.geocoded?
   end
 
-  def render_report_form
+  def render_form
     render ModelFormComponent.new @report, :name,
                                   :interviewee, :resides_since, :interview_date, :approved, :address, :full_text
   end
