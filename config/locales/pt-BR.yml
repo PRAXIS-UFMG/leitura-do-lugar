@@ -91,7 +91,9 @@ pt-BR:
         resides_since: Morador Desde
         full_text: Texto Completo
         full_text_md: Texto Completo
-        address: Endereço
+        address:
+          one: Endereço
+          invalid: "endereço inválido!"
         interview_date: Data da Entrevista
         approved:
           one: Aprovado

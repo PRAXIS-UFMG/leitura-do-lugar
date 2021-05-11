@@ -33,7 +33,8 @@ class ReportsController < AdminController
     @report = Report.new(report_params)
 
     if @report.save
-      redirect_to @report, notice: 'Report was successfully created.'
+      check_geocoding
+      redirect_to @report, notice: I18n.t('notice.created', model: Report.lowercase_human_name)
     else
       render_report_form
     end
@@ -42,7 +43,8 @@ class ReportsController < AdminController
   # PATCH/PUT /reports/1
   def update
     if @report.update(report_params)
-      redirect_to @report, notice: 'Report was successfully updated.'
+      check_geocoding
+      redirect_to @report, notice: I18n.t('notice.updated', model: Report.lowercase_human_name)
     else
       render_report_form
     end
@@ -55,6 +57,10 @@ class ReportsController < AdminController
   end
 
   private
+
+  def check_geocoding
+    flash[:error] = I18n.t('activerecord.attributes.report.address.invalid') unless @report.geocoded?
+  end
 
   def render_report_form
     render ModelFormComponent.new @report, :name,

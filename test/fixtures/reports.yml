@@ -4,7 +4,8 @@ one:
   interviewee: MyString
   resides_since: 2019
   full_text: MyText
-  address: MyString
+  full_text_md: MyText
+  address: Rua Paraíba 697 - Belo Horizonte
   interview_date: 2021-04-30
   approved: false
 
@@ -12,7 +13,8 @@ two:
   interviewee: MyString
   resides_since: 1
   full_text: MyText
-  address: MyString
+  full_text_md: MyText
+  address: Avenida Afonso Pena 1537 - Belo Horizonte
   addr_lat: 1.5
   addr_lon: 1.5
   interview_date: 2021-04-30
