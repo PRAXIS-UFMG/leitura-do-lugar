@@ -31,7 +31,7 @@ table.table-fixed.border-collapse.mt-4 class="lg:mt-32 model_view"
     tr
       td colspan=2
         .mt-4.flex.justify-between
-          = link_to back_icon, send("#{@model_name.pluralize}_path")
-          = link_to edit_icon, send("edit_#{@model_name}_path", @model)
-          = link_to delete_icon, send("#{@model_name}_path", @model), method: :delete,
-            data: { confirm: t("confirm.destroy", model: @model.class.lowercase_human_name) }
+          = link_to back_icon, send("#{@model_name.pluralize}_path"), title: t('actions.back')
+          = link_to edit_icon, send("edit_#{@model_name}_path", @model), title: t('actions.edit')
+          = link_to delete_icon, send("#{@model_name}_path", @model), title: t('actions.destroy'),
+            method: :delete, data: { confirm: t("confirm.destroy", model: @model.class.lowercase_human_name) }

@@ -29,10 +29,10 @@ div.flex.flex-col.justify-center.mt-4 class="lg:mt-16"
           - else
             = f.text_field attr, class: 'w-full'
     .flex.justify-between.mt-4.mb-2
-      = link_to back_icon, send("#{@model_name.pluralize}_path")
+      = link_to back_icon, send("#{@model_name.pluralize}_path"), title: t('actions.back')
       - unless @model.new_record?
-        = link_to show_icon, @model
-      = f.button type: 'submit' do
+        = link_to show_icon, @model, title: t('actions.show')
+      = f.button type: 'submit', title: t('actions.confirm') do
         = confirm_icon
     - if @model.errors.any?
       ul.text-red-700.font-medium

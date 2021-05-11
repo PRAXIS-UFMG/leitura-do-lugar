@@ -2,9 +2,7 @@ table.table-fixed.border-collapse.mt-4 class="lg:mt-32"
   thead
     tr.leading-8
       th.text-xl.font-semibold.pb-4 colspan=@attributes.size = @model.model_name.human(:count => 2)
-      th.pb-4 = link_to add_icon, send("new_#{@model_name}_path")
-    tr
-      th.font-normal.text-gray-500.pb-4 colspan=@attributes.size = flash[:notice]
+      th.pb-4 = link_to add_icon, send("new_#{@model_name}_path"), title: t('actions.create', model: @model.class.lowercase_human_name)
     tr.text-lg.text-left.border-b-2.border-black
       - @attributes.each_with_index do |attr, idx|
         th class=header_classes(attr, idx) = t_header(attr)
@@ -17,6 +15,7 @@ table.table-fixed.border-collapse.mt-4 class="lg:mt-32"
         td.relative data-controller='dropdown' data-dropdown-open-value='false'
           button.table-toggle data-action="click->dropdown#toggle"= dropdown_icon
           div.table-menu
-            = link_to show_icon, item
-            = link_to edit_icon, send("edit_#{@model_name}_path", item)
-            = link_to remove_icon, item, method: :delete, data: { confirm: t("confirm.#{@model_name}.destroy") }
+            = link_to show_icon, item, title: t('actions.show')
+            = link_to edit_icon, send("edit_#{@model_name}_path", item), title: t('actions.edit')
+            = link_to remove_icon, item, method: :delete, title: t('actions.remove'),
+              data: { confirm: t("confirm.destroy", model: @model.class.lowercase_human_name) }

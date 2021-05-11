@@ -44,6 +44,7 @@ pt-BR:
     edit: Editar
     remove: Remover
     confirm: Confirmar
+    destroy: Apagar
   headers:
     editing: Editando
     creating: "Criando novo %{model}"

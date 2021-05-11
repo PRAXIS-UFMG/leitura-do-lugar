@@ -11,16 +11,17 @@
       | (
       span.underline= current_user.username
       | )
-    = link_to icon(:user, 'Usuário'), current_user
-    = link_to icon(:logout, 'Logout'), logout_path, method: :delete, data: { confirm: 'Você tem certeza que deseja sair?' }
+    = link_to icon(:user, 'Usuário'), current_user, title: 'Usuário'
+    = link_to icon(:logout, 'Logout'), logout_path, title: 'Logout',
+      method: :delete, data: { confirm: 'Você tem certeza que deseja sair?' }
 
 - content_for :content do
   main.flex.flex-col.items-center.justify-center
-    = yield
     .mt-4
     - if flash[:notice]
       p.text-grey-600= flash[:notice]
     - if flash[:error]
       p.text-red-800 = flash[:error]
+    = yield
 
 = render template: 'layouts/application'
