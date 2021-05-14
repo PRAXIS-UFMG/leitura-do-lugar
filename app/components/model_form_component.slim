@@ -12,7 +12,7 @@ div.flex.flex-col.justify-center.mt-4 class="lg:mt-16"
             span.mr-3= l.translation
             = f.check_box attr
       - when :text
-        = f.label attr, data: { controller: 'markdown-editor' } do |l|
+        = f.label attr, data: { link_controller: 'markdown-editor' } do |l|
           p= l.translation
           = f.hidden_field :"#{attr}_md", data: { 'markdown-editor-target': 'mdField' }
           = f.text_area attr, data: { 'markdown-editor-target': 'editorField' }

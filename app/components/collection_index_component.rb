@@ -34,28 +34,22 @@ class CollectionIndexComponent < ModelComponent
   end
 
   def dropdown_icon
-    icon :'chevron-left', 'Ações', 'data-dropdown-target': 'toggle'
+    icon :'chevron-left', 'Ações'
   end
 
   def add_icon
-    icon @add_icon, t('actions.create', model: @model.class.lowercase_human_name), 'mx-auto'
+    icon @add_icon, t('actions.create', model: @model.class.lowercase_human_name), class: 'mx-auto'
   end
 
-  def show_icon(klass = nil)
-    icon :eye, t('actions.show'), klass
+  def show_icon
+    icon :eye, t('actions.show')
   end
 
-  def edit_icon(klass = nil)
-    icon :pencil, t('actions.edit'), klass
+  def edit_icon
+    icon :pencil, t('actions.edit')
   end
 
-  def remove_icon(klass = nil)
-    icon :x, t('actions.remove'), klass
-  end
-
-  private
-
-  def icon(icon, alt, klass = nil)
-    helpers.icon icon, alt, class: klass
+  def remove_icon
+    icon :x, t('actions.remove')
   end
 end

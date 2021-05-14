@@ -9,6 +9,7 @@ class ModelComponent < ViewComponent::Base
     @attributes = attributes.presence || (model.attribute_names - %w[id created_at updated_at]).map!(&:to_sym)
   end
 
+  delegate :icon, to: :helpers
   delegate :back_icon, to: :helpers
   delegate :current_user, to: :helpers
 

@@ -1,0 +1,32 @@
+@layer base {
+    /* Form default styles */
+    [type='text'],
+    [type='email'],
+    [type='url'],
+    [type='password'],
+    [type='number'],
+    [type='date'],
+    [type='datetime-local'],
+    [type='month'],
+    [type='search'],
+    [type='tel'],
+    [type='time'],
+    [type='week'],
+    [type='checkbox'],
+    [multiple],
+    textarea,
+    select {
+        &:focus {
+            --tw-ring-color: theme('colors.praxis.500');
+            border-color: theme('colors.praxis.500');
+        }
+    }
+
+    [type='checkbox'] {
+        transition-property: background-color, border-color, color, fill, stroke;
+        transition-timing-function: ease-in-out;
+        transition-duration: 50ms;
+        color: theme('colors.praxis.600');
+        background-color: theme('colors.gray.100');
+    }
+}

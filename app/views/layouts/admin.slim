@@ -4,7 +4,7 @@
   div.flex-grow.flex.justify-center
     ul.text-sm.uppercase.text-gray-800.list-vertical-separator.inline
       - t('sections').each do |key, value|
-        = render NavLinkComponent.new(value, send("#{key}_path"))
+        = render NavLinkComponent.new(value, key)
   div.flex.gap-x-3.items-center
     h2.text-lg
       => current_user.name
