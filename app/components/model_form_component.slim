@@ -1,9 +1,9 @@
-div.flex.flex-col.justify-center.mt-4 class="lg:mt-16"
+div.flex.flex-col.justify-center
   h2.text-center.leading-8.text-xl.mb-6
     => @model.new_record? ? t('headers.creating', model: @model.model_name.human) : t('headers.editing')
     - unless @model.new_record?
       span.font-medium= @model.send(@head_attr)
-  = form_for @model, html: { class: 'flex flex-col gap-2 lg:gap-4' } do |f|
+  = form_for @model, html: { class: 'flex flex-col gap-4 model-form' } do |f|
     - @attributes.each do |attr|
       - case (type = attr_type attr)
       - when :boolean
@@ -12,7 +12,7 @@ div.flex.flex-col.justify-center.mt-4 class="lg:mt-16"
             span.mr-3= l.translation
             = f.check_box attr
       - when :text
-        = f.label attr, data: { link_controller: 'markdown-editor' } do |l|
+        = f.label attr, data: { controller: 'markdown-editor' } do |l|
           p= l.translation
           = f.hidden_field :"#{attr}_md", data: { 'markdown-editor-target': 'mdField' }
           = f.text_area attr, data: { 'markdown-editor-target': 'editorField' }

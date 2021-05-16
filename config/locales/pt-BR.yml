@@ -30,13 +30,9 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 pt-BR:
-  sections:
-    users: usuários
-    line_analyses: linhas de análise
-    reports: relatos
-    periods: períodos
-#    interviews: relatos
-#    excerpts: trechos
+  content:
+    about_project: Descrição do Projeto
+    team_and_aid: Equipe & Apoio
   actions:
     back: Voltar
     show: Visualizar
@@ -72,6 +68,9 @@ pt-BR:
       period:
         one: Período
         other: Períodos
+      content:
+        one: Conteúdo
+        other: Conteúdos
     attributes:
       user:
         username: Username
@@ -107,3 +106,10 @@ pt-BR:
         description_md: Descrição
         start_date: Início
         end_date: Fim
+      content:
+        name:
+          one: Nome
+          about_project: Descrição do Projeto
+          team_and_aid: Equipe & Apoio
+        text: Texto
+        text_md: Texto

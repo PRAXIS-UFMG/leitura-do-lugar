@@ -1,0 +1,2 @@
+module PublicContentHelper
+end

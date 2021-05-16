@@ -8,7 +8,7 @@ html
     = csp_meta_tag
     = stylesheet_pack_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
-  body.flex.flex-col.h-screen.w-screen
+  body.flex.flex-col
     nav.flex.mt-2.mb-4.px-4.items-baseline.justify-between
       header
         h1.text-2xl
@@ -17,5 +17,7 @@ html
       - if content_for?(:topbar)
         = yield(:topbar)
       - else
-        = link_to 'sobre a plataforma', '/', class: 'font-medium text-lg transition hover:text-praxis-700 active:bg-praxis-50'
+        ul.list-none.flex.justify-end.gap-4.font-semibold.lowercase
+          - Content::NAMES.each_key do |content|
+            li== render NavlinkComponent.new label: t("content.#{content}"), path: send("#{content}_content_path")
     = content_for?(:content) ? yield(:content) : yield

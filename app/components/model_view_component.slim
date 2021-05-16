@@ -1,37 +1,39 @@
-table.table-fixed.border-collapse.mt-4 class="lg:mt-32 model_view"
-  tbody
+table.model-table
+  thead
     tr
-      td.text-md.font-medium.tracking-wide.text-center.uppercase.pb-4 colspan=2 = @model.class.lowercase_human_name
+      th colspan=2 = @model.class.lowercase_human_name
     tr.border-b-2.border-black
       - if @model.attribute_present? @head_attr
-        td.w-36= @model.class.human_attribute_name @head_attr
-        td.w-36.pl-2 = @model.public_send @head_attr
+        td= @model.class.human_attribute_name @head_attr
+        td = @model.public_send @head_attr
       - else
         td.text-center.text-xl colspan="2" = @model.public_send @head_attr
+  tbody
     - @attributes.each do |attr|
       tr
-        td.border-r.border-gray-400.align-top= t_header attr
+        td.align-top= t_header attr
         - case @model.type_for_attribute(attr).type
         - when :boolean
-          td.pl-2.text-sm.uppercase.font-medium.text-gray-700= t_attribute attr
+          td.text-sm.uppercase.font-medium.text-gray-700= t_attribute attr
         - when :text
-          td.pl-2.h-auto.font-sm.border-t.border-b.block
+          td class=("font-sm border-t border-b" unless @attributes.size == 1)
             article == @model[attr]
         - else
-          td.pl-2 = t_attribute attr
-    tr
-      td.pt-4.border-r.border-gray-400
-    tr.text-sm.leading-none
-      td.border-r.border-gray-400= t_header :updated_at
-      td.pl-2= l @model.updated_at, format: :short
-    tr.text-sm.leading-none
-      td.border-r.border-gray-400= t_header :created_at
-      td.pl-2= l @model.created_at, format: :short
+          td = t_attribute attr
+    tr.separator
+      td
+      td
   tfoot
+    tr.timestamp
+      td= t_header :updated_at
+      td= l @model.updated_at, format: :short
+    tr.timestamp
+      td= t_header :created_at
+      td= l @model.created_at, format: :short
     tr
       td colspan=2
-        .mt-4.flex.justify-between
+        .mt-4.flex.justify-center.gap-16
           = link_to back_icon, send("#{@model_name.pluralize}_path"), title: t('actions.back')
           = link_to edit_icon, send("edit_#{@model_name}_path", @model), title: t('actions.edit')
           = link_to delete_icon, send("#{@model_name}_path", @model), title: t('actions.destroy'),
-            method: :delete, data: { confirm: t("confirm.destroy", model: @model.class.lowercase_human_name) }
+                  method: :delete, data: { confirm: t("confirm.destroy", model: @model.class.lowercase_human_name) }

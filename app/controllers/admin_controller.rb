@@ -20,8 +20,8 @@ class AdminController < ApplicationController
   def current_user
     @current_user ||= User.find(session['user_id'])
   rescue ActiveRecord::RecordNotFound => e
-    reset_session
-    raise e
+    session.delete 'user_id'
+    raise AuthenticationError
   end
 
   def redirect_to_root

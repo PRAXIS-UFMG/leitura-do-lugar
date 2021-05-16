@@ -37,6 +37,9 @@ module LeituraDoLugar
     config.view_component.preview_controller = 'ComponentPreview'
     config.view_component.default_preview_layout = 'admin'
 
+    # https://github.com/tailwindlabs/tailwindcss-jit/issues/195
+    Webpacker::Compiler.env["TAILWIND_MODE"] = "build"
+
     # Simple reset to stop Rails from adding the #field_with_errors div
     ActionView::Base.field_error_proc = proc do |html_tag, _instance|
       html_tag.html_safe
