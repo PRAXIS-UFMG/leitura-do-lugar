@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class AdminController
   def test_route
@@ -11,7 +11,7 @@ end
 class AdminControllerTest < ActionDispatch::IntegrationTest
   setup do
     Rails.application.routes.draw do
-      get 'test' => 'admin#test_route'
+      get "test" => "admin#test_route"
     end
   end
 
@@ -19,8 +19,8 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
     Rails.application.reload_routes!
   end
 
-  test 'requires authentication' do
-    get '/test'
+  test "requires authentication" do
+    get "/test"
 
     assert_response :redirect
   end

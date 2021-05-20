@@ -7,10 +7,10 @@ class ModelViewComponent < ModelComponent
   end
 
   def edit_icon
-    helpers.icon :pencil, t('actions.edit')
+    helpers.icon :pencil, t("actions.edit")
   end
 
   def delete_icon
-    helpers.icon :x, t('actions.remove')
+    helpers.icon :x, t("actions.remove")
   end
 end

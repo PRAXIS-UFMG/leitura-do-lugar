@@ -16,8 +16,8 @@ class ContentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create content" do
-    assert_difference('Content.count') do
-      post contents_url, params: { content: { name: @content.name, text: @content.text, text_md: @content.text_md } }
+    assert_difference("Content.count") do
+      post contents_url, params: {content: {name: @content.name, text: @content.text, text_md: @content.text_md}}
     end
 
     assert_redirected_to content_url(Content.last)
@@ -34,12 +34,12 @@ class ContentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update content" do
-    patch content_url(@content), params: { content: { name: @content.name, text: @content.text, text_md: @content.text_md } }
+    patch content_url(@content), params: {content: {name: @content.name, text: @content.text, text_md: @content.text_md}}
     assert_redirected_to content_url(@content)
   end
 
   test "should destroy content" do
-    assert_difference('Content.count', -1) do
+    assert_difference("Content.count", -1) do
       delete content_url(@content)
     end
 

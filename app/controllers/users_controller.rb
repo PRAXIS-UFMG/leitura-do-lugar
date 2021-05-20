@@ -6,9 +6,9 @@ class UsersController < AdminController
   # GET /users or /users.json
   def index
     render CollectionIndexComponent.new User, User.all, :'user-add',
-                                        username: { header: 'w-32' },
-                                        name: { header: 'w-56' },
-                                        admin: { cell: 'text-sm text-right' }
+      username: {header: "w-32"},
+      name: {header: "w-56"},
+      admin: {cell: "text-sm text-right"}
   end
 
   # GET /users/1 or /users/1.json
@@ -32,7 +32,7 @@ class UsersController < AdminController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to @user, notice: t('notice.created', model: User.human_title_name)
+      redirect_to @user, notice: t("notice.created", model: User.human_title_name)
     else
       render render_form, status: :unprocessable_entity
     end
@@ -41,7 +41,7 @@ class UsersController < AdminController
   # PATCH/PUT /users/1 or /users/1.json
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: t('notice.updated', model: User.human_title_name)
+      redirect_to @user, notice: t("notice.updated", model: User.human_title_name)
     else
       render render_form, status: :unprocessable_entity
     end
@@ -54,7 +54,7 @@ class UsersController < AdminController
   # DELETE /users/1 or /users/1.json
   def destroy
     @user.destroy
-    redirect_to users_url, notice: t('notice.destroyed', model: User.human_title_name)
+    redirect_to users_url, notice: t("notice.destroyed", model: User.human_title_name)
   end
 
   private

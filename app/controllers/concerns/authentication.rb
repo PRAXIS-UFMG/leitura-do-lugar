@@ -10,8 +10,8 @@ module Authentication
   private
 
   def authenticate!
-    return if session['user_id']
+    return if session["user_id"]
 
-    redirect_to '/'
+    redirect_to "/"
   end
 end

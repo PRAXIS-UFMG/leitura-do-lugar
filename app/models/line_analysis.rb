@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class LineAnalysis < ApplicationRecord
-  enum line_type: { no: 'no', do: 'do' }
+  enum line_type: {no: "no", do: "do"}
 
   attribute :name
   attribute :objective
@@ -10,5 +10,5 @@ class LineAnalysis < ApplicationRecord
 
   validates :name, uniqueness: true
   validates :line_type, :name, :objective, :description, :description_md,
-            presence: true
+    presence: true
 end

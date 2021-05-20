@@ -2305,13 +2305,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"camelcase@npm:^6.2.0":
-  version: 6.2.0
-  resolution: "camelcase@npm:6.2.0"
-  checksum: 654700600a80cb1f06ab85b3e2fe80333f94b441884d40826becdac549774f51b0317c6dcb6040416df26241fa9481eb58d0c1659d4d6d5627dcd4259be61beb
-  languageName: node
-  linkType: hard
-
 "caniuse-api@npm:^3.0.0":
   version: 3.0.0
   resolution: "caniuse-api@npm:3.0.0"
@@ -2795,14 +2788,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-loader@npm:^5.2.4":
-  version: 5.2.4
-  resolution: "css-loader@npm:5.2.4"
+"css-loader@npm:^5.2.5":
+  version: 5.2.5
+  resolution: "css-loader@npm:5.2.5"
   dependencies:
-    camelcase: ^6.2.0
     icss-utils: ^5.1.0
     loader-utils: ^2.0.0
-    postcss: ^8.2.10
+    postcss: ^8.2.15
     postcss-modules-extract-imports: ^3.0.0
     postcss-modules-local-by-default: ^4.0.0
     postcss-modules-scope: ^3.0.0
@@ -2812,7 +2804,7 @@ __metadata:
     semver: ^7.3.5
   peerDependencies:
     webpack: ^4.27.0 || ^5.0.0
-  checksum: 369839955849fdcae913b59797aa1cb419b4795d20ca52dd48531d66348701d48cdb6f1017b6feff037f1c05af93b80360e8e1fd115dab54eb896c5fd28fadfd
+  checksum: 2834d9e71e340fcc60bbcc2244bd086c8d9bf9acab961098aa914865895a229259c2ef7f7238b3a00b4382eb823c27c3b6c43cd1ba055fadf3ad18dde8844da6
   languageName: node
   linkType: hard
 
@@ -4928,19 +4920,19 @@ fsevents@~2.3.1:
     "@tailwindcss/forms": ^0.3.2
     "@tailwindcss/typography": ^0.4.0
     autoprefixer: ^10.2.5
-    css-loader: ^5.2.4
+    css-loader: ^5.2.5
     css-minimizer-webpack-plugin: ^3.0.0
     easymde: ^2.15.0
-    marked: ^2.0.3
+    marked: ^2.0.4
     mini-css-extract-plugin: ^1.6.0
     postcss: ^8.2.15
     postcss-import: ^14.0.2
-    postcss-loader: ^5.2.0
+    postcss-loader: ^5.3.0
     postcss-preset-env: ^6.7.0
     share-this: ^1.3.1
     stimulus: ^2.0.0
     tailwindcss: ^2.1.2
-    webpack: 5.37.0
+    webpack: 5.37.1
     webpack-cli: ^4.7.0
     webpack-dev-server: ^3.11.2
   languageName: unknown
@@ -5183,6 +5175,15 @@ fsevents@~2.3.1:
   bin:
     marked: bin/marked
   checksum: 18940065203f4eacf84538d57478cdab170ca024c01e8cb992871f48fedb8a534bb69a908edd5b2c4d0468fb751ed4da52996cda5a45f063e71e433bbb7f04f7
+  languageName: node
+  linkType: hard
+
+"marked@npm:^2.0.4":
+  version: 2.0.4
+  resolution: "marked@npm:2.0.4"
+  bin:
+    marked: bin/marked
+  checksum: 8e12992ae1f04ef2e4f2c8b582e7629e7c8a504fe6484b341bbea1128c71bbc4c116702b3c0ee2961088017a8620cfb3828262d2cc09e177c75a448f91fa3c72
   languageName: node
   linkType: hard
 
@@ -6409,9 +6410,9 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"postcss-loader@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "postcss-loader@npm:5.2.0"
+"postcss-loader@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "postcss-loader@npm:5.3.0"
   dependencies:
     cosmiconfig: ^7.0.0
     klona: ^2.0.4
@@ -6419,7 +6420,7 @@ fsevents@~2.3.1:
   peerDependencies:
     postcss: ^7.0.0 || ^8.0.1
     webpack: ^5.0.0
-  checksum: 669232a256aa44a08f37122f7645a4979f8ec9f87c387596e4970c39da96d1ae12cec077e915314d09262dcd584fc12592920298b21b1b6cbb562adadc3ce516
+  checksum: fd7a1a673b0e8f238392b3d449f2727767522febb2f60bfc9bb5cd4e373b07ba8df621f4e2fad92bf085765dcdea0f049497ae799ce1c9f1a592820275cc7e65
   languageName: node
   linkType: hard
 
@@ -6941,7 +6942,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.1.6, postcss@npm:^8.2.1, postcss@npm:^8.2.10, postcss@npm:^8.2.15, postcss@npm:^8.2.9":
+"postcss@npm:^8.1.6, postcss@npm:^8.2.1, postcss@npm:^8.2.15, postcss@npm:^8.2.9":
   version: 8.2.15
   resolution: "postcss@npm:8.2.15"
   dependencies:
@@ -8636,7 +8637,43 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"webpack@npm:5.37.0, webpack@npm:^5.11.0":
+"webpack@npm:5.37.1":
+  version: 5.37.1
+  resolution: "webpack@npm:5.37.1"
+  dependencies:
+    "@types/eslint-scope": ^3.7.0
+    "@types/estree": ^0.0.47
+    "@webassemblyjs/ast": 1.11.0
+    "@webassemblyjs/wasm-edit": 1.11.0
+    "@webassemblyjs/wasm-parser": 1.11.0
+    acorn: ^8.2.1
+    browserslist: ^4.14.5
+    chrome-trace-event: ^1.0.2
+    enhanced-resolve: ^5.8.0
+    es-module-lexer: ^0.4.0
+    eslint-scope: ^5.1.1
+    events: ^3.2.0
+    glob-to-regexp: ^0.4.1
+    graceful-fs: ^4.2.4
+    json-parse-better-errors: ^1.0.2
+    loader-runner: ^4.2.0
+    mime-types: ^2.1.27
+    neo-async: ^2.6.2
+    schema-utils: ^3.0.0
+    tapable: ^2.1.1
+    terser-webpack-plugin: ^5.1.1
+    watchpack: ^2.0.0
+    webpack-sources: ^2.1.1
+  peerDependenciesMeta:
+    webpack-cli:
+      optional: true
+  bin:
+    webpack: bin/webpack.js
+  checksum: 5fe030ea3f3852d2a2d20157ec51c6fd1ee98039ff0cf3b5176bde9c5ffcf3183fafdf132b89ad9490c9abe996aff33db6448a24d9f683edd2a8e0f80bcdd95b
+  languageName: node
+  linkType: hard
+
+"webpack@npm:^5.11.0":
   version: 5.37.0
   resolution: "webpack@npm:5.37.0"
   dependencies:

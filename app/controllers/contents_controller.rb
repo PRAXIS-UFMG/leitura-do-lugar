@@ -4,7 +4,7 @@ class ContentsController < AdminController
   # GET /admin/contents
   def index
     render CollectionIndexComponent.new Content, Content.all, :'document-add',
-                                        name:        { header: 'w-96' }
+      name: {header: "w-96"}
   end
 
   # GET /admin/contents/1
@@ -28,7 +28,7 @@ class ContentsController < AdminController
     @content = Content.new(content_params)
 
     if @content.save
-      redirect_to @content, notice: t('notice.created', model: Content.lowercase_human_name)
+      redirect_to @content, notice: t("notice.created", model: Content.lowercase_human_name)
     else
       render :new
     end
@@ -37,7 +37,7 @@ class ContentsController < AdminController
   # PATCH/PUT /admin/contents/1
   def update
     if @content.update(content_params)
-      redirect_to @content, notice: t('notice.updated', model: Content.lowercase_human_name)
+      redirect_to @content, notice: t("notice.updated", model: Content.lowercase_human_name)
     else
       render :edit
     end
@@ -46,14 +46,14 @@ class ContentsController < AdminController
   # DELETE /admin/contents/1
   def destroy
     @content.destroy
-    redirect_to contents_url, notice: t('notice.destroyed', model: Content.lowercase_human_name)
+    redirect_to contents_url, notice: t("notice.destroyed", model: Content.lowercase_human_name)
   end
 
   private
 
   def render_form
     render ModelFormComponent.new @content, :name,
-                                  name: { as: :enum }, text: {}
+      name: {as: :enum}, text: {}
   end
 
   # Use callbacks to share common setup or constraints between actions.

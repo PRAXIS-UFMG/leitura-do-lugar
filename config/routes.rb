@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get content, to: "public_content##{content}", as: "#{content}_content"
   end
 
-  scope :admin  do
+  scope :admin do
     get "login", to: "session#login", as: :login
     post "login", to: "session#create", as: :create_session
     delete "session", to: "session#logout", as: :logout

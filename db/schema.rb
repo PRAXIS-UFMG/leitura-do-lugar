@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2021_05_15_223043) do
     t.bigint "item_id", null: false
     t.string "event", null: false
     t.string "whodunnit"
-    t.text "object", limit: 1073741823
+    t.text "object"
     t.datetime "created_at"
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end

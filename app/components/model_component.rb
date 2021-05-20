@@ -3,9 +3,9 @@
 class ModelComponent < ViewComponent::Base
   def initialize(model, head_attr = :name, attributes = [])
     super
-    @model      = model
+    @model = model
     @model_name = model.class.name.underscore
-    @head_attr  = head_attr
+    @head_attr = head_attr
     @attributes = attributes.presence || (model.attribute_names - %w[id created_at updated_at]).map!(&:to_sym)
   end
 

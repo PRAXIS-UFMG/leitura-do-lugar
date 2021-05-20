@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users :common
   end
 
-  test 'should require authentication' do
+  test "should require authentication" do
     get users_url
     assert_response :redirect
 
@@ -24,51 +24,51 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
   end
 
-  test 'should get new after login(@user.username)' do
+  test "should get new after login(@user.username)" do
     login(@user.username)
     get new_user_url
     assert_response :success
   end
 
-  test 'should create user' do
+  test "should create user" do
     login(@user.username)
-    assert_difference('User.count') do
-      post users_url, params: { user: {
-        name: 'A Name',
-        username: 'username',
-        password: 'password'
-      } }
+    assert_difference("User.count") do
+      post users_url, params: {user: {
+        name: "A Name",
+        username: "username",
+        password: "password"
+      }}
     end
 
     assert_redirected_to user_url(User.last)
   end
 
-  test 'should show user' do
+  test "should show user" do
     login(@user.username)
     get user_url(@user)
     assert_response :success
   end
 
-  test 'should get edit' do
+  test "should get edit" do
     login(@user.username)
     get edit_user_url(@user)
     assert_response :success
   end
 
-  test 'should update user' do
+  test "should update user" do
     login(@user.username)
-    patch user_url(@user), params: { user: @user.then do |u|
-      u.name = 'Another'
+    patch user_url(@user), params: {user: @user.then do |u|
+      u.name = "Another"
       u.attributes
-    end }
+    end}
     assert_redirected_to user_url(@user)
   end
 
-  test 'should destroy user' do
+  test "should destroy user" do
     login(@user.username)
     an_user = users(:common)
 
-    assert_difference('User.count', -1) do
+    assert_difference("User.count", -1) do
       delete user_url(an_user)
     end
 

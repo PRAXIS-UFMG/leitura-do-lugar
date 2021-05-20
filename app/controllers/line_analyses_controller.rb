@@ -7,8 +7,8 @@ class LineAnalysesController < AdminController
   def index
     @line_analyses = LineAnalysis.all
     render CollectionIndexComponent.new LineAnalysis, @line_analyses, :'document-add',
-                                        name: { header: 'w-56' },
-                                        line_type: { header: 'w-24', cell: 'text-sm uppercase' }
+      name: {header: "w-56"},
+      line_type: {header: "w-24", cell: "text-sm uppercase"}
   end
 
   # GET /line_analyses/1
@@ -32,7 +32,7 @@ class LineAnalysesController < AdminController
     @line_analysis = LineAnalysis.new(line_analysis_params)
 
     if @line_analysis.save
-      redirect_to @line_analysis, notice: t('notice.created', model: LineAnalysis.lowercase_human_name)
+      redirect_to @line_analysis, notice: t("notice.created", model: LineAnalysis.lowercase_human_name)
     else
       render render_form, status: :unprocessable_entity
     end
@@ -41,7 +41,7 @@ class LineAnalysesController < AdminController
   # PATCH/PUT /line_analyses/1
   def update
     if @line_analysis.update(line_analysis_params)
-      redirect_to @line_analysis, notice: t('notice.updated', model: LineAnalysis.lowercase_human_name)
+      redirect_to @line_analysis, notice: t("notice.updated", model: LineAnalysis.lowercase_human_name)
     else
       render render_form, status: :unprocessable_entity
     end
@@ -50,14 +50,14 @@ class LineAnalysesController < AdminController
   # DELETE /line_analyses/1
   def destroy
     @line_analysis.destroy
-    redirect_to line_analyses_url, notice: t('notice.destroyed', model: LineAnalysis.lowercase_human_name)
+    redirect_to line_analyses_url, notice: t("notice.destroyed", model: LineAnalysis.lowercase_human_name)
   end
 
   private
 
   def render_form
     ModelFormComponent.new @line_analysis, :name,
-                           :name, line_type: { as: :enum }, objective: {}, description: {}
+      :name, line_type: {as: :enum}, objective: {}, description: {}
   end
 
   # Use callbacks to share common setup or constraints between actions.

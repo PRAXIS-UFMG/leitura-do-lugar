@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'test_helper'
+require "test_helper"
 
 class ReportTest < ActiveSupport::TestCase
-  test 'geocoding' do
+  test "geocoding" do
     report = reports :one
     report.geocode
 

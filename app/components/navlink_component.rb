@@ -11,5 +11,4 @@ class NavlinkComponent < ViewComponent::Base
       tag.span @label, class: "font-semibold cursor-default"
     end
   end
-
 end

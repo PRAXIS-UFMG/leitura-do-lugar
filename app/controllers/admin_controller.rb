@@ -9,7 +9,7 @@ end
 class AdminController < ApplicationController
   include Authentication
 
-  layout 'admin'
+  layout "admin"
   before_action :set_paper_trail_whodunnit
   helper_method :current_user
   rescue_from AuthenticationError, with: :redirect_to_root
@@ -18,9 +18,9 @@ class AdminController < ApplicationController
 
   # @return [User]
   def current_user
-    @current_user ||= User.find(session['user_id'])
+    @current_user ||= User.find(session["user_id"])
   rescue ActiveRecord::RecordNotFound => e
-    session.delete 'user_id'
+    session.delete "user_id"
     raise AuthenticationError
   end
 

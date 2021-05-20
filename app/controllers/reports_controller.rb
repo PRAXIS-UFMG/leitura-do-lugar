@@ -6,15 +6,15 @@ class ReportsController < AdminController
   # GET /reports
   def index
     render CollectionIndexComponent.new Report, Report.all, :'document-add',
-                                        interviewee: { header: 'w-56' },
-                                        interview_date: { cell: 'text-center' },
-                                        approved: { cell: 'text-right uppercase text-sm' }
+      interviewee: {header: "w-56"},
+      interview_date: {cell: "text-center"},
+      approved: {cell: "text-right uppercase text-sm"}
   end
 
   # GET /reports/1
   def show
     render ModelViewComponent.new @report, :name,
-                                  :resides_since, :interview_date, :address, :full_text_md, :approved
+      :resides_since, :interview_date, :address, :full_text_md, :approved
   end
 
   # GET /reports/new
@@ -34,7 +34,7 @@ class ReportsController < AdminController
 
     if @report.save
       check_geocoding
-      redirect_to @report, notice: I18n.t('notice.created', model: Report.lowercase_human_name)
+      redirect_to @report, notice: I18n.t("notice.created", model: Report.lowercase_human_name)
     else
       render_form
     end
@@ -44,7 +44,7 @@ class ReportsController < AdminController
   def update
     if @report.update(report_params)
       check_geocoding
-      redirect_to @report, notice: I18n.t('notice.updated', model: Report.lowercase_human_name)
+      redirect_to @report, notice: I18n.t("notice.updated", model: Report.lowercase_human_name)
     else
       render_form
     end
@@ -53,18 +53,18 @@ class ReportsController < AdminController
   # DELETE /reports/1
   def destroy
     @report.destroy
-    redirect_to reports_url, notice: 'Report was successfully destroyed.'
+    redirect_to reports_url, notice: "Report was successfully destroyed."
   end
 
   private
 
   def check_geocoding
-    flash[:error] = I18n.t('activerecord.attributes.report.address.invalid') unless @report.geocoded?
+    flash[:error] = I18n.t("activerecord.attributes.report.address.invalid") unless @report.geocoded?
   end
 
   def render_form
     render ModelFormComponent.new @report, :name,
-                                  :interviewee, :resides_since, :interview_date, :approved, :address, :full_text
+      :interviewee, :resides_since, :interview_date, :approved, :address, :full_text
   end
 
   # Use callbacks to share common setup or constraints between actions.
@@ -75,6 +75,6 @@ class ReportsController < AdminController
   # Only allow a list of trusted parameters through.
   def report_params
     params.require(:report).permit(:interviewee, :resides_since, :full_text, :full_text_md,
-                                   :address, :addr_lat, :addr_lon, :interview_date, :approved)
+      :address, :addr_lat, :addr_lon, :interview_date, :approved)
   end
 end
