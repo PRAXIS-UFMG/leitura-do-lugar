@@ -54,6 +54,8 @@ pt-BR:
     name: Nome
     updated_at: Atualizado em
     created_at: Criado em
+    description: Descrição
+    description_md: Descrição
   activerecord:
     models:
       user:
@@ -71,6 +73,9 @@ pt-BR:
       content:
         one: Conteúdo
         other: Conteúdos
+      media:
+        one: Mídia
+        other: Mídias
     attributes:
       user:
         username: Username
@@ -102,8 +107,6 @@ pt-BR:
           'true': sim
           'false': não
       period:
-        description: Descrição
-        description_md: Descrição
         start_date: Início
         end_date: Fim
       content:
@@ -113,3 +116,5 @@ pt-BR:
           team_and_aid: Equipe & Apoio
         text: Texto
         text_md: Texto
+      media:
+        file: Arquivo

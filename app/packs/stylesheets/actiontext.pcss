@@ -1,0 +1,76 @@
+@import "trix/dist/trix.css";
+
+.trix-content {
+    &.attachment-gallery {
+        & > action-text-attachment,
+        & > .attachment {
+            flex: 1 0 33%;
+            padding: 0 0.5em;
+            max-width: 33%;
+        }
+
+        &.attachment-gallery--2,
+        &.attachment-gallery--4 {
+            & > action-text-attachment,
+            & > .attachment {
+                flex-basis: 50%;
+                max-width: 50%;
+            }
+        }
+    }
+
+    & action-text-attachment {
+        & .attachment {
+            padding: 0 !important;
+            max-width: 100% !important;
+        }
+    }
+}
+
+trix-editor {
+    @apply border-gray-500 focus:outline-none focus:ring-1 focus:ring-praxis-500 focus:border-praxis-500;
+}
+
+trix-toolbar {
+    @apply border border-b-0 border-gray-500 pt-1 px-0.5;
+}
+
+trix-editor, trix-toolbar .trix-button-group {
+    @apply rounded-none;
+}
+
+trix-toolbar .trix-button-group {
+    @apply mb-1 flex-grow;
+}
+
+trix-toolbar .trix-button-group:not(:first-child) {
+    @apply ml-0;
+}
+
+trix-toolbar .trix-button-row {
+    @apply flex-wrap justify-start;
+}
+
+trix-toolbar .trix-button-group-spacer {
+    @apply hidden;
+}
+
+.trix-button--icon-decrease-nesting-level, .trix-button--icon-increase-nesting-level {
+    @apply hidden !important;
+}
+
+trix-toolbar .trix-button, trix-toolbar .trix-button-group, trix-toolbar .trix-button:not(:first-child) {
+    @apply border-0;
+}
+
+trix-toolbar .trix-button-group {
+    @apply border-gray-500;
+}
+
+.trix-button {
+    @apply hover:bg-gray-100 fill-current text-red-700;
+}
+
+trix-toolbar .trix-button-group:not(:first-child) {
+    @apply border-l;
+}

@@ -12,12 +12,18 @@ table.model-table
     - @attributes.each do |attr|
       tr
         td.align-top= t_header attr
-        - case @model.type_for_attribute(attr).type
+        - case attr_type(attr)
         - when :boolean
           td.text-sm.uppercase.font-medium.text-gray-700= t_attribute attr
         - when :text
           td class=("font-sm border-t border-b" unless @attributes.size == 1)
             article == @model[attr]
+        - when :file
+          td
+            - if @model.public_send(attr).representable?
+              = image_tag @model.public_send(attr).representation(resize_to_limit: [256, 512])
+            - else
+              = link_to download_icon, rails_blob_path(@model.public_send(attr)), :target => "_blank"
         - else
           td = t_attribute attr
     tr.separator
@@ -33,7 +39,7 @@ table.model-table
     tr
       td colspan=2
         .mt-4.flex.justify-center.gap-16
-          = link_to back_icon, send("#{@model_name.pluralize}_path"), title: t('actions.back')
+          = link_to back_icon, index_path, title: t('actions.back')
           = link_to edit_icon, send("edit_#{@model_name}_path", @model), title: t('actions.edit')
           = link_to delete_icon, send("#{@model_name}_path", @model), title: t('actions.destroy'),
                   method: :delete, data: { confirm: t("confirm.destroy", model: @model.class.lowercase_human_name) }

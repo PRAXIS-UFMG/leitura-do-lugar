@@ -21,6 +21,8 @@ gem "slim-rails"
 gem "view_component", "~> 2.31", require: "view_component/engine"
 # Track changes to your rails models
 gem "paper_trail", "~> 12.0"
+gem "geocoder", "~> 1.6"
+gem "image_processing", "~> 1.12"
 
 gem "rack-timeout"
 gem "rails-i18n", "~> 6.0.0"
@@ -64,5 +66,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
-
-gem "geocoder", "~> 1.6"

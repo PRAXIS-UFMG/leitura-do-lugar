@@ -6,6 +6,15 @@ class ModelViewComponent < ModelComponent
     @attributes -= [head_attr]
   end
 
+  def attr_type(attr)
+    return :file if @model.respond_to?(attr) && @model.public_send(attr).is_a?(ActiveStorage::Attached)
+    @model.class.type_for_attribute(attr.to_s).type
+  end
+
+  def download_icon
+    helpers.icon :download, "Download"
+  end
+
   def edit_icon
     helpers.icon :pencil, t("actions.edit")
   end

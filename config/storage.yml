@@ -1,21 +1,17 @@
 test:
   service: Disk
   root: <%= Rails.root.join("tmp/storage") %>
+  public: true
 
 development:
   service: Disk
   root: <%= Rails.root.join("storage") %>
+  public: true
 
 production:
   service: Disk
   root: <%= ENV['LEITURA_DO_LUGAR_FILES'] %>
-
-heroku:
-  service: S3
-  role_arn: <%= ENV['FELIX_AWS_USER_ARN'] %>
-  access_key_id: <%= ENV['FELIX_AWS_ACCESS_KEY_ID'] %>
-  secret_access_key: <%= ENV['FELIX_AWS_SECRET_ACCESS_KEY'] %>
-  region: us-west-1
+  public: true
 
 # Remember not to checkin your GCS keyfile to a repository
 # google:

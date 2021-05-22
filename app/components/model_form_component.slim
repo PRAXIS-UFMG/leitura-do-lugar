@@ -1,9 +1,9 @@
-div.flex.flex-col.justify-center
-  h2.text-center.leading-8.text-xl.mb-6
+div.form-container
+  h2.form-header
     => @model.new_record? ? t('headers.creating', model: @model.model_name.human) : t('headers.editing')
     - unless @model.new_record?
       span.font-medium= @model.send(@head_attr)
-  = form_for @model, html: { class: 'flex flex-col gap-4 model-form' } do |f|
+  = form_for @model, html: { class: 'form' } do |f|
     - @attributes.each do |attr|
       - case (type = attr_type attr)
       - when :boolean
@@ -16,6 +16,11 @@ div.flex.flex-col.justify-center
           p= l.translation
           = f.hidden_field :"#{attr}_md", data: { 'markdown-editor-target': 'mdField' }
           = f.text_area attr, data: { 'markdown-editor-target': 'editorField' }
+      - when :file
+        .flex.items-center
+          = f.label attr, class: 'leading-relaxed' do |l|
+            span.mr-3= l.translation
+            = f.file_field attr
       - else
         = f.label attr do |l|
           p= l.translation
@@ -29,12 +34,8 @@ div.flex.flex-col.justify-center
           - else
             = f.text_field attr, class: 'w-full'
     .flex.justify-between.mt-4.mb-2
-      = link_to back_icon, send("#{@model_name.pluralize}_path"), title: t('actions.back')
+      = link_to back_icon, index_path, title: t('actions.back')
       - unless @model.new_record?
         = link_to show_icon, @model, title: t('actions.show')
       = f.button type: 'submit', title: t('actions.confirm') do
         = confirm_icon
-    - if @model.errors.any?
-      ul.text-red-700.font-medium
-        - @model.errors.full_messages.each do |message|
-          li= message

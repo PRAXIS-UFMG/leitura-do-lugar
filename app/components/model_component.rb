@@ -25,4 +25,9 @@ class ModelComponent < ViewComponent::Base
       translate "activerecord.attributes.#{@model_name}.#{attr}.#{value}", default: value
     end
   end
+
+  def index_path
+    return send("#{@model_name}_index_path") if respond_to?"#{@model_name}_index_path"
+    send("#{@model_name.pluralize}_path")
+  end
 end

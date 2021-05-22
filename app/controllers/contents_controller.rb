@@ -9,18 +9,16 @@ class ContentsController < AdminController
 
   # GET /admin/contents/1
   def show
-    render ModelViewComponent.new @content, :name_human, :text_md
   end
 
   # GET /admin/contents/new
   def new
     @content = Content.new
-    render_form
   end
 
   # GET /admin/contents/1/edit
   def edit
-    render_form
+    render "form"
   end
 
   # POST /admin/contents
@@ -30,7 +28,7 @@ class ContentsController < AdminController
     if @content.save
       redirect_to @content, notice: t("notice.created", model: Content.lowercase_human_name)
     else
-      render :new
+      render partial: "form"
     end
   end
 
@@ -63,6 +61,6 @@ class ContentsController < AdminController
 
   # Only allow a list of trusted parameters through.
   def content_params
-    params.require(:content).permit(:name, :text, :text_md)
+    params.require(:content).permit(:name, :text, :text_md, :images)
   end
 end

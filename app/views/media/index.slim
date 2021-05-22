@@ -1,0 +1,15 @@
+table.collection-table
+  thead
+    tr
+      th colspan=2 = Media.model_name.human(:count => 2)
+      th = link_to icon(:'folder-add', t("actions.create", model: Media.lowercase_human_name), class: "mx-auto"),
+              new_media_path, title: t('actions.create', model: Media.lowercase_human_name)
+    tr
+      th
+      th.w-72.pl-4 Nome
+      th.w-12
+  tbody
+    - @medias.each do |media|
+      td = image_tag media.file.representation(resize_to_limit: [64, 64]) if media.file.representable?
+      td.pl-4 = media.name
+      == render IndexActionsDropdownComponent.new Media, show: media, edit: edit_media_path(media), remove: media

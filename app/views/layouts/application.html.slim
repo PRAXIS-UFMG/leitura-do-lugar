@@ -2,12 +2,16 @@ doctype html
 html
   head
     meta content="text/html" charset="UTF-8" http-equiv="Content-Type"
-    title= content_for?(:title) ? content_for(:title) : 'Leitura do Lugar - PRAXIS/UFMG'
     meta content="width=device-width,initial-scale=1" name="viewport"
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_pack_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
+
+    - if content_for?(:head)
+      = content_for(:head)
+    - else
+      title Leitura do Lugar - PRAXIS/UFMG
   body.flex.flex-col
     nav.flex.mt-2.mb-4.px-4.items-baseline.justify-between
       header

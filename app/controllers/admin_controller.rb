@@ -16,6 +16,10 @@ class AdminController < ApplicationController
 
   private
 
+  def set_error_flash(model)
+    flash[:error] = model.errors.full_messages
+  end
+
   # @return [User]
   def current_user
     @current_user ||= User.find(session["user_id"])

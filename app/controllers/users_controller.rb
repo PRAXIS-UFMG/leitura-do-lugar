@@ -34,6 +34,7 @@ class UsersController < AdminController
     if @user.save
       redirect_to @user, notice: t("notice.created", model: User.human_title_name)
     else
+      set_error_flash @user
       render render_form, status: :unprocessable_entity
     end
   end
@@ -43,6 +44,7 @@ class UsersController < AdminController
     if @user.update(user_params)
       redirect_to @user, notice: t("notice.updated", model: User.human_title_name)
     else
+      set_error_flash @user
       render render_form, status: :unprocessable_entity
     end
   end

@@ -2,8 +2,10 @@
 
 Rails.application.routes.draw do
   root "public_content#about_project"
-  Content::NAMES.each_key do |content|
-    get content, to: "public_content##{content}", as: "#{content}_content"
+  scope :conteudo do
+    Content::NAMES.each_key do |content|
+      get content, to: "public_content##{content}", as: "#{content}_content"
+    end
   end
 
   scope :admin do
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
     resources :reports
     resources :periods
     resources :contents
+    resources :media
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -1,0 +1,10 @@
+table.model-table
+  thead
+    tr
+      th colspan=2 = Content.lowercase_human_name
+    tr.border-b-2.border-black
+      td.text-center.text-xl colspan="2" = @content.name_human
+  tbody
+    tr
+      td colspan="2"
+        article == @content.text_md
