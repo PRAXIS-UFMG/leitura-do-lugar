@@ -1,0 +1,13 @@
+div.form-container
+  h2.form-header
+    - if @period.new_record?
+      = "Criando novo Período"
+    - else
+      => "Editando Período"
+      span= @period.name
+  = admin_form_for @period do |f|
+    = f.text_field :name
+    = f.date_field :start_date, class: 'w-full'
+    = f.date_field :end_date, class: 'w-full'
+    = f.markdown_field
+    == render ModelFormActionsComponent.new @period

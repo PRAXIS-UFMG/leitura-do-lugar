@@ -43,12 +43,19 @@ ActiveRecord::Schema.define(version: 2021_05_22_040203) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "contents", force: :cascade do |t|
-    t.string "name"
-    t.text "text"
-    t.text "text_md"
+  create_table "articles", force: :cascade do |t|
+    t.text "markdown"
+    t.text "rendered"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "contents", force: :cascade do |t|
+    t.string "name"
+    t.bigint "article_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_contents_on_article_id"
     t.index ["name"], name: "index_contents_on_name", unique: true
   end
 
@@ -56,35 +63,34 @@ ActiveRecord::Schema.define(version: 2021_05_22_040203) do
     t.string "name"
     t.string "line_type"
     t.string "objective"
-    t.text "description"
+    t.bigint "article_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "description_md"
+    t.index ["article_id"], name: "index_line_analyses_on_article_id"
     t.index ["name"], name: "index_line_analyses_on_name", unique: true
   end
 
   create_table "media", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.text "description_md"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "periods", force: :cascade do |t|
     t.string "name"
-    t.text "description"
-    t.text "description_md"
+    t.bigint "article_id"
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_periods_on_article_id"
   end
 
   create_table "reports", force: :cascade do |t|
     t.string "interviewee"
     t.integer "resides_since"
-    t.text "full_text"
+    t.bigint "article_id"
     t.string "address"
     t.float "addr_lat"
     t.float "addr_lon"
@@ -92,7 +98,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_040203) do
     t.boolean "approved", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "full_text_md"
+    t.index ["article_id"], name: "index_reports_on_article_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -118,4 +124,8 @@ ActiveRecord::Schema.define(version: 2021_05_22_040203) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "contents", "articles"
+  add_foreign_key "line_analyses", "articles"
+  add_foreign_key "periods", "articles"
+  add_foreign_key "reports", "articles"
 end

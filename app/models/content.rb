@@ -1,15 +1,12 @@
 class Content < ApplicationRecord
-  NAMES = %i[about_project team_and_aid].each_with_object({}) { |i, obj| obj[i] = i.to_s }
+  NAMES = %i[about_project team_and_aid].each_with_object({}) { |i, obj| obj[i] = i.to_s }.freeze
   enum name: NAMES
 
-  attribute :name
-  attribute :text
-  attribute :text_md
+  include MarkdownText
 
-  validates :name, presence: true
-  validates :name, uniqueness: true
+  validates :name, presence: true, uniqueness: true
 
-  def name_human
-    I18n.t "activerecord.attributes.content.name.#{name}"
+  def self.all_taken_names
+    all.pluck(:name)
   end
 end

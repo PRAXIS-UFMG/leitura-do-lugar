@@ -12,4 +12,16 @@ module ApplicationHelper
   def back_icon
     icon(:'arrow-left', t("actions.back"))
   end
+
+  def show_icon
+    icon(:eye, t("actions.show"))
+  end
+
+  def edit_icon
+    icon :pencil, t("actions.edit")
+  end
+
+  def delete_icon
+    icon :x, t("actions.remove")
+  end
 end

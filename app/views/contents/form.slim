@@ -3,24 +3,9 @@ div.form-container
     - if @content.new_record?
       = t('headers.creating', model: Content.human_title_name)
     - else
-      = t('headers.editing')
-      span.font-medium= @content.name
-  = form_for @content, html: { class: 'form' } do |f|
-    = f.label :name do |l|
-      p=l.translation
-      = f.select :name, Content::NAMES.transform_keys { |k| t("activerecord.attributes.content.name.#{k}") },
-            class: 'w-1/2', disabled: !@content.new_record?
-    = f.label :text, data: { controller: 'markdown-editor' } do |l|
-      p= l.translation
-      = f.hidden_field :text_md, data: { 'markdown-editor-target': 'mdField' }
-      = f.text_area :text, data: { 'markdown-editor-target': 'editorField' }
-    .flex.justify-between.mt-4.mb-2
-      = link_to back_icon, contents_path, title: t('actions.back')
-      - unless @content.new_record?
-        = link_to icon(:eye, t("actions.show")), @content, title: t('actions.show')
-      = f.button type: 'submit', title: t('actions.confirm') do
-        = icon(:check, t("actions.confirm"))
-      - if @content.errors.any?
-        ul.text-red-700.font-medium
-          - @content.errors.full_messages.each do |message|
-            li= message
+      => t('headers.editing')
+      span= human_name
+  = admin_form_for @content do |f|
+    = f.select :name, available_names, html_options: { class: 'w-full', disabled: !@content.new_record? }
+    = f.markdown_field
+    == render ModelFormActionsComponent.new @content

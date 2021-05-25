@@ -1,5 +1,6 @@
 class MediaController < AdminController
-  before_action :set_medium, only: [:show, :edit, :update, :destroy]
+  before_action :set_media, only: [:show, :edit, :update, :destroy]
+  after_action :set_error_flash, only: [:edit, :update]
 
   # GET /media
   def index
@@ -26,7 +27,7 @@ class MediaController < AdminController
     @media = Media.new(medium_params)
 
     if @media.save
-      redirect_to @media, notice: "Media was successfully created."
+      redirect_to @media, notice: t("notice.created", model: Media.lowercase_human_name)
     else
       render 'form'
     end
@@ -35,9 +36,8 @@ class MediaController < AdminController
   # PATCH/PUT /media/1
   def update
     if @media.update(medium_params)
-      redirect_to @media, notice: "Media was successfully updated."
+      redirect_to @media, notice: t("notice.updated", model: Media.lowercase_human_name)
     else
-      set_error_flash @media
       render 'form'
     end
   end
@@ -45,18 +45,22 @@ class MediaController < AdminController
   # DELETE /media/1
   def destroy
     @media.destroy
-    redirect_to media_index_url, notice: "Media was successfully destroyed."
+    redirect_to media_index_url, notice: t("notice.destroyed", model: Media.lowercase_human_name)
   end
 
   private
 
+  def set_error_flash
+    flash[:error] = @media.errors.full_messages
+  end
+
   # Use callbacks to share common setup or constraints between actions.
-  def set_medium
+  def set_media
     @media = Media.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
   def medium_params
-    params.require(:media).permit(:name, :description, :description_md, :file)
+    params.require(:media).permit(:name, :file, article_attributes: [:markdown, :rendered])
   end
 end

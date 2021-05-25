@@ -15,9 +15,9 @@ table.model-table
         - case attr_type(attr)
         - when :boolean
           td.text-sm.uppercase.font-medium.text-gray-700= t_attribute attr
-        - when :text
+        - when :article
           td class=("font-sm border-t border-b" unless @attributes.size == 1)
-            article == @model[attr]
+            article == @model.public_send(attr).rendered
         - when :file
           td
             - if @model.public_send(attr).representable?
@@ -37,9 +37,4 @@ table.model-table
       td= t_header :created_at
       td= l @model.created_at, format: :short
     tr
-      td colspan=2
-        .mt-4.flex.justify-center.gap-16
-          = link_to back_icon, index_path, title: t('actions.back')
-          = link_to edit_icon, send("edit_#{@model_name}_path", @model), title: t('actions.edit')
-          = link_to delete_icon, send("#{@model_name}_path", @model), title: t('actions.destroy'),
-                  method: :delete, data: { confirm: t("confirm.destroy", model: @model.class.lowercase_human_name) }
+      td colspan=2 == render ModelViewActionsComponent.new @model

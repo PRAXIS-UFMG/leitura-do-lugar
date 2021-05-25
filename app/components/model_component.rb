@@ -9,8 +9,7 @@ class ModelComponent < ViewComponent::Base
     @attributes = attributes.presence || (model.attribute_names - %w[id created_at updated_at]).map!(&:to_sym)
   end
 
-  delegate :icon, to: :helpers
-  delegate :back_icon, to: :helpers
+  include ApplicationHelper
   delegate :current_user, to: :helpers
 
   def t_header(attr)
@@ -24,10 +23,5 @@ class ModelComponent < ViewComponent::Base
     else
       translate "activerecord.attributes.#{@model_name}.#{attr}.#{value}", default: value
     end
-  end
-
-  def index_path
-    return send("#{@model_name}_index_path") if respond_to?"#{@model_name}_index_path"
-    send("#{@model_name.pluralize}_path")
   end
 end

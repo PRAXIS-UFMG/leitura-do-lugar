@@ -6,21 +6,21 @@ class ReportsController < AdminController
   # GET /reports
   def index
     render CollectionIndexComponent.new Report, Report.all, :'document-add',
-      interviewee: {header: "w-56"},
-      interview_date: {cell: "text-center"},
-      approved: {cell: "text-right uppercase text-sm"}
+                                        interviewee:    { header: "w-56" },
+                                        interview_date: { cell: "text-center" },
+                                        approved:       { cell: "text-right uppercase text-sm" }
   end
 
   # GET /reports/1
   def show
     render ModelViewComponent.new @report, :name,
-      :resides_since, :interview_date, :address, :full_text_md, :approved
+                                  :resides_since, :interview_date, :address, :full_text_md, :approved
   end
 
   # GET /reports/new
   def new
     @report = Report.new
-    render_form
+    render 'form'
   end
 
   # GET /reports/1/edit
@@ -64,7 +64,7 @@ class ReportsController < AdminController
 
   def render_form
     render ModelFormComponent.new @report, :name,
-      :interviewee, :resides_since, :interview_date, :approved, :address, :full_text
+                                  :interviewee, :resides_since, :interview_date, :approved, :address, :full_text
   end
 
   # Use callbacks to share common setup or constraints between actions.
@@ -74,7 +74,9 @@ class ReportsController < AdminController
 
   # Only allow a list of trusted parameters through.
   def report_params
-    params.require(:report).permit(:interviewee, :resides_since, :full_text, :full_text_md,
-      :address, :addr_lat, :addr_lon, :interview_date, :approved)
+    params
+      .require(:report)
+      .permit(:interviewee, :resides_since, :address, :addr_lat, :addr_lon, :interview_date, :approved,
+              article_attributes: [:markdown, :rendered])
   end
 end

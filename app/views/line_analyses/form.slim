@@ -1,0 +1,13 @@
+div.form-container
+  h2.form-header
+    - if @line_analysis.new_record?
+      = "Criando nova Linha de Análise"
+    - else
+      => "Editando linha de análise: "
+      span= @line_analysis.name
+  = admin_form_for @line_analysis do |f|
+    = f.text_field :name
+    = f.select :line_type
+    = f.text_area :objective
+    = f.markdown_field
+    == render ModelFormActionsComponent.new @line_analysis

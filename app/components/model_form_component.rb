@@ -21,12 +21,4 @@ class ModelFormComponent < ModelComponent
 
     t("activerecord.attributes.#{@model_name}.#{attr}").to_a.reject { |i| i.first == :one }.map(&:reverse)
   end
-
-  def show_icon
-    helpers.icon(:eye, t("actions.show"))
-  end
-
-  def confirm_icon
-    helpers.icon(:check, t("actions.confirm"))
-  end
 end

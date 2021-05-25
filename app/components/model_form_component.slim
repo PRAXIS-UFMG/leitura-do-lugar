@@ -33,9 +33,4 @@ div.form-container
             = f.date_field attr, class: 'w-1/2'
           - else
             = f.text_field attr, class: 'w-full'
-    .flex.justify-between.mt-4.mb-2
-      = link_to back_icon, index_path, title: t('actions.back')
-      - unless @model.new_record?
-        = link_to show_icon, @model, title: t('actions.show')
-      = f.button type: 'submit', title: t('actions.confirm') do
-        = confirm_icon
+    == render ModelFormActionsComponent.new @model

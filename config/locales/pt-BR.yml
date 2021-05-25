@@ -42,8 +42,8 @@ pt-BR:
     confirm: Confirmar
     destroy: Apagar
   headers:
-    editing: Editando
-    creating: "Criando novo %{model}"
+    editing: "Editando %{model}"
+    creating: "Criando novo(a) %{model}"
   confirm:
     destroy: "Tem certeza? Este(a) %{model} será apagado(a) para sempre!"
   notice:
@@ -87,8 +87,7 @@ pt-BR:
         password_confirmation: Confirme a senha
       line_analysis:
         objective: Objetivo
-        description: Descrição
-        description_md: Descrição
+        article: Descrição
         line_type:
           one: Tipo
           'no': No Lugar
@@ -96,11 +95,10 @@ pt-BR:
       report:
         interviewee: Entrevistado
         resides_since: Morador Desde
-        full_text: Texto Completo
-        full_text_md: Texto Completo
+        article: Texto Completo
         address:
           one: Endereço
-          invalid: "endereço inválido!"
+          invalid: endereço inválido!
         interview_date: Data da Entrevista
         approved:
           one: Aprovado
@@ -109,12 +107,13 @@ pt-BR:
       period:
         start_date: Início
         end_date: Fim
+        article: Descrição
       content:
         name:
           one: Nome
           about_project: Descrição do Projeto
           team_and_aid: Equipe & Apoio
-        text: Texto
-        text_md: Texto
+        article: Texto
       media:
         file: Arquivo
+        description: Descrição

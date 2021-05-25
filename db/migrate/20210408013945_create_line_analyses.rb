@@ -6,7 +6,7 @@ class CreateLineAnalyses < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :line_type
       t.string :objective
-      t.string :description
+      t.references :article, foreign_key: true
 
       t.timestamps
     end

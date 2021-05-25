@@ -4,7 +4,7 @@ class ContentsController < AdminController
   # GET /admin/contents
   def index
     render CollectionIndexComponent.new Content, Content.all, :'document-add',
-      name: {header: "w-96"}
+                                        name: { header: "w-96" }
   end
 
   # GET /admin/contents/1
@@ -14,6 +14,8 @@ class ContentsController < AdminController
   # GET /admin/contents/new
   def new
     @content = Content.new
+    @content.build_article
+    render 'form'
   end
 
   # GET /admin/contents/1/edit
@@ -28,7 +30,7 @@ class ContentsController < AdminController
     if @content.save
       redirect_to @content, notice: t("notice.created", model: Content.lowercase_human_name)
     else
-      render partial: "form"
+      render "form"
     end
   end
 
@@ -37,7 +39,7 @@ class ContentsController < AdminController
     if @content.update(content_params)
       redirect_to @content, notice: t("notice.updated", model: Content.lowercase_human_name)
     else
-      render :edit
+      render "form"
     end
   end
 
@@ -51,7 +53,7 @@ class ContentsController < AdminController
 
   def render_form
     render ModelFormComponent.new @content, :name,
-      name: {as: :enum}, text: {}
+                                  name: { as: :enum }, text: {}
   end
 
   # Use callbacks to share common setup or constraints between actions.
@@ -61,6 +63,6 @@ class ContentsController < AdminController
 
   # Only allow a list of trusted parameters through.
   def content_params
-    params.require(:content).permit(:name, :text, :text_md, :images)
+    params.require(:content).permit(:name, article_attributes: [:markdown, :rendered])
   end
 end

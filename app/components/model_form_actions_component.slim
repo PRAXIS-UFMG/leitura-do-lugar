@@ -1,0 +1,6 @@
+.model-form-actions
+  = link_to back_icon, index_path, title: t('actions.back')
+  - unless @model.new_record?
+    = link_to show_icon, @model, title: t('actions.show')
+  = button_tag type: 'submit', title: t('actions.confirm') do
+    = confirm_icon

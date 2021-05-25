@@ -13,18 +13,19 @@ class PeriodsController < AdminController
 
   # GET /periods/1
   def show
-    render ModelViewComponent.new @period, :name, :start_date, :end_date, :description_md
+    render ModelViewComponent.new @period, :name, :start_date, :end_date, :article
   end
 
   # GET /periods/new
   def new
     @period = Period.new
-    render_form
+    @period.build_article
+    render 'form'
   end
 
   # GET /periods/1/edit
   def edit
-    render_form
+    render 'form'
   end
 
   # POST /periods
@@ -34,7 +35,7 @@ class PeriodsController < AdminController
     if @period.save
       redirect_to @period, notice: I18n.t("notice.created", model: Period.lowercase_human_name)
     else
-      render_form
+      render 'form'
     end
   end
 
@@ -43,7 +44,7 @@ class PeriodsController < AdminController
     if @period.update(period_params)
       redirect_to @period, notice: I18n.t("notice.updated", model: Period.lowercase_human_name)
     else
-      render_form
+      render 'form'
     end
   end
 
@@ -55,10 +56,6 @@ class PeriodsController < AdminController
 
   private
 
-  def render_form
-    render ModelFormComponent.new @period, :name, :name, :start_date, :end_date, :description
-  end
-
   # Use callbacks to share common setup or constraints between actions.
   def set_period
     @period = Period.find(params[:id])
@@ -66,6 +63,6 @@ class PeriodsController < AdminController
 
   # Only allow a list of trusted parameters through.
   def period_params
-    params.require(:period).permit(:name, :description, :description_md, :start_date, :end_date)
+    params.require(:period).permit(:name, :start_date, :end_date, article_attributes: [:markdown, :rendered])
   end
 end

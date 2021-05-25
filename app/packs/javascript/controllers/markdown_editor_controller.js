@@ -12,11 +12,13 @@ export default class extends Controller {
             element: textarea,
             spellChecker: false,
             status: ['cursor'],
-            hideIcons: ['code', 'image', 'table', 'side-by-side', 'fullscreen'],
+            hideIcons: ['code', 'table', 'side-by-side', 'fullscreen'],
             maxHeight: "40vh",
             blockStyles: {
                 italic: '_'
-            }
+            },
+            uploadImage: true,
+            imageMaxSize: 1e+7, // 10Mb
         });
         this.form = textarea.form
         this.form.addEventListener('submit', this.beforeSubmit)

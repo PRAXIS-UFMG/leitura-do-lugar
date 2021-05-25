@@ -16,7 +16,6 @@
     @apply ring-1 ring-praxis-500 border-praxis-500 !important;
 }
 
-
 /* Attributes table */
 .model-table {
     @apply table-auto border-collapse;
@@ -55,17 +54,37 @@
     @apply prose prose-praxis prose-sm;
 }
 
+.model-table-actions {
+    @apply mt-4 flex justify-center gap-16;
+}
+
 /* Forms */
+.admin-form {
+    @apply flex flex-col gap-4;
+
+    & input[type="text"], & textarea {
+        @apply w-full;
+    }
+
+    & .select {
+        @apply w-1/2;
+    }
+}
+
 .form-container {
     @apply flex flex-col justify-center;
 }
 
 .form-header {
     @apply text-center leading-8 text-xl mb-6;
+
+    & span {
+        @apply font-medium;
+    }
 }
 
-.form {
-    @apply flex flex-col gap-4;
+.model-form-actions {
+    @apply flex justify-between mt-4 mb-2;
 }
 
 /* Index table */

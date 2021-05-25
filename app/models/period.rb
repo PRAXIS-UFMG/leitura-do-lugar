@@ -2,10 +2,10 @@
 
 class Period < ApplicationRecord
   attribute :name
-  attribute :description
-  attribute :description_md
   attribute :start_date, :date
   attribute :end_date, :date
 
-  validates :name, :description, :description_md, :start_date, :end_date, presence: true
+  include MarkdownText
+
+  validates :name, :start_date, :end_date, :markdown, :rendered, presence: true
 end

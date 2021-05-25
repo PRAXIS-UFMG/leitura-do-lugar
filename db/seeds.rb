@@ -11,5 +11,5 @@ User.create username: "admin", name: "Admin", admin: true,
             password: ENV.fetch("LEITURA_DO_LUGAR_ADMIN_PASS", "praxis2021")
 
 Content::NAMES.each_key do |content|
-  Content.create name: content
+  Content.create name: content, article: Article.new
 end
