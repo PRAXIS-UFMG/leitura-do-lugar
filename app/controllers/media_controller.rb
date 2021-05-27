@@ -1,6 +1,7 @@
 class MediaController < AdminController
-  before_action :set_media, only: [:show, :edit, :update, :destroy]
+  before_action :set_media, only: [:show, :inline, :edit, :update, :destroy]
   after_action :set_error_flash, only: [:edit, :update]
+  skip_before_action :authenticate!, only: :show
 
   # GET /media
   def index
@@ -8,7 +9,10 @@ class MediaController < AdminController
   end
 
   # GET /media/1
-  def show
+  def show; end
+
+  def inline
+    redirect_to url_for(@media.file), status: :see_other
   end
 
   # GET /media/new
@@ -24,10 +28,15 @@ class MediaController < AdminController
 
   # POST /media
   def create
-    @media = Media.new(medium_params)
+    @media = Media.new(media_params)
+    saved  = @media.save
 
-    if @media.save
+    if saved && @media.inline?
+      head :created, location: public_media_path(@media)
+    elsif saved
       redirect_to @media, notice: t("notice.created", model: Media.lowercase_human_name)
+    elsif @media.inline?
+      head :bad_request, reason: @media.errors.full_messages.join('\n')
     else
       render 'form'
     end
@@ -35,7 +44,7 @@ class MediaController < AdminController
 
   # PATCH/PUT /media/1
   def update
-    if @media.update(medium_params)
+    if @media.update(media_params)
       redirect_to @media, notice: t("notice.updated", model: Media.lowercase_human_name)
     else
       render 'form'
@@ -60,7 +69,7 @@ class MediaController < AdminController
   end
 
   # Only allow a list of trusted parameters through.
-  def medium_params
-    params.require(:media).permit(:name, :file, article_attributes: [:markdown, :rendered])
+  def media_params
+    params.require(:media).permit(:name, :file, :description, :inline)
   end
 end

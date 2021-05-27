@@ -10,7 +10,7 @@ development:
 
 production:
   service: Disk
-  root: <%= ENV['LEITURA_DO_LUGAR_FILES'] %>
+  root: <%= Rails.root.join("storage") %>
   public: true
 
 # Remember not to checkin your GCS keyfile to a repository

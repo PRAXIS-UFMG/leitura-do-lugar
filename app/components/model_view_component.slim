@@ -12,20 +12,28 @@ table.model-table
     - @attributes.each do |attr|
       tr
         td.align-top= t_header attr
-        - case attr_type(attr)
-        - when :boolean
-          td.text-sm.uppercase.font-medium.text-gray-700= t_attribute attr
-        - when :article
-          td class=("font-sm border-t border-b" unless @attributes.size == 1)
-            article == @model.public_send(attr).rendered
-        - when :file
-          td
-            - if @model.public_send(attr).representable?
-              = image_tag @model.public_send(attr).representation(resize_to_limit: [256, 512])
-            - else
-              = link_to download_icon, rails_blob_path(@model.public_send(attr)), :target => "_blank"
+        - if @model.public_send(attr).blank?
+          td.uppercase.tracking-wide.text-sm.font-medium.text-gray-500
+            = "["
+            span.text-xs= "nulo"
+            = "]"
         - else
-          td = t_attribute attr
+          - case attr_type(attr)
+          - when :boolean
+            td.text-sm.uppercase.font-medium.text-gray-700= t_attribute attr
+          - when :article
+            td class=("font-sm border-t border-b" unless @attributes.size == 1)
+              article == @model.public_send(attr).rendered
+          - when :file
+            td
+              - if @model.public_send(attr).representable?
+                = image_tag @model.public_send(attr).representation(resize_to_limit: [256, 512])
+              - else
+                = link_to download_icon, rails_blob_path(@model.public_send(attr)), :target => "_blank"
+          - when :string, :text
+            td = @model.public_send attr
+          - else
+            td = t_attribute attr
     tr.separator
       td
       td

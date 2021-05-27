@@ -3,9 +3,9 @@ div.form-container
     - if @content.new_record?
       = t('headers.creating', model: Content.human_title_name)
     - else
-      => t('headers.editing')
-      span= human_name
+      => t('headers.editing', model: Content.human_title_name)
   = admin_form_for @content do |f|
-    = f.select :name, available_names, html_options: { class: 'w-full', disabled: !@content.new_record? }
+    - disabled = !@content.new_record?
+    = f.select :name, available_names, html_options: { class: ['w-full'], disabled: disabled }
     = f.markdown_field
     == render ModelFormActionsComponent.new @content

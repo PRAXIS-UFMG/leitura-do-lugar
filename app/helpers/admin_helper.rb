@@ -9,13 +9,13 @@ module AdminHelper
       end
     end
 
-    def markdown_field(attachments: false)
-      label :article, data: { controller: 'markdown-editor' } do |l|
+    def markdown_field
+      label :article, data: { controller: 'markdown-editor', 'markdown-editor-model-value': @object_name } do |l|
         @template.content_tag(:p, l.translation) +
-          fields_for(:article, builder: ActionView::Helpers::FormBuilder) do |article_form|
-            article_form.hidden_field(:rendered, data: { 'markdown-editor-target': 'mdField' }) +
-              article_form.text_area(:markdown, data: { 'markdown-editor-target': 'editorField' })
-          end
+        fields_for(:article, builder: ActionView::Helpers::FormBuilder) do |article_form|
+          article_form.hidden_field(:rendered, data: { 'markdown-editor-target': 'mdField' }) +
+          article_form.text_area(:markdown, data: { 'markdown-editor-target': 'editorField' })
+        end
       end
     end
 
@@ -40,7 +40,7 @@ module AdminHelper
       end
     end
 
-    def file_field(method, options = { })
+    def file_field(method, options = {})
       labelled_field method, super
     end
 

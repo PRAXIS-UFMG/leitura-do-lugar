@@ -21,7 +21,10 @@ Rails.application.routes.draw do
     resources :periods
     resources :contents
     resources :media
+    post '/media/inline', to: 'media#inline'
   end
+
+  get '/midias/:id', to: 'media#inline', as: :public_media
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
