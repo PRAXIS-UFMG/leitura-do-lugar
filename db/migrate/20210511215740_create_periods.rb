@@ -4,7 +4,6 @@ class CreatePeriods < ActiveRecord::Migration[6.1]
   def change
     create_table :periods do |t|
       t.string :name
-      t.references :article, foreign_key: true
       t.date :start_date
       t.date :end_date
 

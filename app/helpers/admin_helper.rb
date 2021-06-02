@@ -2,7 +2,6 @@ module AdminHelper
   include ApplicationHelper
 
   class AdminFormBuilder < ActionView::Helpers::FormBuilder
-
     def labelled_field(method, field)
       label method do |l|
         @template.content_tag(:p, l.translation) + field
@@ -10,12 +9,22 @@ module AdminHelper
     end
 
     def markdown_field
-      label :article, data: { controller: 'markdown-editor', 'markdown-editor-model-value': @object_name } do |l|
+      label :article, data: {controller: "markdown-editor", 'markdown-editor-model-value': @object_name} do |l|
         @template.content_tag(:p, l.translation) +
-        fields_for(:article, builder: ActionView::Helpers::FormBuilder) do |article_form|
-          article_form.hidden_field(:rendered, data: { 'markdown-editor-target': 'mdField' }) +
-          article_form.text_area(:markdown, data: { 'markdown-editor-target': 'editorField' })
-        end
+          fields_for(:article, builder: ActionView::Helpers::FormBuilder) do |f|
+            f.hidden_field(:rendered, data: {'markdown-editor-target': "mdField"}) +
+              f.text_area(:markdown, data: {'markdown-editor-target': "editorField"})
+          end
+      end
+    end
+
+    def media_field
+      label :media do |l|
+        @template.content_tag(:p, l.translation) +
+          fields_for(:media, builder: ActionView::Helpers::FormBuilder) do |f|
+            f.hidden_field(:file, value: f.object.file) +
+              f.file_field(:file)
+          end
       end
     end
 
@@ -33,19 +42,15 @@ module AdminHelper
     end
 
     def check_box(method, options = {})
-      @template.content_tag :div, class: 'flex items-center' do |t|
+      @template.content_tag :div, class: "flex items-center" do |t|
         label method do |l|
-          @template.content_tag(:span, l.translation, class: 'mr-3') + super
+          @template.content_tag(:span, l.translation, class: "mr-3") + super
         end
       end
     end
 
-    def file_field(method, options = {})
-      labelled_field method, super
-    end
-
     def select(method, choices = nil, options: {}, html_options: {}, &block)
-      html_options.with_defaults! class: 'select'
+      html_options.with_defaults! class: "select"
       if choices.nil?
         choices = I18n.t("activerecord.attributes.#{@object_name}.#{method}").except(:one).invert
       end
@@ -58,6 +63,6 @@ module AdminHelper
   end
 
   def admin_form_for(model, &block)
-    form_for model, html: { class: 'admin-form' }, builder: AdminFormBuilder, &block
+    form_for model, html: {class: "admin-form"}, builder: AdminFormBuilder, &block
   end
 end

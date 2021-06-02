@@ -2,9 +2,9 @@
 
 class IndexActionsDropdownComponent < ViewComponent::Base
   def initialize(model, show: nil, edit: nil, remove: nil)
-    @model  = model
-    @show   = show
-    @edit   = edit
+    @model = model
+    @show = show
+    @edit = edit
     @remove = remove
   end
 

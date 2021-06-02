@@ -18,5 +18,5 @@
 # end
 
 ActiveSupport::Inflector.inflections do |inflect|
-  inflect.irregular "media", "media"
+  inflect.irregular "media", "medias"
 end

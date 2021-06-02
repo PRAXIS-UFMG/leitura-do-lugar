@@ -44,7 +44,7 @@ export default class extends Controller {
         form.append('media[inline]', '1')
 
         const csrfToken = document.querySelector('meta[name="csrf-token"]').content
-        const response = await fetch('/admin/media', {
+        const response = await fetch('/admin/medias', {
             method: 'POST',
             headers: {
                 'X-CSRF-Token': csrfToken
@@ -55,6 +55,7 @@ export default class extends Controller {
         if (!response.ok) {
             return failure(response.headers.get('reason'))
         }
+        const imageElement = document.createElement('input')
         success(response.headers.get('location'))
     }
 }

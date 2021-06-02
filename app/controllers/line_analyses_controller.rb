@@ -16,12 +16,12 @@ class LineAnalysesController < AdminController
   def new
     @line_analysis = LineAnalysis.new
     @line_analysis.build_article
-    render 'form'
+    render "form"
   end
 
   # GET /line_analyses/1/edit
   def edit
-    render 'form'
+    render "form"
   end
 
   # POST /line_analyses
@@ -31,7 +31,7 @@ class LineAnalysesController < AdminController
     if @line_analysis.save
       redirect_to @line_analysis, notice: t("notice.created", model: LineAnalysis.lowercase_human_name)
     else
-      render 'form', status: :unprocessable_entity
+      render "form", status: :unprocessable_entity
     end
   end
 

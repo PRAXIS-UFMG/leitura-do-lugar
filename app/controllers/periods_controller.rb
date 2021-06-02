@@ -20,12 +20,12 @@ class PeriodsController < AdminController
   def new
     @period = Period.new
     @period.build_article
-    render 'form'
+    render "form"
   end
 
   # GET /periods/1/edit
   def edit
-    render 'form'
+    render "form"
   end
 
   # POST /periods
@@ -35,7 +35,7 @@ class PeriodsController < AdminController
     if @period.save
       redirect_to @period, notice: I18n.t("notice.created", model: Period.lowercase_human_name)
     else
-      render 'form'
+      render "form"
     end
   end
 
@@ -44,7 +44,7 @@ class PeriodsController < AdminController
     if @period.update(period_params)
       redirect_to @period, notice: I18n.t("notice.updated", model: Period.lowercase_human_name)
     else
-      render 'form'
+      render "form"
     end
   end
 

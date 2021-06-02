@@ -20,11 +20,13 @@ Rails.application.routes.draw do
     resources :reports
     resources :periods
     resources :contents
-    resources :media
-    post '/media/inline', to: 'media#inline'
+    resources :medias, except: :new
+    resources :excerpts, except: :new
+    get "excerpts/new/:report", to: "excerpts#new"
   end
 
-  get '/midias/:id', to: 'media#inline', as: :public_media
+  mount FileUploader.derivation_endpoint => "/midias/v"
+  get "/midias/:id", to: "medias#inline", as: :public_media
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

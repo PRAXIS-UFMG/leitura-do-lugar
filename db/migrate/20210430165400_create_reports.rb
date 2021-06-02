@@ -5,7 +5,6 @@ class CreateReports < ActiveRecord::Migration[6.1]
     create_table :reports do |t|
       t.string :interviewee
       t.integer :resides_since
-      t.references :article, foreign_key: true
       t.string :address
       t.float :addr_lat
       t.float :addr_lon

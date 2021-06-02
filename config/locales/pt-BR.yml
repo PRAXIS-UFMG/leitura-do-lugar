@@ -30,6 +30,8 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 pt-BR:
+  'true': SIM
+  'false': NÃO
   content:
     about_project: Descrição do Projeto
     team_and_aid: Equipe & Apoio
@@ -56,6 +58,7 @@ pt-BR:
     created_at: Criado em
     description: Descrição
     description_md: Descrição
+    medias: Mídias
   activerecord:
     models:
       user:
@@ -76,6 +79,9 @@ pt-BR:
       media:
         one: Mídia
         other: Mídias
+      excerpt:
+        one: Trecho
+        other: Trechos
     attributes:
       user:
         username: Username

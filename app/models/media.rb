@@ -3,7 +3,14 @@ class Media < ApplicationRecord
   attribute :description
   attribute :inline, :boolean
 
-  has_one_attached :file
+  include FileUploader::Attachment :file
+  belongs_to :owner, polymorphic: true, optional: true
 
   validates :name, presence: true, uniqueness: true
+
+  before_validation :set_name
+
+  def set_name
+    self.name ||= file.metadata["filename"].split('.')[0..-1]
+  end
 end

@@ -1,6 +1,17 @@
 - content_for :head do
   title Pesquisador - Leitura do Lugar
   meta name="direct-upload-url" content=rails_direct_uploads_path
+  template#excerpt-template
+    css:
+      li[data-share-via="excerpt"] {
+          display: flex !important;
+          justify-content: center !important;
+      }
+      li[data-share-via="excerpt"]:hover {
+          cursor: pointer;
+      }
+    button title='Criar trecho'
+      = icon :annotation, 'Criar trecho'
 
 - content_for :topbar do
   div.flex-grow.flex.justify-center
@@ -20,13 +31,13 @@
 - content_for :content do
   main.flex.flex-col.items-stretch.justify-center.mt-4.max-w-sm.mx-auto class="lg:mt-16 lg:max-w-lg"
     .mt-4.mb-2.text-white
-      - if flash[:notice]
+      - if flash[:notice].present?
         .border.border-praxis-400.rounded-sm
           p.font-medium.bg-praxis-500.py-1.px-2.uppercase.text-xs.text-center= flash[:notice]
-      - if flash[:error]
+      - if flash[:error].present?
         ul.text-sm.flex.flex-col.gap-2
           - flash[:error].to_a.each do |msg|
-            li.bg-red-500.py-1.px-2.rounded-sm.flex.items-center.gap-1
+            li.bg-red-500.py-1.px-2.rounded-sm.flex.items-center.gap-1.leading-tight
               = icon(:exclamation, 'Erro')
               span = msg
     = yield

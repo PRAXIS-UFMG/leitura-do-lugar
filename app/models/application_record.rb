@@ -2,6 +2,9 @@
 
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
+  include MarkdownArticleConcern
+  include MediaConcern
+
   has_paper_trail
 
   def self.lowercase_human_name

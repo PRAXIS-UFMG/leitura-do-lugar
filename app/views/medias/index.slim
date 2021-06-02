@@ -2,8 +2,6 @@ table.collection-table
   thead
     tr
       th colspan=3 = Media.model_name.human(:count => 2)
-      th = link_to icon(:'folder-add', t("actions.create", model: Media.lowercase_human_name), class: "mx-auto"),
-              new_media_path, title: t('actions.create', model: Media.lowercase_human_name)
     tr
       th.w-12.text-right ID
       th Preview

@@ -5,7 +5,7 @@ class Period < ApplicationRecord
   attribute :start_date, :date
   attribute :end_date, :date
 
-  include MarkdownText
+  has_markdown_article
 
   validates :name, :start_date, :end_date, :markdown, :rendered, presence: true
 end

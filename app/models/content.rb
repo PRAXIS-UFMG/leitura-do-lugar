@@ -2,7 +2,7 @@ class Content < ApplicationRecord
   NAMES = %i[about_project team_and_aid].each_with_object({}) { |i, obj| obj[i] = i.to_s }.freeze
   enum name: NAMES
 
-  include MarkdownText
+  has_markdown_article
 
   validates :name, presence: true, uniqueness: true
 

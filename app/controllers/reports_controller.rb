@@ -2,30 +2,31 @@
 
 class ReportsController < AdminController
   before_action :set_report, only: %i[show edit update destroy]
-
+  after_action :set_error_flash, only: %i[create update]
   # GET /reports
   def index
     render CollectionIndexComponent.new Report, Report.all, :'document-add',
-                                        interviewee:    { header: "w-56" },
-                                        interview_date: { cell: "text-center" },
-                                        approved:       { cell: "text-right uppercase text-sm" }
+      interviewee: {header: "w-56"},
+      interview_date: {cell: "text-center"},
+      approved: {cell: "text-right uppercase text-sm"}
   end
 
   # GET /reports/1
   def show
-    render ModelViewComponent.new @report, :name,
-                                  :resides_since, :interview_date, :address, :full_text_md, :approved
+    # render ModelViewComponent.new @report, :name,
+    #                               :resides_since, :interview_date, :address, :article, :approved
   end
 
   # GET /reports/new
   def new
     @report = Report.new
-    render 'form'
+    @report.build_article
+    render "form"
   end
 
   # GET /reports/1/edit
   def edit
-    render_form
+    render "form"
   end
 
   # POST /reports
@@ -33,20 +34,18 @@ class ReportsController < AdminController
     @report = Report.new(report_params)
 
     if @report.save
-      check_geocoding
       redirect_to @report, notice: I18n.t("notice.created", model: Report.lowercase_human_name)
     else
-      render_form
+      render "form"
     end
   end
 
   # PATCH/PUT /reports/1
   def update
     if @report.update(report_params)
-      check_geocoding
       redirect_to @report, notice: I18n.t("notice.updated", model: Report.lowercase_human_name)
     else
-      render_form
+      render "form"
     end
   end
 
@@ -58,14 +57,13 @@ class ReportsController < AdminController
 
   private
 
-  def check_geocoding
-    flash[:error] = I18n.t("activerecord.attributes.report.address.invalid") unless @report.geocoded?
+  def set_error_flash
+    flash[:error] = @report.errors.full_messages
   end
 
-  def render_form
-    render ModelFormComponent.new @report, :name,
-                                  :interviewee, :resides_since, :interview_date, :approved, :address, :full_text
-  end
+  # def check_geocoding
+  #   flash[:error] = flash[:error].to_a.append I18n.t("activerecord.attributes.report.address.invalid") unless @report.geocoded?
+  # end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_report
@@ -77,6 +75,6 @@ class ReportsController < AdminController
     params
       .require(:report)
       .permit(:interviewee, :resides_since, :address, :addr_lat, :addr_lon, :interview_date, :approved,
-              article_attributes: [:markdown, :rendered])
+        article_attributes: [:markdown, :rendered])
   end
 end

@@ -1,0 +1,14 @@
+table.collection-table
+  thead
+    tr
+      th colspan=3 = Excerpt.model_name.human(:count => 2)
+    tr
+      th.w-72 Nome
+      th.w-12.text-right Aprovado
+      th.w-12
+  tbody
+    - @excerpts.each do |excerpt|
+      tr
+        td.leading-tight.py-1 = excerpt.name
+        td.pl-4.text-sm.uppercase.font-medium.text-gray-700 = t excerpt.approved
+        == render IndexActionsDropdownComponent.new Excerpt, show: excerpt, edit: edit_excerpt_path(excerpt), remove: excerpt

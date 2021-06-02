@@ -10,88 +10,69 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_26_181714) do
+ActiveRecord::Schema.define(version: 2021_05_27_170142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "active_storage_attachments", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
-    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
-  end
-
-  create_table "active_storage_blobs", force: :cascade do |t|
-    t.string "key", null: false
-    t.string "filename", null: false
-    t.string "content_type"
-    t.text "metadata"
-    t.string "service_name", null: false
-    t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", null: false
-    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
-
-  create_table "active_storage_variant_records", force: :cascade do |t|
-    t.bigint "blob_id", null: false
-    t.string "variation_digest", null: false
-    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
-  end
-
   create_table "articles", force: :cascade do |t|
     t.text "markdown"
     t.text "rendered"
+    t.string "owner_type"
+    t.bigint "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_type", "owner_id"], name: "index_articles_on_owner"
   end
 
   create_table "contents", force: :cascade do |t|
     t.string "name"
-    t.bigint "article_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["article_id"], name: "index_contents_on_article_id"
     t.index ["name"], name: "index_contents_on_name", unique: true
+  end
+
+  create_table "excerpts", force: :cascade do |t|
+    t.bigint "report_id", null: false
+    t.text "text"
+    t.boolean "approved"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["report_id"], name: "index_excerpts_on_report_id"
   end
 
   create_table "line_analyses", force: :cascade do |t|
     t.string "name"
     t.string "line_type"
     t.string "objective"
-    t.bigint "article_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["article_id"], name: "index_line_analyses_on_article_id"
     t.index ["name"], name: "index_line_analyses_on_name", unique: true
   end
 
-  create_table "media", force: :cascade do |t|
+  create_table "medias", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.boolean "inline", default: false, null: false
+    t.json "file_data"
+    t.string "owner_type"
+    t.bigint "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_type", "owner_id"], name: "index_medias_on_owner"
   end
 
   create_table "periods", force: :cascade do |t|
     t.string "name"
-    t.bigint "article_id"
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["article_id"], name: "index_periods_on_article_id"
   end
 
   create_table "reports", force: :cascade do |t|
     t.string "interviewee"
     t.integer "resides_since"
-    t.bigint "article_id"
     t.string "address"
     t.float "addr_lat"
     t.float "addr_lon"
@@ -99,7 +80,6 @@ ActiveRecord::Schema.define(version: 2021_05_26_181714) do
     t.boolean "approved", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["article_id"], name: "index_reports_on_article_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -123,10 +103,5 @@ ActiveRecord::Schema.define(version: 2021_05_26_181714) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "contents", "articles"
-  add_foreign_key "line_analyses", "articles"
-  add_foreign_key "periods", "articles"
-  add_foreign_key "reports", "articles"
+  add_foreign_key "excerpts", "reports"
 end

@@ -1,10 +1,11 @@
 class ContentsController < AdminController
+  include WithErrorFlash
   before_action :set_content, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/contents
   def index
     render CollectionIndexComponent.new Content, Content.all, :'document-add',
-                                        name: { header: "w-96" }
+      name: {header: "w-96"}
   end
 
   # GET /admin/contents/1
@@ -15,7 +16,7 @@ class ContentsController < AdminController
   def new
     @content = Content.new
     @content.build_article
-    render 'form'
+    render "form"
   end
 
   # GET /admin/contents/1/edit
@@ -51,11 +52,6 @@ class ContentsController < AdminController
 
   private
 
-  def render_form
-    render ModelFormComponent.new @content, :name,
-                                  name: { as: :enum }, text: {}
-  end
-
   # Use callbacks to share common setup or constraints between actions.
   def set_content
     @content = Content.find(params[:id])
@@ -63,6 +59,6 @@ class ContentsController < AdminController
 
   # Only allow a list of trusted parameters through.
   def content_params
-    params.require(:content).permit(:name, article_attributes: [:markdown, :rendered])
+    params.require(:content).permit(:name, article_attributes: [:id, :markdown, :rendered])
   end
 end

@@ -3,15 +3,15 @@
 class Report < ApplicationRecord
   attribute :interviewee
   attribute :resides_since, :integer
-  attribute :full_text
-  attribute :full_text_md
   attribute :address
   attribute :addr_lat, :float
   attribute :addr_lon, :float
   attribute :interview_date, :date
   attribute :approved, :boolean
 
-  validates :interviewee, :resides_since, :full_text, :full_text_md, :address, :interview_date, presence: true
+  has_markdown_article
+
+  validates :interviewee, :resides_since, :address, :interview_date, presence: true
 
   geocoded_by :address, latitude: :addr_lat, longitude: :addr_lon
   after_validation :geocode, if: :address_changed?

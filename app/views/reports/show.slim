@@ -1,0 +1,20 @@
+table.model-table
+  thead
+    tr
+      th colspan=2 = Report.lowercase_human_name
+    tr.border-b-2.border-black
+      td.text-center.text-xl colspan="2" = @report.name
+  tbody
+    tr.border-b
+      td.uppercase.font-medium.text-sm.text-center colspan="2" = @report.approved ? "aprovado": "pendente aprovação"
+    tr
+      td Mora em
+      td = @report.address
+    tr
+      td.w-32 desde
+      td = @report.resides_since
+    tr.border-t
+      td colspan="2"
+        article data-controller="select-excerpt" data-select-excerpt-report-value=@report.id == @report.article_rendered
+    tr
+      td colspan="2" == render ModelViewActionsComponent.new @report
