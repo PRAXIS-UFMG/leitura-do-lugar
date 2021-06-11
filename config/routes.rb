@@ -20,7 +20,8 @@ Rails.application.routes.draw do
     resources :reports
     resources :periods
     resources :contents
-    resources :medias, except: :new
+    resources :medias
+    post "medias/:id/edit", to: "medias#edit"
     resources :excerpts, except: :new
     get "excerpts/new/:report", to: "excerpts#new"
   end

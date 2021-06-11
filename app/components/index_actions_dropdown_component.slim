@@ -6,5 +6,6 @@ td.relative data-controller='dropdown' data-dropdown-open-value='false'
     - if @edit
       = link_to edit_icon, @edit, title: t('actions.edit')
     - if @remove
-      = link_to remove_icon, @remove, method: :delete, title: t('actions.remove'),
-              data: { confirm: t("confirm.destroy", model: @model.lowercase_human_name) }
+      = button_to @remove, method: :delete, title: t('actions.remove'),
+              data: { confirm: t("confirm.destroy", model: @model.lowercase_human_name) } do
+        = remove_icon

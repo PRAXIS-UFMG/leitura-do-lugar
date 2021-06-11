@@ -13,13 +13,14 @@ class ExcerptsController < AdminController
 
   # GET /excerpts/new
   def new
-    @excerpt = Excerpt.new
+    @excerpt           = Excerpt.new
     @excerpt.report_id = params[:report]
-    @excerpt.text = params[:text].presence || @excerpt.report.markdown
+    @excerpt.text      = params[:text].presence || @excerpt.report.markdown
   end
 
   # GET /excerpts/1/edit
   def edit
+
   end
 
   # POST /excerpts
@@ -29,7 +30,7 @@ class ExcerptsController < AdminController
     if @excerpt.save
       redirect_to @excerpt, notice: "Excerpt was successfully created."
     else
-      render :new
+      render 'form'
     end
   end
 
@@ -38,7 +39,7 @@ class ExcerptsController < AdminController
     if @excerpt.update(excerpt_params)
       redirect_to @excerpt, notice: "Excerpt was successfully updated."
     else
-      render :edit
+      render 'form'
     end
   end
 
@@ -57,6 +58,6 @@ class ExcerptsController < AdminController
 
   # Only allow a list of trusted parameters through.
   def excerpt_params
-    params.require(:excerpt).permit(:report_id, :text, :approved)
+    params.require(:excerpt).permit(:report_id, :text, :approved, media_ids: [])
   end
 end

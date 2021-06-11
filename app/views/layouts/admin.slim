@@ -25,8 +25,9 @@
       span.underline= current_user.username
       | )
     = link_to icon(:user, 'Usuário'), current_user, title: 'Usuário'
-    = link_to icon(:logout, 'Logout'), logout_path, title: 'Logout',
-            method: :delete, data: { confirm: 'Você tem certeza que deseja sair?' }
+    = button_to logout_path, title: 'Logout',
+            method: :delete, data: { confirm: 'Você tem certeza que deseja sair?' } do
+      = icon(:logout, 'Logout')
 
 - content_for :content do
   main.flex.flex-col.items-stretch.justify-center.mt-4.max-w-sm.mx-auto class="lg:mt-16 lg:max-w-lg"

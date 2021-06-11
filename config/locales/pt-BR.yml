@@ -59,6 +59,7 @@ pt-BR:
     description: Descrição
     description_md: Descrição
     medias: Mídias
+    approved: Aprovado
   activerecord:
     models:
       user:

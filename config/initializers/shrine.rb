@@ -19,4 +19,14 @@ class FileUploader < Shrine
   derivation :thumbnail do |file, width, height|
     ImageProcessing::MiniMagick.source(file).resize_to_limit!(width.to_i, height.to_i)
   end
+
+  class FileUploader::UploadedFile
+    def representable?
+      image?
+    end
+
+    def image?
+      metadata["mime_type"].match? /\Aimage\//
+    end
+  end
 end

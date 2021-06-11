@@ -13,46 +13,64 @@ class MediasController < AdminController
   end
 
   def inline
-    redirect_to url_for(@media.file_url), status: :see_other
+    redirect_to @media.file.url, status: :see_other
   end
 
   # GET /media/1/edit
   def edit
-    render "form"
+    respond_to do |format|
+      format.html { render "form" }
+      format.turbo_stream { render_partial "media_edit" }
+    end
   end
 
   # POST /media
   def create
     @media = Media.new(media_params)
-    saved = @media.save
 
-    if saved && @media.inline?
-      head :created, location: public_media_path(@media), id: @media.id
-    elsif saved
-      redirect_to @media, notice: t("notice.created", model: Media.lowercase_human_name)
-    elsif @media.inline?
-      head :bad_request, reason: @media.errors.full_messages.join('\n')
-    else
-      render "form"
+    respond_to do |format|
+      if @media.save
+        format.html { redirect_to @media, notice: t("notice.created", model: Media.lowercase_human_name) }
+        format.turbo_stream { render_partial "media_create" }
+      else
+        format.html { render "form" }
+        format.turbo_stream { render_partial "media_edit" }
+      end
     end
   end
 
   # PATCH/PUT /media/1
   def update
-    if @media.update(media_params)
-      redirect_to @media, notice: t("notice.updated", model: Media.lowercase_human_name)
-    else
-      render "form"
+    respond_to do |format|
+      if @media.update(media_params)
+        format.html { redirect_to @media, notice: t("notice.updated", model: Media.lowercase_human_name) }
+        format.turbo_stream { render partial: "media_update", locals: { media: @media } }
+      else
+        format.html { render "form" }
+        format.turbo_stream { render_frame_show }
+      end
     end
   end
 
   # DELETE /media/1
   def destroy
     @media.destroy
-    redirect_to medias_url, notice: t("notice.destroyed", model: Media.lowercase_human_name)
+    respond_to do |format|
+      format.html { redirect_to medias_url, notice: t("notice.destroyed", model: Media.lowercase_human_name) }
+      format.turbo_stream { render_partial "media_destroy" }
+    end
   end
 
   private
+
+  def render_partial(name)
+    render partial: name, locals: { media: @media }
+  end
+
+  def render_frame_show
+    redirect_to @media
+    # render partial: "media", locals: { media: @media }
+  end
 
   def set_error_flash
     flash[:error] = @media.errors.full_messages
@@ -65,6 +83,6 @@ class MediasController < AdminController
 
   # Only allow a list of trusted parameters through.
   def media_params
-    params.require(:media).permit(:name, :file, :description, :inline)
+    params.require(:media).permit(:name, :file, :description, :inline, :owner_type, :owner_id)
   end
 end

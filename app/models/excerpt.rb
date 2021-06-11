@@ -3,6 +3,7 @@ class Excerpt < ApplicationRecord
   attribute :approved, :boolean
 
   belongs_to :report
+  has_many_media
 
   def name
     "Trecho ##{id}: #{report.name}"

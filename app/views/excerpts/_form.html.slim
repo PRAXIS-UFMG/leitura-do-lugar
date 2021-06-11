@@ -1,9 +1,0 @@
-= admin_form_for @excerpt do |f|
-  header
-    h3.text-center.font-medium.uppercase.text-sm Trecho da entrevista
-    = link_to @excerpt.report&.name, @excerpt.report, class: 'text-lg'
-  = f.hidden_field :report_id
-  = f.hidden_field :text
-  = f.text_area :text, rows: (@excerpt.text&.size|| 0) / 25, disabled: true, class: 'text-gray-600 cursor-not-allowed'
-  = f.check_box :approved
-  == render ModelFormActionsComponent.new @excerpt

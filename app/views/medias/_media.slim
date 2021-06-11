@@ -1,0 +1,10 @@
+= turbo_frame_tag media, class: 'media-inline' do
+  - if media.file.representable?
+    = image_tag media.file.url, class: 'media-inline-image'
+  - else
+    = link_to download_icon, media.file.url, class: 'media-inline-image'
+  p.flex-grow= media.name.truncate(25)
+  = button_to edit_media_path(media), form_class: 'flex' do
+    = edit_icon
+  = button_to media_path(media), method: :delete, form_class: 'flex' do
+    = delete_icon

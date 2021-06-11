@@ -24,4 +24,8 @@ module ApplicationHelper
   def delete_icon
     icon :x, t("actions.remove")
   end
+
+  def download_icon
+    icon :download, "Download"
+  end
 end

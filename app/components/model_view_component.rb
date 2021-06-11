@@ -6,6 +6,8 @@ class ModelViewComponent < ModelComponent
     @attributes -= [head_attr]
   end
 
+  delegate :download_icon, to: :helpers
+
   def attr_type(attr)
     case @model.public_send(attr)
     when Article
@@ -15,9 +17,5 @@ class ModelViewComponent < ModelComponent
     else
       @model.class.type_for_attribute(attr.to_s).type
     end
-  end
-
-  def download_icon
-    helpers.icon :download, "Download"
   end
 end
