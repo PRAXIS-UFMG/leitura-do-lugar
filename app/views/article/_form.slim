@@ -1,0 +1,5 @@
+= form.label :article, data: { controller: "markdown-editor" } do |l|
+  p = l.translation
+  = form.fields_for :article, builder: ActionView::Helpers::FormBuilder do |f|
+    = f.hidden_field :rendered, data: { 'markdown-editor-target': "mdField" }
+    = f.text_area :markdown, data: { 'markdown-editor-target': "editorField" }

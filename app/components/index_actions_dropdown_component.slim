@@ -1,11 +1,10 @@
-td.relative data-controller='dropdown' data-dropdown-open-value='false'
-  button.table-toggle data-action="click->dropdown#toggle" = dropdown_icon
-  div.table-menu
+td.border-l.pl-2
+  .flex.items-center.gap-3
     - if @show
       = link_to show_icon, @show, title: t('actions.show')
     - if @edit
       = link_to edit_icon, @edit, title: t('actions.edit')
     - if @remove
-      = button_to @remove, method: :delete, title: t('actions.remove'),
+      = button_to @remove, method: :delete, title: t('actions.remove'), form_class: 'flex items-center',
               data: { confirm: t("confirm.destroy", model: @model.lowercase_human_name) } do
         = remove_icon

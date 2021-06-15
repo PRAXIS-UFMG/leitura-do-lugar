@@ -3,10 +3,11 @@
 class ReportsController < AdminController
   before_action :set_report, only: %i[show edit update destroy]
   after_action :set_error_flash, only: %i[create update]
+
   # GET /reports
   def index
     render CollectionIndexComponent.new Report, Report.all, :'document-add',
-      interviewee: {header: "w-56"},
+      interviewee: {header: "w-1/3"},
       interview_date: {cell: "text-center"},
       approved: {cell: "text-right uppercase text-sm"}
   end

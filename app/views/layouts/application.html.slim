@@ -13,11 +13,7 @@ html
     - else
       title Leitura do Lugar - PRAXIS/UFMG
   body.flex.flex-col
-    nav.flex.mt-2.mb-4.px-4.items-baseline.justify-between
-      header
-        h1.text-2xl
-          => "leitura"
-          span.font-bold do lugar
+    .flex.mt-2.mb-4.px-4.items-baseline.justify-between
       - if content_for?(:topbar)
         = yield(:topbar)
       - else

@@ -102,11 +102,11 @@ pt-BR:
       report:
         interviewee: Entrevistado
         resides_since: Morador Desde
-        article: Texto Completo
+        article: Texto
         address:
           one: Endereço
           invalid: endereço inválido!
-        interview_date: Data da Entrevista
+        interview_date: Data
         approved:
           one: Aprovado
           'true': sim

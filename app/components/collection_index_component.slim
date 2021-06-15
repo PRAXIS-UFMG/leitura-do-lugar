@@ -1,8 +1,8 @@
-table.collection-table
+table.collection-table.main-container
   thead
     tr
-      th colspan=@attributes.size = @model.model_name.human(:count => 2)
-      th = link_to add_icon, send("new_#{@model_name}_path"), title: t('actions.create', model: @model.class.lowercase_human_name)
+      th.collection-table-title colspan=@attributes.size = @model.model_name.human(:count => 2)
+      th.collection-table-add = link_to add_icon, send("new_#{@model_name}_path"), title: t('actions.create', model: @model.class.lowercase_human_name)
     tr
       - @attributes.each_with_index do |attr, idx|
         th class=header_classes(attr, idx) = t_header(attr)

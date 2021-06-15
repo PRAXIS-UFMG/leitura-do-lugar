@@ -1,0 +1,6 @@
+div.border-black.border-t.border-b.p-2.my-4
+  h4.form-header-small.mb-2 Mídias
+  div.media-inline-list
+    = turbo_frame_tag "medias", class: 'media-inline-list' do
+      = render resource.medias
+    = render partial: "medias/media_form", locals: { media: Media.new(owner: resource, inline: true) }

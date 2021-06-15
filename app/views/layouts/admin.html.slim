@@ -1,0 +1,42 @@
+doctype html
+html
+  head
+    meta content="text/html" charset="UTF-8" http-equiv="Content-Type"
+    meta content="width=device-width,initial-scale=1" name="viewport"
+    title Pesquisador - Leitura do Lugar
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_pack_tag 'application', media: 'all'
+    = javascript_pack_tag 'application'
+
+  body
+    header.topbar
+      h1.text-2xl
+        => "leitura"
+        span.font-bold do lugar
+        = " - área do pesquisador"
+      div.flex.gap-4.items-center
+        h2.text-lg
+          => current_user.name
+          | (
+          span.underline= current_user.username
+          | )
+        = link_to icon(:user, 'Usuário'), current_user, title: 'Usuário'
+        = button_to logout_path, title: 'Logout', form_class: 'flex',
+                method: :delete, data: { confirm: 'Você tem certeza que deseja sair?' } do
+          = icon(:logout, 'Logout')
+    nav.navbar
+      ul.navbar-list
+        - t('activerecord.models').each do |key, value|
+          li= render AdminNavlinkComponent.new label: value[:other], controller: key.to_s.pluralize
+    / .mt-4.mb-2.text-white
+    /   - if flash[:notice].present?
+    /     .border.border-praxis-400.rounded-sm
+    /       p.font-medium.bg-praxis-500.py-1.px-2.uppercase.text-xs.text-center= flash[:notice]
+    /   - if flash[:error].present?
+    /     ul.text-sm.flex.flex-col.gap-2
+    /       - flash[:error].to_a.each do |msg|
+    /         li.bg-red-500.py-1.px-2.rounded-sm.flex.items-center.gap-1.leading-tight
+    /           = icon(:exclamation, 'Erro')
+    /           span = msg
+    main.content = yield

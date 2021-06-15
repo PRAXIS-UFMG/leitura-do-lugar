@@ -7,14 +7,43 @@
 @import "../stylesheets/defaults.pcss";
 @import "../stylesheets/actions_menu.pcss";
 @import "../stylesheets/model_component.pcss";
+@import "../stylesheets/model_view.pcss";
 @import "../stylesheets/medias.pcss";
 
-/* Inline list separated by | */
-.list-vertical-separator li {
-    @apply inline;
+/* Generic container */
+.main-container {
+    @apply lg:w-[600px] mx-auto my-auto;
+}
 
-    &:not(:first-child):before {
-        @apply text-gray-400 align-top mx-2;
-        content: "|";
-    }
+body {
+    @apply h-screen w-screen;
+    display: grid;
+    grid-template-columns: 16rem 1fr 1fr;
+    grid-template-rows:  4rem 1fr 1fr;
+    grid-template-areas:
+    "navbar topbar topbar"
+    "navbar content content"
+    "navbar content content";
+}
+
+.topbar {
+    grid-area: topbar;
+    @apply flex items-center justify-between;
+    @apply px-8;
+}
+
+.navbar {
+    grid-area: navbar;
+    @apply bg-black;
+}
+
+.navbar-list {
+    @apply flex flex-col gap-8 h-full items-end;
+    @apply font-medium uppercase text-gray-800 text-white;
+    @apply pr-8 pt-16;
+}
+
+.content {
+    grid-area: content;
+    @apply p-8;
 }

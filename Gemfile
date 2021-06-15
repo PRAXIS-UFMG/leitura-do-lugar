@@ -26,6 +26,7 @@ gem "shrine", "~> 3.0"
 gem "image_processing", "~> 1.12"
 gem "redis"
 gem "turbo-rails", "~> 0.5"
+gem "honeybadger", "~> 4.0"
 
 gem "rack-timeout"
 gem "rails-i18n", "~> 6.0.0"

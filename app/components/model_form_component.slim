@@ -1,4 +1,4 @@
-div.form-container
+div.form-container.main-container
   h2.form-header
     => @model.new_record? ? t('headers.creating', model: @model.model_name.human) : t('headers.editing')
     - unless @model.new_record?

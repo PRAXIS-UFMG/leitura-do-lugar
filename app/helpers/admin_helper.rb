@@ -14,26 +14,6 @@ class AdminFormBuilder < ActionView::Helpers::FormBuilder
     end
   end
 
-  def markdown_field
-    label :article, data: { controller: "markdown-editor", 'markdown-editor-model-value': @object_name } do |l|
-      @template.content_tag(:p, l.translation) +
-        fields_for(:article, builder: ActionView::Helpers::FormBuilder) do |f|
-          f.hidden_field(:rendered, data: { 'markdown-editor-target': "mdField" }) +
-            f.text_area(:markdown, data: { 'markdown-editor-target': "editorField" })
-        end
-    end
-  end
-
-  def media_field
-    label :media do |l|
-      @template.content_tag(:p, l.translation) +
-        fields_for(:media, builder: ActionView::Helpers::FormBuilder) do |f|
-          f.hidden_field(:file, value: f.object.file) +
-            f.file_field(:file)
-        end
-    end
-  end
-
   def media_ids_field
     @template.turbo_frame_tag "media_ids", class: "hidden"
   end

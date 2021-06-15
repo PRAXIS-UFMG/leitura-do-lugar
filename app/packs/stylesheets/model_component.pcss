@@ -16,48 +16,6 @@
     @apply ring-1 ring-praxis-500 border-praxis-500 !important;
 }
 
-/* Attributes table */
-.model-table {
-    @apply table-auto border-collapse;
-
-    & thead {
-        @apply font-medium tracking-wide;
-
-        & th {
-            @apply text-center uppercase pb-4;
-        }
-    }
-
-    & td {
-        @apply pt-2 pb-1;
-        @apply max-h-40;
-    }
-
-    & td:nth-child(1) {
-        @apply pr-2;
-    }
-
-    & td:nth-child(2) {
-        @apply pl-2 border-l border-gray-400;
-    }
-
-    & .separator td {
-        @apply pt-4;
-    }
-
-    & .timestamp {
-        @apply text-sm leading-none;
-    }
-}
-
-.model-table article, .form .editor-preview {
-    @apply prose prose-praxis prose-sm;
-}
-
-.model-table-actions {
-    @apply mt-4 flex justify-center gap-16;
-}
-
 /* Forms */
 .admin-form {
     @apply flex flex-col gap-4;
@@ -93,25 +51,29 @@
 
 /* Index table */
 .collection-table {
-    @apply table-fixed border-collapse;
+    @apply border-collapse;
 
-    & thead > tr:first-child {
-        @apply leading-8;
-
-        & th:first-child {
-            @apply text-xl font-semibold;
-        }
-
-        & th {
-            @apply pb-4;
-        }
+    & thead > tr:first-child th {
+        @apply pb-4;
     }
 
     & thead > tr:not(:first-child) {
         @apply text-lg text-left border-b-2 border-black;
     }
 
+    & td:nth-last-child(2) {
+        @apply pr-2;
+    }
+
     & tbody tr {
         @apply border-b border-gray-400 leading-10;
     }
+}
+
+.collection-table-title {
+    @apply text-xl font-semibold text-left uppercase;
+}
+
+.collection-table-add {
+    @apply text-right;
 }

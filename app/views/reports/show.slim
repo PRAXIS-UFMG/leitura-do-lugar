@@ -1,20 +1,30 @@
-table.model-table
-  thead
+.model-container.main-container
+  .flex
+    .border-b-2.border-black.text-center.text-xl = @report.name
+    == render ModelViewActionsComponent.new @report
+  table.model-table
+    template#excerpt-template
+      css:
+          li[data-share-via="excerpt"] {
+              display: flex !important;
+              justify-content: center !important;
+          }
+
+          li[data-share-via="excerpt"]:hover {
+              cursor: pointer;
+          }
+      button title='Criar trecho'
+        = icon :annotation, 'Criar trecho'
     tr
-      th colspan=2 = Report.lowercase_human_name
-    tr.border-b-2.border-black
-      td.text-center.text-xl colspan="2" = @report.name
-  tbody
-    tr.border-b
-      td.uppercase.font-medium.text-sm.text-center colspan="2" = @report.approved ? "aprovado": "pendente aprovação"
+      th scope="row" Aprovado?
+      td.uppercase.font-medium.text-sm colspan="2" = @report.approved ? "sim" : "pendente"
     tr
-      td Mora em
+      th scope="row" Mora em
       td = @report.address
     tr
-      td.w-32 desde
+      th scope="row" Desde
       td = @report.resides_since
-    tr.border-t
-      td colspan="2"
-        article data-controller="select-excerpt" data-select-excerpt-report-value=@report.id == @report.article_rendered
     tr
-      td colspan="2" == render ModelViewActionsComponent.new @report
+      td colspan="2"
+        article.model-table-markdown data-controller="select-excerpt" data-select-excerpt-report-value=@report.id == @report.article_rendered
+

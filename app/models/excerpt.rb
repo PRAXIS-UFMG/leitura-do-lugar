@@ -4,6 +4,7 @@ class Excerpt < ApplicationRecord
 
   belongs_to :report
   has_many_media
+  has_markdown_article
 
   def name
     "Trecho ##{id}: #{report.name}"

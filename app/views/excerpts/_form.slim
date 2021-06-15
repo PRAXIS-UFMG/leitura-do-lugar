@@ -2,21 +2,17 @@ header
   h3.form-header-small Trecho da entrevista
   = link_to @excerpt.report&.name, @excerpt.report, class: 'block text-center text-lg'
 
-div.border-black.border-t.border-b.p-2.my-4
-  h4.form-header-small.mb-2 Mídias
-  div.media-inline-list
-    = turbo_frame_tag "medias", class: 'media-inline-list' do
-      = render @excerpt.medias
-    = render partial: "medias/media_form", locals: { media: Media.new(owner: @excerpt, inline: true) }
+= render partial: 'inline_medias', locals: { resource: @excerpt }
 
 = admin_form_for @excerpt do |f|
   = f.hidden_field :report_id
   = f.hidden_field :text
   = f.media_ids_field
-  article
-    h4.form-header-small Trecho Destacado
-    blockquote cite=report_url(@excerpt.report) title="Retirado de #{@excerpt.report.name}"
-      q.text-gray-600 = @excerpt.text
+  = render partial: 'article/form', locals: { form: f }
+  / article
+  /   h4.form-header-small Trecho Destacado
+  /   blockquote cite=report_url(@excerpt.report) title="Retirado de #{@excerpt.report.name}"
+  /     q.text-gray-600 = @excerpt.text
   = f.check_box :approved
   == render ModelFormActionsComponent.new @excerpt
 

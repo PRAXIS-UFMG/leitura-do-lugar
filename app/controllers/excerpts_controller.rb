@@ -15,7 +15,8 @@ class ExcerptsController < AdminController
   def new
     @excerpt           = Excerpt.new
     @excerpt.report_id = params[:report]
-    @excerpt.text      = params[:text].presence || @excerpt.report.markdown
+    @excerpt.build_article
+    @excerpt.article.markdown = params[:text].presence || @excerpt.report.article_markdown
   end
 
   # GET /excerpts/1/edit
@@ -58,6 +59,6 @@ class ExcerptsController < AdminController
 
   # Only allow a list of trusted parameters through.
   def excerpt_params
-    params.require(:excerpt).permit(:report_id, :text, :approved, media_ids: [])
+    params.require(:excerpt).permit(:report_id, :text, :approved, article_attributes: [:id, :markdown, :rendered], media_ids: [])
   end
 end

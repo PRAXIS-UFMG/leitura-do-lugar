@@ -47,7 +47,7 @@ class MediasController < AdminController
         format.turbo_stream { render partial: "media_update", locals: { media: @media } }
       else
         format.html { render "form" }
-        format.turbo_stream { render_frame_show }
+        format.turbo_stream { redirect_to @media }
       end
     end
   end
@@ -65,11 +65,6 @@ class MediasController < AdminController
 
   def render_partial(name)
     render partial: name, locals: { media: @media }
-  end
-
-  def render_frame_show
-    redirect_to @media
-    # render partial: "media", locals: { media: @media }
   end
 
   def set_error_flash
