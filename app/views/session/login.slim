@@ -1,9 +1,0 @@
-main.absolute.h-screen.w-screen.flex.items-center.justify-center.mb-24
-  = form_with scope: :session, url: create_session_path, class: 'flex flex-col gap-y-2' do |form|
-    h2.text-center área do pesquisador
-    = form.label :username, class: 'hidden'
-    = form.text_field :username, required: true, class: 'border border-black'
-    = form.label :password, class: 'hidden'
-    = form.password_field :password, required: true, class: 'border border-black'
-    = form.submit 'entrar', class: 'py-2 transition hover:bg-gray-200 active:bg-praxis-100'
-    p.text-red-800 = flash[:error]

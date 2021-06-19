@@ -7,13 +7,13 @@ require "rails"
 require "active_model/railtie"
 # require 'active_job/railtie'
 require "active_record/railtie"
-require "active_storage/engine"
+# require "active_storage/engine"
 require "action_controller/railtie"
-# require "action_mailer/railtie"
+require "action_mailer/railtie"
 # require "action_mailbox/engine"
 # require 'action_text/engine'
 require "action_view/railtie"
-require "action_cable/engine"
+# require "action_cable/engine"
 require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -34,8 +34,11 @@ module LeituraDoLugar
     # config.eager_load_paths << Rails.root.join("extras")
     config.i18n.default_locale = :'pt-BR'
 
-    config.view_component.preview_controller = "ComponentPreview"
-    config.view_component.default_preview_layout = "admin"
+    config.to_prepare do
+      Clearance::PasswordsController.layout "application"
+      Clearance::SessionsController.layout "application"
+      Clearance::UsersController.layout "application"
+    end
 
     # https://github.com/tailwindlabs/tailwindcss-jit/issues/195
     Webpacker::Compiler.env["TAILWIND_MODE"] = "build"

@@ -1,8 +1,0 @@
-= turbo_stream.append "medias" do
-  = turbo_frame_tag media do
-    h1 = "#{media.owner_type} - #{media.owner_id}"
-    = render partial: "media", locals: { media: media }
-
-- unless media.owner # we only need this if the owner is a new record
-  = turbo_stream.append "media_ids" do
-    = hidden_field_tag owner_medias(media), media.id

@@ -1,6 +1,0 @@
-= turbo_stream.remove media
-
-= turbo_stream.replace "media_ids" do
-  = turbo_frame_tag "media_ids" do
-    = fields_for media.owner do |f|
-      = f.hidden_field :media_ids

@@ -1,37 +1,33 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root "public_content#about_project"
-  scope :conteudo do
-    Content::NAMES.each_key do |content|
-      get content, to: "public_content##{content}", as: "#{content}_content"
-    end
-  end
-
-  scope :admin do
-    get "login", to: "session#login", as: :login
-    post "login", to: "session#create", as: :create_session
-    delete "session", to: "session#logout", as: :logout
-
-    root "admin_dashboard#index", as: :admin_root
-
-    resources :users
-    resources :line_analyses
+  namespace :admin do
     resources :reports
+    resources :articles
+    resources :excerpts
     resources :periods
     resources :contents
-
+    resources :line_analyses
     resources :medias
-    post "medias/:id/edit", to: "medias#edit"
+    resources :users
 
-    resources :article, except: [:index, :new, :destroy]
+    namespace :paper_trail do
+      resources :versions
+    end
 
-    resources :excerpts, except: :new
-    get "excerpts/new/:report", to: "excerpts#new"
+    root to: "reports#index", as: :admin_root
   end
 
-  mount FileUploader.derivation_endpoint => "/midias/v"
-  get "/midias/:id", to: "medias#inline", as: :public_media
+  scope path: :admin do
+    resources :passwords, controller: "clearance/passwords", only: [:create, :new]
+    resources :users, controller: "clearance/users", only: [:create] do
+      resource :password, controller: "clearance/passwords", only: [:edit, :update]
+    end
+    
+    resource :session, controller: "clearance/sessions", only: [:create]
+    get "/sign_in" => "clearance/sessions#new", as: "sign_in"
+    delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

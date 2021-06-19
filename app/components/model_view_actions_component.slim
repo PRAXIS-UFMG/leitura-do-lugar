@@ -1,5 +1,0 @@
-.model-table-actions
-  = link_to edit_icon, send("edit_#{@model_name}_path", @model), title: t('actions.edit')
-  = button_to send("#{@model_name}_path", @model), title: t('actions.destroy'),
-          method: :delete, data: { confirm: t("confirm.destroy", model: @model.class.lowercase_human_name) } do
-    = delete_icon

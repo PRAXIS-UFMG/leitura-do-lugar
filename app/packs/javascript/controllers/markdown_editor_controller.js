@@ -7,6 +7,7 @@ export default class extends Controller {
     static targets = ['mdField', 'editorField']
 
     connect() {
+        console.debug('wtf')
         const textarea = this.editorFieldTarget
         this.mde = new EasyMDE({
             element: textarea,

@@ -3,21 +3,10 @@ html
   head
     meta content="text/html" charset="UTF-8" http-equiv="Content-Type"
     meta content="width=device-width,initial-scale=1" name="viewport"
+    title Leitura do Lugar - PRAXIS/UFMG
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_pack_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
-
-    - if content_for?(:head)
-      = content_for(:head)
-    - else
-      title Leitura do Lugar - PRAXIS/UFMG
-  body.flex.flex-col
-    .flex.mt-2.mb-4.px-4.items-baseline.justify-between
-      - if content_for?(:topbar)
-        = yield(:topbar)
-      - else
-        ul.list-none.flex.justify-end.gap-4.font-semibold.lowercase
-          - Content::NAMES.each_key do |content|
-            li== render NavlinkComponent.new label: t("content.#{content}"), path: send("#{content}_content_path")
-    = content_for?(:content) ? yield(:content) : yield
+  body.h-screen.w-screen
+    = yield

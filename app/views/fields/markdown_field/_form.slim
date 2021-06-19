@@ -1,0 +1,12 @@
+/ <div class="field-unit__label">
+/   <%= f.label field.attribute %>
+/ </div>
+/ <div class="field-unit__field">
+/   <%= f.text_field field.attribute %>
+/ </div>
+.field-unit__label
+  = f.label field.attribute
+.field-unit__field data-controller="markdown-editor"
+  = f.fields_for :article do |af|
+    = af.hidden_field :rendered, data: { 'markdown-editor-target': "mdField" }
+    = af.text_area :markdown, data: { 'markdown-editor-target': "editorField" }
