@@ -269,6 +269,60 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="administrate-field-nested_has_many (vbundled(1.3.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-nested_has_many-1.3.0/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-nested_has_many-1.3.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-nested_has_many-1.3.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-nested_has_many-1.3.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-nested_has_many-1.3.0/config" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-nested_has_many-1.3.0/gemfiles" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-nested_has_many-1.3.0/.circleci" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-nested_has_many-1.3.0/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-nested_has_many-1.3.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-nested_has_many-1.3.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-nested_has_many-1.3.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-nested_has_many-1.3.0/config" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-nested_has_many-1.3.0/gemfiles" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-nested_has_many-1.3.0/.circleci" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-nested_has_many-1.3.0/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-nested_has_many-1.3.0/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-nested_has_many-1.3.0/config" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-nested_has_many-1.3.0/gemfiles" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-nested_has_many-1.3.0/.circleci" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="administrate-field-shrine (vbundled(0.0.5)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-shrine-0.0.5/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-shrine-0.0.5/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-shrine-0.0.5/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-shrine-0.0.5/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-shrine-0.0.5/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-shrine-0.0.5/lib" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-shrine-0.0.5/bin" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="argon2 (vbundled(2.0.3)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -491,6 +545,33 @@
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/clearance-2.4.0/config" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/clearance-2.4.0/.github" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/clearance-2.4.0/gemfiles" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="cocoon (vbundled(1.2.15)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/npm" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/gemfiles" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/npm" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/gemfiles" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/npm" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/gemfiles" />
         </excluded>
       </library>
     </orderEntry>
@@ -2238,6 +2319,8 @@
         <option value="administrate:assets:stylesheets" />
         <option value="administrate:dashboard" />
         <option value="administrate:field" />
+        <option value="administrate:install" />
+        <option value="administrate:routes" />
         <option value="administrate:view" />
         <option value="administrate:views" />
         <option value="administrate:views:edit" />
@@ -2255,6 +2338,7 @@
         <option value="clearance:install" />
         <option value="clearance:routes" />
         <option value="clearance:views" />
+        <option value="cocoon:install" />
         <option value="controller" />
         <option value="erb:controller" />
         <option value="erb:mailer" />
@@ -2296,6 +2380,8 @@
         <option value="administrate:assets:stylesheets" />
         <option value="administrate:dashboard" />
         <option value="administrate:field" />
+        <option value="administrate:install" />
+        <option value="administrate:routes" />
         <option value="administrate:view" />
         <option value="administrate:views" />
         <option value="administrate:views:edit" />
@@ -2313,6 +2399,7 @@
         <option value="clearance:install" />
         <option value="clearance:routes" />
         <option value="clearance:views" />
+        <option value="cocoon:install" />
         <option value="controller" />
         <option value="erb:controller" />
         <option value="erb:mailer" />

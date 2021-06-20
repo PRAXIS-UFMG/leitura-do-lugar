@@ -7,5 +7,5 @@ class Period < ApplicationRecord
 
   has_markdown_article
 
-  validates :name, :start_date, :end_date, :markdown, :rendered, presence: true
+  validates :name, :start_date, :end_date, presence: true
 end

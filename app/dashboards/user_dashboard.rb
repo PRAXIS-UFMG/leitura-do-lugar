@@ -8,13 +8,13 @@ class UserDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    id: Field::Number,
-    name: Field::String,
-    username: Field::String,
-    admin: Field::Boolean,
-    password: Field::Password,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    id:         Field::Number,
+    name:       Field::String,
+    email:      Field::Email,
+    admin:      BooleanField,
+    password:   Field::Password,
+    created_at: TimestampField,
+    updated_at: TimestampField,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -25,7 +25,8 @@ class UserDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     id
     name
-    username
+    email
+    admin
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -33,7 +34,7 @@ class UserDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     name
-    username
+    email
     admin
     created_at
     updated_at
@@ -44,7 +45,7 @@ class UserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     name
-    username
+    email
     admin
     password
   ].freeze
@@ -64,7 +65,7 @@ class UserDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how users are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(user)
-  #   "User ##{user.id}"
-  # end
+  def display_resource(user)
+    "#{user.name}"
+  end
 end

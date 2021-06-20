@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :reports
-    resources :articles
+    resources :articles, only: :show
     resources :excerpts
     resources :periods
     resources :contents
@@ -11,9 +11,9 @@ Rails.application.routes.draw do
     resources :medias
     resources :users
 
-    namespace :paper_trail do
-      resources :versions
-    end
+    # namespace :paper_trail do
+    #   resources :versions
+    # end
 
     root to: "reports#index", as: :admin_root
   end
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :users, controller: "clearance/users", only: [:create] do
       resource :password, controller: "clearance/passwords", only: [:edit, :update]
     end
-    
+
     resource :session, controller: "clearance/sessions", only: [:create]
     get "/sign_in" => "clearance/sessions#new", as: "sign_in"
     delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"

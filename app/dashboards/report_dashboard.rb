@@ -15,7 +15,6 @@ class ReportDashboard < Administrate::BaseDashboard
     resides_since:  Field::Number,
     interview_date: Field::Date,
     article:        MarkdownField,
-    versions:       Field::HasMany,
     created_at:     TimestampField,
     updated_at:     TimestampField,
   }.freeze

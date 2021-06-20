@@ -8,7 +8,6 @@ class ExcerptDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    # versions: Field::HasMany,
     report: Field::BelongsTo,
     medias: Field::HasMany,
     article: Field::HasOne,
@@ -24,7 +23,6 @@ class ExcerptDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    versions
     report
     medias
     article
@@ -33,7 +31,6 @@ class ExcerptDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-    versions
     report
     medias
     article
@@ -47,7 +44,6 @@ class ExcerptDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    versions
     report
     medias
     article

@@ -8,15 +8,14 @@ class MediaDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    # versions: Field::HasMany,
-    owner: Field::Polymorphic,
-    id: Field::Number,
-    name: Field::String,
+    id:          Field::Number,
+    owner:       Field::Polymorphic,
+    name:        Field::String,
     description: Field::Text,
-    inline: Field::Boolean,
-    file_data: Field::String.with_options(searchable: false),
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    inline:      Field::Boolean,
+    file:        Field::Shrine,
+    created_at:  Field::DateTime,
+    updated_at:  Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -25,7 +24,6 @@ class MediaDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    versions
     owner
     id
     name
@@ -34,13 +32,12 @@ class MediaDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-    versions
     owner
     id
     name
-    description
     inline
-    file_data
+    description
+    file
     created_at
     updated_at
   ].freeze
@@ -49,12 +46,10 @@ class MediaDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    versions
     owner
     name
+    file
     description
-    inline
-    file_data
   ].freeze
 
   # COLLECTION_FILTERS
