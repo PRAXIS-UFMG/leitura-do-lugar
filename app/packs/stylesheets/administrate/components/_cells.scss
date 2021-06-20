@@ -1,0 +1,42 @@
+.cell-label {
+  @apply pt-0 pb-4 uppercase text-gray-500 font-medium;
+  @apply transition-colors hover:text-praxis;
+
+  &:hover {
+    svg {
+      @apply fill-current text-praxis-500;
+    }
+  }
+
+  a {
+    //color: inherit;
+    display: inline-block;
+    //width: 100%;
+  }
+}
+
+.cell-label--asc,
+.cell-label--desc {
+  @apply font-bold pr-0;
+}
+
+.cell-label__sort-indicator {
+  @apply float-left mr-[4px];
+
+  svg {
+    @apply h-4 w-4 fill-current text-gray-300;
+  }
+}
+
+.cell-label__sort-indicator--desc {
+  transform: rotate(180deg);
+}
+
+.cell-data--number,
+.cell-label--number {
+  text-align: right;
+}
+
+.cell-label--number .cell-label__sort-indicator {
+  @apply float-right mr-0 ml-[4px];
+}

@@ -1,0 +1,38 @@
+/ - #
+/ - # Application Layout
+/ -
+/ - This view template is used as the layout
+/ - for every page that Administrate generates.
+/ -
+/ - By default, it renders:
+/ - - Navigation
+/ - - Content for a search bar
+/ -   (if provided by a `content_for` block in a nested page)
+/ - - Flashes
+/ - - Links to stylesheets and JavaScripts
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta name="ROBOTS" content="NOODP"
+    meta name="viewport" content="initial-scale=1"
+    title
+      = content_for(:title)
+      => "-"
+      = application_title
+
+    = stylesheet_pack_tag 'application', media: 'all'
+    = stylesheet_pack_tag 'administrate', media: 'all'
+    = javascript_pack_tag 'application'
+
+    = csrf_meta_tags
+    = csp_meta_tag if defined?(csp_meta_tag)
+  body.app-container
+    = render "icons"
+    = render "header"
+    = render "navigation"
+    .app-content
+      main.main-content[role="main"]
+        = render "flashes"
+        = yield
+          / = render "javascript"

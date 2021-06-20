@@ -1,17 +1,23 @@
 .button {
-    @apply text-sm font-medium tracking-wider uppercase text-center;
-    @apply py-2;
+    @apply text-sm font-medium tracking-wider uppercase text-center cursor-pointer;
+    @apply py-2 px-2 rounded-sm;
     @apply focus-visible:ring-2 focus-visible:ring-praxis-600;
 }
 
-.button:not(.secondary) {
+.button:not(.secondary):not(.tertiary) {
     @apply bg-praxis text-white;
-    @apply hover:bg-praxis-400 hover:text-gray-100;
-    @apply active:bg-praxis-600 active:text-gray-100;
+    @apply hover:bg-praxis-400 hover:text-gray-50;
+    @apply active:bg-praxis-600 active:text-gray-50;
 }
 
 .button.secondary {
-    @apply bg-transparent text-gray-800;
+    @apply py-1 px-0.5 text-praxis;
+    @apply hover:underline;
+    @apply active:bg-gray-50;
+}
+
+.button.tertiary {
+    @apply text-gray-800;
     @apply hover:text-praxis;
     @apply active:text-praxis-800;
 }

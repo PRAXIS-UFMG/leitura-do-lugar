@@ -1,0 +1,21 @@
+$_navigation-link-padding: 0.6em;
+
+.app-navigation {
+  @apply bg-gray;
+  @apply flex flex-col;
+}
+
+.navigation__link {
+  @apply block pl-8 py-4;
+  @apply text-white uppercase tracking-wide;
+  @apply transition-colors;
+}
+
+.navigation__link--inactive {
+  @apply hover:text-praxis-400;
+}
+
+.navigation__link--active {
+  @apply bg-white;
+  @apply font-extrabold text-black;
+}

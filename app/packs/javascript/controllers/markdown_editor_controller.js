@@ -7,14 +7,14 @@ export default class extends Controller {
     static targets = ['mdField', 'editorField']
 
     connect() {
-        console.debug('wtf')
         const textarea = this.editorFieldTarget
         this.mde = new EasyMDE({
+            autoDownloadFontAwesome: true,
             element: textarea,
             spellChecker: false,
             status: ['cursor'],
             hideIcons: ['code', 'table', 'side-by-side', 'fullscreen', 'image'],
-            maxHeight: "40vh",
+            maxHeight: "20rem",
             blockStyles: {
                 italic: '_'
             }

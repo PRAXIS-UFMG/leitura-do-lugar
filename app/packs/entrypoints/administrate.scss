@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+//@import "vendor/bundle/ruby/3.0.0/gems/selectize-rails-0.12.6/vendor/assets/stylesheets/selectize";
+//@import "vendor/bundle/ruby/3.0.0/gems/datetime_picker_rails-0.0.7/app/assets/stylesheets/datetime_picker";
+
+@import "../stylesheets/administrate/library/data-label";
+@import "../stylesheets/administrate/library/variables";
+
+@import "../stylesheets/administrate/base/forms";
+@import "../stylesheets/administrate/base/layout";
+@import "../stylesheets/administrate/base/lists";
+@import "../stylesheets/administrate/base/tables";
+@import "../stylesheets/administrate/base/typography";
+
+@import "../stylesheets/administrate/components/app-container";
+@import "../stylesheets/administrate/components/attributes";
+@import "../stylesheets/administrate/components/buttons";
+@import "../stylesheets/administrate/components/cells";
+@import "../stylesheets/administrate/components/field-unit";
+@import "../stylesheets/administrate/components/flashes";
+@import "../stylesheets/administrate/components/form-actions";
+@import "../stylesheets/administrate/components/main-content";
+@import "../stylesheets/administrate/components/navigation";
+@import "../stylesheets/administrate/components/pagination";
+@import "../stylesheets/administrate/components/search";
+
+@import "../stylesheets/administrate/utilities/text-color";
+
+.app-container {
+  @apply h-screen w-screen;
+  @apply bg-white;
+  display: grid;
+  grid-template-columns: 16rem 1fr;
+  grid-template-rows: auto 1fr;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "navbar header"
+    "navbar main"
+    "navbar main";
+}
+
+.app-navigation {
+  grid-area: navbar;
+}
+
+.app-header {
+  grid-area: header;
+}
+
+.app-navigation, .app-header {
+  @apply pt-6;
+}
+
+.app-content {
+  grid-area: main;
+}
+
+.timestamp {
+  @apply rounded text-sm px-2 py-0.5 bg-gray-100 text-gray-500;
+}

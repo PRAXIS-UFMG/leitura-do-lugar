@@ -8,16 +8,16 @@ class ReportDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    versions: Field::HasMany,
-    article: MarkdownField,
-    id: Field::Number,
-    interviewee: Field::String,
-    resides_since: Field::Number,
-    address: Field::String,
+    id:             Field::Number,
+    approved:       BooleanField,
+    interviewee:    Field::String,
+    address:        Field::String,
+    resides_since:  Field::Number,
     interview_date: Field::Date,
-    approved: Field::Boolean,
-    created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    article:        MarkdownField,
+    versions:       Field::HasMany,
+    created_at:     TimestampField,
+    updated_at:     TimestampField,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -26,22 +26,21 @@ class ReportDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    article
     id
     interviewee
+    interview_date
+    address
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-    versions
-    article
-    id
     interviewee
-    resides_since
     address
+    resides_since
     interview_date
     approved
+    article
     created_at
     updated_at
   ].freeze
@@ -50,12 +49,12 @@ class ReportDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    article
     interviewee
-    resides_since
     address
+    resides_since
     interview_date
     approved
+    article
   ].freeze
 
   # COLLECTION_FILTERS
@@ -73,7 +72,8 @@ class ReportDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how reports are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(report)
-  #   "Report ##{report.id}"
-  # end
+  def display_resource(report)
+    initials = report.interviewee.scan(/[A-Z]/).map { |c| c + "." }
+    "Relato de #{initials.join.upcase}"
+  end
 end

@@ -1,0 +1,47 @@
+.attribute-label {
+  @include data-label;
+  clear: left;
+  float: left;
+  margin-bottom: $base-spacing;
+  margin-top: 0.25em;
+  text-align: right;
+  width: calc(20% - 1rem);
+}
+
+.preserve-whitespace {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.attribute-data {
+  float: left;
+  margin-bottom: $base-spacing;
+  margin-left: 2rem;
+  width: calc(80% - 1rem);
+  word-break: break-word;
+}
+
+.attribute--nested {
+  border: $base-border;
+  padding: $small-spacing;
+}
+
+.attribute-data--boolean-field {
+  .boolean {
+    @apply rounded px-2 py-0.5 text-gray-500 text-sm;
+  }
+
+  .boolean-true {
+    @apply bg-green-100;
+  }
+
+  .boolean-false {
+    @apply bg-red-50;
+  }
+}
+
+.attribute-data--markdown-field .attribute--markdown {
+  @apply prose prose-praxis bg-gray-50;
+  @apply border border-gray-100;
+  @apply rounded p-2;
+}

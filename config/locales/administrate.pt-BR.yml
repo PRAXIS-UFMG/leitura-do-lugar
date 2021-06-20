@@ -1,0 +1,8 @@
+---
+pt-BR:
+  administrate:
+    search:
+      label: pesquisar %{resource}
+    actions:
+      new_resource: criar novo %{name}
+      back: voltar
