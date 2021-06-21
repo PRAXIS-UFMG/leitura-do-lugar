@@ -14,7 +14,7 @@ class PeriodDashboard < Administrate::BaseDashboard
     end_date: Field::Date,
     article: MarkdownField,
     created_at: TimestampField,
-    updated_at: TimestampField,
+    updated_at: TimestampField
   }.freeze
 
   # COLLECTION_ATTRIBUTES

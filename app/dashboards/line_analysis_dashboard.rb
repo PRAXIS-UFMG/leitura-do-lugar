@@ -14,7 +14,7 @@ class LineAnalysisDashboard < Administrate::BaseDashboard
     objective: Field::String,
     article: MarkdownField,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES

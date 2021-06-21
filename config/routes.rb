@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :periods
     resources :contents
     resources :line_analyses
-    resources :medias
+    # resources :medias
     resources :users
 
     # namespace :paper_trail do
@@ -26,8 +26,8 @@ Rails.application.routes.draw do
     end
 
     resource :session, controller: "clearance/sessions", only: [:create]
-    get "/sign_in" => "clearance/sessions#new", as: "sign_in"
-    delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
+    get "/sign_in" => "clearance/sessions#new", :as => "sign_in"
+    delete "/sign_out" => "clearance/sessions#destroy", :as => "sign_out"
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

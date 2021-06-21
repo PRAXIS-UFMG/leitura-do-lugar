@@ -8,15 +8,15 @@ class ReportDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    id:             Field::Number,
-    approved:       BooleanField,
-    interviewee:    Field::String,
-    address:        Field::String,
-    resides_since:  Field::Number,
+    id: Field::Number,
+    approved: BooleanField,
+    interviewee: Field::String,
+    address: Field::String,
+    resides_since: Field::Number,
     interview_date: Field::Date,
-    article:        MarkdownField.with_options(excerptable: true),
-    created_at:     TimestampField,
-    updated_at:     TimestampField,
+    article: MarkdownField.with_options(excerptable: true),
+    created_at: TimestampField,
+    updated_at: TimestampField
   }.freeze
 
   # COLLECTION_ATTRIBUTES

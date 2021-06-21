@@ -14,6 +14,6 @@ class MarkdownField < Administrate::Field::Base
   end
 
   def self.permitted_attribute(attr, _options = nil)
-    { article_attributes: [:markdown, :rendered] }
+    {article_attributes: [:markdown, :rendered]}
   end
 end

@@ -26,7 +26,7 @@ class FileUploader < Shrine
     end
 
     def image?
-      metadata["mime_type"].match? /\Aimage\//
+      metadata["mime_type"].start_with?("image/")
     end
   end
 end

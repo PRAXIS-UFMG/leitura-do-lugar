@@ -8,12 +8,12 @@ class PaperTrail::VersionDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    item:       Field::Polymorphic,
-    id:         Field::Number,
-    event:      Field::String,
-    whodunnit:  Field::String,
-    object:     Field::Text,
-    created_at: Field::DateTime,
+    item: Field::Polymorphic,
+    id: Field::Number,
+    event: Field::String,
+    whodunnit: Field::String,
+    object: Field::Text,
+    created_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -25,7 +25,7 @@ class PaperTrail::VersionDashboard < Administrate::BaseDashboard
     :item,
     :id,
     :event,
-    :whodunnit,
+    :whodunnit
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -36,7 +36,7 @@ class PaperTrail::VersionDashboard < Administrate::BaseDashboard
     :event,
     :whodunnit,
     :object,
-    :created_at,
+    :created_at
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -46,7 +46,7 @@ class PaperTrail::VersionDashboard < Administrate::BaseDashboard
     :item,
     :event,
     :whodunnit,
-    :object,
+    :object
   ].freeze
 
   # Overwrite this method to customize how versions are displayed

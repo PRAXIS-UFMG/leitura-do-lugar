@@ -8,13 +8,13 @@ class UserDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    id:         Field::Number,
-    name:       Field::String,
-    email:      Field::Email,
-    admin:      BooleanField,
-    password:   Field::Password,
+    id: Field::Number,
+    name: Field::String,
+    email: Field::Email,
+    admin: BooleanField,
+    password: Field::Password,
     created_at: TimestampField,
-    updated_at: TimestampField,
+    updated_at: TimestampField
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -66,6 +66,6 @@ class UserDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(user)
-    "#{user.name}"
+    user.name.to_s
   end
 end

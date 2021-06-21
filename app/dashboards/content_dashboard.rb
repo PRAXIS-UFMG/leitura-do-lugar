@@ -8,11 +8,11 @@ class ContentDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    id:         Field::Number,
-    article:    MarkdownField,
-    name:       Field::Select.with_options(searchable: false, collection: ->(field) { I18n.t('content').invert }),
+    id: Field::Number,
+    article: MarkdownField,
+    name: Field::Select.with_options(searchable: false, collection: ->(field) { I18n.t("content").invert }),
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES

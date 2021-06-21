@@ -6,5 +6,5 @@ class User < ApplicationRecord
   attribute :name
   attribute :admin, :boolean, default: false
 
-  validates :name,  presence: true
+  validates :name, presence: true
 end

@@ -8,11 +8,11 @@ class ArticleDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    id:         Field::Number,
-    owner:      Field::Polymorphic,
-    markdown:   Field::Text,
+    id: Field::Number,
+    owner: Field::Polymorphic,
+    markdown: Field::Text,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES

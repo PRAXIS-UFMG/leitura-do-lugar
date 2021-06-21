@@ -11,6 +11,6 @@ class Media < ApplicationRecord
   before_validation :set_name
 
   def set_name
-    self.name ||= file.metadata["filename"].split('.')[0..-1]
+    self.name ||= file.metadata["filename"].split(".")[0..]
   end
 end

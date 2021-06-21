@@ -8,14 +8,14 @@ class MediaDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    id:          Field::Number,
-    owner:       Field::Polymorphic,
-    name:        Field::String,
+    id: Field::Number,
+    owner: Field::Polymorphic,
+    name: Field::String,
     description: Field::Text,
-    inline:      Field::Boolean,
-    file:        Field::Text,
-    created_at:  Field::DateTime,
-    updated_at:  Field::DateTime,
+    inline: Field::Boolean,
+    file: Field::Text,
+    created_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES

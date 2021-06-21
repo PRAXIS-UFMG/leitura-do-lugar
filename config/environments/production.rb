@@ -36,8 +36,7 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   # config.active_storage.service = :production
 
-  config.action_mailer.default_url_options = { host: ENV["HOST"] }
-
+  config.action_mailer.default_url_options = {host: ENV["HOST"]}
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true

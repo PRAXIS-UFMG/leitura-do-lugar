@@ -8,14 +8,14 @@ class ExcerptDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    id:         Field::Number,
-    report:     Field::BelongsTo.with_options(include_blank:     false,
-                                              searchable:        true,
-                                              searchable_fields: ['interviewee']),
-    article:    MarkdownField,
-    approved:   BooleanField,
+    id: Field::Number,
+    report: Field::BelongsTo.with_options(include_blank: false,
+                                          searchable: true,
+                                          searchable_fields: ["interviewee"]),
+    article: MarkdownField,
+    approved: BooleanField,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
