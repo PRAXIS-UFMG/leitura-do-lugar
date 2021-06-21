@@ -1,2 +1,14 @@
-article.attribute--markdown
+template#excerpt-template
+  css:
+      li[data-share-via="excerpt"] {
+          display: flex !important;
+          justify-content: center !important;
+      }
+
+      li[data-share-via="excerpt"]:hover {
+          cursor: pointer;
+      }
+  button title='Criar trecho' Trecho
+  / = ApplicationHelper::icon :annotation, 'Criar trecho'
+article.attribute--markdown data-controller=("select-excerpt" if field.excerptable?) data-select-excerpt-report-value=field.owner
   == field.to_s

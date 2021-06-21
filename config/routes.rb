@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :reports
     resources :articles, only: :show
     resources :excerpts
+    get "/excerpts/new/:report", to: "excerpts#new"
     resources :periods
     resources :contents
     resources :line_analyses

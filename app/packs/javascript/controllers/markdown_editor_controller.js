@@ -1,7 +1,7 @@
 import {Controller} from "stimulus"
 import EasyMDE from "easymde";
 import 'easymde/dist/easymde.min.css'
-import marked from "marked";
+import {Converter} from "showdown";
 
 export default class extends Controller {
     static targets = ['mdField', 'editorField']
@@ -16,8 +16,9 @@ export default class extends Controller {
             hideIcons: ['code', 'table', 'side-by-side', 'fullscreen', 'image'],
             maxHeight: "20rem",
             blockStyles: {
-                italic: '_'
-            }
+                italic: '*'
+            },
+            previewRender: this.render
         })
         this.form = textarea.form
         this.form.addEventListener('submit', this.beforeSubmit)
@@ -28,7 +29,12 @@ export default class extends Controller {
     }
 
     beforeSubmit = (ev) => {
-        this.mdFieldTarget.value = marked(this.mde.value())
+        this.mdFieldTarget.value = this.render(this.mde.value())
         return true
+    }
+
+    render = (markdown) => {
+        const converter = new Converter()
+        return converter.makeHtml(markdown);
     }
 }

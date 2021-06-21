@@ -4982,7 +4982,6 @@ fsevents@^1.2.7:
     css-minimizer-webpack-plugin: ^3.0.1
     easymde: ^2.15.0
     flatpickr: ^4.6.9
-    marked: ^2.1.1
     mini-css-extract-plugin: ^1.6.0
     postcss: ^8.3.5
     postcss-import: ^14.0.2
@@ -4991,6 +4990,7 @@ fsevents@^1.2.7:
     sass: ^1.35.1
     sass-loader: ^12.1.0
     share-this: ^1.3.1
+    showdown: ^1.9.1
     stimulus: ^2.0.0
     tailwindcss: ^2.2.2
     webpack: 5.39.1
@@ -5237,7 +5237,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"marked@npm:^2.0.3, marked@npm:^2.1.1":
+"marked@npm:^2.0.3":
   version: 2.1.1
   resolution: "marked@npm:2.1.1"
   bin:
@@ -7769,6 +7769,17 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"showdown@npm:^1.9.1":
+  version: 1.9.1
+  resolution: "showdown@npm:1.9.1"
+  dependencies:
+    yargs: ^14.2
+  bin:
+    showdown: bin/showdown.js
+  checksum: ec5d438ab10fdd3639be5164f526437543be578d3289407efbd3b31fd802038c3dfb6a705dc77061cd61b0044e9b1f3a1e4d457c6f33fdf88c35ddaec0bdeed4
+  languageName: node
+  linkType: hard
+
 "signal-exit@npm:^3.0.0, signal-exit@npm:^3.0.2, signal-exit@npm:^3.0.3":
   version: 3.0.3
   resolution: "signal-exit@npm:3.0.3"
@@ -8917,6 +8928,16 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"yargs-parser@npm:^15.0.1":
+  version: 15.0.3
+  resolution: "yargs-parser@npm:15.0.3"
+  dependencies:
+    camelcase: ^5.0.0
+    decamelize: ^1.2.0
+  checksum: cced797ffcd3ca3c12af4844fb880fbd90adac7315fc160ff25ff5c4222078093933ccdfd4cb4a816a161ce032792d4a092582313d3d04360879d22480723cd6
+  languageName: node
+  linkType: hard
+
 "yargs@npm:^13.3.2":
   version: 13.3.2
   resolution: "yargs@npm:13.3.2"
@@ -8932,6 +8953,25 @@ fsevents@^1.2.7:
     y18n: ^4.0.0
     yargs-parser: ^13.1.2
   checksum: 92c612cd14a9217d7421ae4f42bc7c460472633bfc2e45f7f86cd614a61a845670d3bac7c2228c39df7fcecce0b8c12b2af65c785b1f757de974dcf84b5074f9
+  languageName: node
+  linkType: hard
+
+"yargs@npm:^14.2":
+  version: 14.2.3
+  resolution: "yargs@npm:14.2.3"
+  dependencies:
+    cliui: ^5.0.0
+    decamelize: ^1.2.0
+    find-up: ^3.0.0
+    get-caller-file: ^2.0.1
+    require-directory: ^2.1.1
+    require-main-filename: ^2.0.0
+    set-blocking: ^2.0.0
+    string-width: ^3.0.0
+    which-module: ^2.0.0
+    y18n: ^4.0.0
+    yargs-parser: ^15.0.1
+  checksum: cfe46545a6ddb535e7704a5311986e638734b4a11ed548ca7b3af43ecf99089563d54b1353e47c2d12cc7402f5a3e7c6b95c84f968a1f66bdb209c25aea638c9
   languageName: node
   linkType: hard
 

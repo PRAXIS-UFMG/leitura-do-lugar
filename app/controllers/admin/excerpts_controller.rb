@@ -8,6 +8,16 @@ module Admin
     #   send_foo_updated_email(requested_resource)
     # end
 
+    def new
+      resource = new_resource
+      resource.report == Report.find(params[:report]) if params[:report].present?
+      resource.article.markdown = params[:text] || resource.report&.article_markdown
+      authorize_resource(resource)
+      render locals: {
+        page: Administrate::Page::Form.new(dashboard, resource)
+      }
+    end
+
     # Override this method to specify custom lookup behavior.
     # This will be used to set the resource for the `show`, `edit`, and `update`
     # actions.
@@ -42,5 +52,13 @@ module Admin
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
+
+    private
+
+    def new_resource
+      resource = super
+      resource.build_article
+      resource
+    end
   end
 end

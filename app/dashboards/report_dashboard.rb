@@ -14,7 +14,7 @@ class ReportDashboard < Administrate::BaseDashboard
     address:        Field::String,
     resides_since:  Field::Number,
     interview_date: Field::Date,
-    article:        MarkdownField,
+    article:        MarkdownField.with_options(excerptable: true),
     created_at:     TimestampField,
     updated_at:     TimestampField,
   }.freeze

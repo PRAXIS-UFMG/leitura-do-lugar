@@ -10,7 +10,6 @@ class ArticleDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id:         Field::Number,
     owner:      Field::Polymorphic,
-    medias:     Field::NestedHasMany.with_options(skip: :owner),
     markdown:   Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,

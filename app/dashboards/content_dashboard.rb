@@ -9,7 +9,7 @@ class ContentDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id:         Field::Number,
-    article:    Field::HasOne,
+    article:    MarkdownField,
     name:       Field::Select.with_options(searchable: false, collection: ->(field) { I18n.t('content').invert }),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
