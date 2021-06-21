@@ -8,7 +8,7 @@ Clearance.configure do |config|
   config.redirect_url = "/admin/"
   config.rotate_csrf_on_sign_in = true
   config.same_site = nil
-  config.secure_cookie = true
-  config.signed_cookie = true
+  config.secure_cookie = false
+  config.signed_cookie = false
   config.parent_controller = "Admin::ApplicationController"
 end
