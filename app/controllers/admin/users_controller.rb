@@ -42,5 +42,11 @@ module Admin
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information
+
+    private
+
+    def show_search_bar?
+      false
+    end
   end
 end

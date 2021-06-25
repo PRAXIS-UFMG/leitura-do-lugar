@@ -32,6 +32,10 @@
   transform: rotate(180deg);
 }
 
+.cell-data, th {
+  @apply p-3;
+}
+
 .cell-data--number,
 .cell-label--number {
   text-align: right;
