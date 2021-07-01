@@ -9,14 +9,14 @@ Rails.application.routes.draw do
     resources :periods
     resources :contents
     resources :line_analyses
-    # resources :medias
+    resources :medias
     resources :users
 
     # namespace :paper_trail do
     #   resources :versions
     # end
 
-    root to: "reports#index", as: :admin_root
+    root to: "reports#index", as: :root
   end
 
   scope path: :admin do

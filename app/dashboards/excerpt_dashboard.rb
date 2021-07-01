@@ -12,6 +12,7 @@ class ExcerptDashboard < Administrate::BaseDashboard
     report: Field::BelongsTo.with_options(include_blank: false,
                                           searchable: true,
                                           searchable_fields: ["interviewee"]),
+    medias: MediasField,
     article: MarkdownField,
     approved: BooleanField,
     created_at: Field::DateTime,
@@ -33,6 +34,7 @@ class ExcerptDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     report
+    medias
     article
     approved
     created_at
@@ -44,6 +46,7 @@ class ExcerptDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     report
+    medias
     article
     approved
   ].freeze
@@ -63,7 +66,7 @@ class ExcerptDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how excerpts are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(excerpt)
-  #   "Excerpt ##{excerpt.id}"
-  # end
+  def display_resource(excerpt)
+    "Trecho ##{excerpt.id}"
+  end
 end

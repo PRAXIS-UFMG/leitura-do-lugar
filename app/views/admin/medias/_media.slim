@@ -1,0 +1,10 @@
+= turbo_frame_tag media, class: 'media-inline' do
+  - if media.inline?
+    = nested_media_id_field media.owner_type, media.id
+  - if media.file.representable?
+    = image_tag media.file.url, class: 'media-inline-image'
+  - else
+    = link_to icon(:download, 'Download'), media.file.url, class: 'button tertiary'
+  p.flex-grow= media.name.truncate(25)
+  = link_to admin_media_path(media), method: :delete, class: 'button tertiary', form_class: 'flex' do
+    = icon_tag(:x, 'Remover')

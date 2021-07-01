@@ -67,7 +67,7 @@ class MediaDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how medias are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(media)
-  #   "Media ##{media.id}"
-  # end
+  def display_resource(media)
+    "Mídia ##{media.id}"
+  end
 end

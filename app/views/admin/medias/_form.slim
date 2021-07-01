@@ -1,0 +1,8 @@
+= fields_for media, html: { class: 'content' } do |f|
+  .media-inline.media-inline-form data-controller='nested-media'
+    = f.hidden_field :owner_type, 'data-nested-media-target': 'owner'
+    = f.text_field :name, class: 'media-inline-form-name', 'data-nested-media-target': 'name'
+    = f.label :file, class: 'media-inline-form-file' do |label|
+      span data-nested-media-target="label"
+      = f.file_field :file, class: 'hidden', 'data-nested-media-target': 'file'
+    = f.button icon_tag(:add, "Salvar"), type: :button, 'data-action': 'nested-media#submit', class: 'button tertiary'

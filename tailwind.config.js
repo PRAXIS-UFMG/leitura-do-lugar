@@ -1,12 +1,10 @@
 module.exports = {
     mode: 'jit',
     purge: [
+        'lib/icons/*',
         'app/helpers/*',
         'app/views/**/*',
-        'app/controllers/*',
-        'app/components/*',
         'app/packs/entrypoints/*',
-        'app/packs/stylesheets/*',
         'app/packs/javascript/controllers/**/*.js'
     ],
     darkMode: 'media', // or 'media' or 'class'

@@ -1,0 +1,15 @@
+/ <div class="field-unit__label">
+/   <%= f.label field.attribute %>
+/ </div>
+/ <div class="field-unit__field">
+/   <%= f.text_field field.attribute %>
+/ </div>
+fieldset.contents
+  .field-unit__label
+    = f.label field.attribute
+
+  .field-unit__field
+    = turbo_frame_tag "medias", class: 'media-inline-list' do
+      = render field.owner.medias, locals: { deletable: true }
+    = render partial: "admin/medias/form", locals: { media: Media.new(owner: field.owner) }
+    = turbo_frame_tag "media_form_errors"

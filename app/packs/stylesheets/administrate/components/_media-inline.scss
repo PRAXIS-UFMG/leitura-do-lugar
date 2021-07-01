@@ -1,0 +1,26 @@
+.media-inline {
+  @apply flex h-12 w-full items-center justify-between border p-2 rounded-sm border-gray-200 gap-2;
+}
+
+.media-inline-list {
+  @apply flex flex-col gap-2 mb-2;
+}
+
+.media-inline-image {
+  @apply h-full w-auto;
+}
+
+.media-inline-form {
+  @apply py-2;
+}
+.media-inline-form-name {
+  @apply h-full flex-grow;
+  width: unset !important;
+}
+
+.media-inline-form-file {
+  @apply border border-gray-300 bg-white;
+  @apply h-full px-2 flex items-center;
+  @apply text-xs uppercase leading-none font-medium text-gray-600;
+  @apply cursor-pointer;
+}

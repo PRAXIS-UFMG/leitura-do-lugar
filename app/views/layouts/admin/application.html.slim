@@ -35,4 +35,5 @@ html
       main.main-content[role="main"]
         = render "flashes"
         = yield
-          / = render "javascript"
+        / = render "javascript"
+    == File.read "app/packs/images/icons.svg"

@@ -127,3 +127,7 @@ pt-BR:
       media:
         file: Arquivo
         description: Descrição
+      excerpt:
+        report: Relato
+        article: Trecho
+

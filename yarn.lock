@@ -1193,20 +1193,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hotwired/turbo-rails@npm:^7.0.0-beta.5":
-  version: 7.0.0-beta.5
-  resolution: "@hotwired/turbo-rails@npm:7.0.0-beta.5"
+"@hotwired/turbo-rails@npm:^7.0.0-beta.8":
+  version: 7.0.0-beta.8
+  resolution: "@hotwired/turbo-rails@npm:7.0.0-beta.8"
   dependencies:
-    "@hotwired/turbo": ^7.0.0-beta.4
-    "@rails/actioncable": ^6.1.0
-  checksum: 6419a67ded2453af9090fe08a88a468e44fe7230b92c0e812084f80b7a1e4090587cbde278aedb68a874787a0c882992a425fe6b15c87b74b1025c24413f7765
+    "@hotwired/turbo": ^7.0.0-beta.8
+    "@rails/actioncable": ^6.0.0
+  checksum: dae038113c8114909e0ec006f5331e8309aca9ef31f693f4ce6ff1222e4aff78b3b0298f9a1f1b8bcbc1779f54635373109d1e77d813a9e7ca72f02a4cec38a5
   languageName: node
   linkType: hard
 
-"@hotwired/turbo@npm:^7.0.0-beta.4":
-  version: 7.0.0-beta.5
-  resolution: "@hotwired/turbo@npm:7.0.0-beta.5"
-  checksum: 424a77249393373ce6f3d0b273c6ba8fa9c84854b2add33628b7b66da268abbdead2eead1afd76fa63012ec6ee271d7d6716a51e5eb58a5f72977eb5a83be6fb
+"@hotwired/turbo@npm:^7.0.0-beta.8":
+  version: 7.0.0-beta.8
+  resolution: "@hotwired/turbo@npm:7.0.0-beta.8"
+  checksum: 364f792672544c13ca8703864b3a57cf1b2cfd7a5eb945037d295d766d370333a7ccb084d79950352243fef84dab8c56f7daed113b8beb907e63e2056d84713b
   languageName: node
   linkType: hard
 
@@ -1247,26 +1247,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rails/actioncable@npm:^6.1.0":
-  version: 6.1.3
-  resolution: "@rails/actioncable@npm:6.1.3"
-  checksum: 519463b2bcc8862ae74723397d7b6e43b95e53edf57614fc18d2d579f48b425d0545e243f770cb92533f9d9ca476fa4b45043ead0e611fa680769720c026edbc
+"@rails/actioncable@npm:^6.0.0":
+  version: 6.1.4
+  resolution: "@rails/actioncable@npm:6.1.4"
+  checksum: 2039c4ae831225ad2d370b7bed6d590be6b46366911dd40f5cea409114471e70b4d2610379aed1443bc3b327ee3c746b5e5c43f730968e78c7d19335bfe932de
   languageName: node
   linkType: hard
 
-"@rails/activestorage@npm:^6.0.3-7":
-  version: 6.1.3
-  resolution: "@rails/activestorage@npm:6.1.3"
-  dependencies:
-    spark-md5: ^3.0.0
-  checksum: 2e578cc6f232159b1cb8d8012666eb4795a51486eea8ea876f2a5e483911da9ca0996fed762e92c01f1bdeb2a767f9c2ae87f2cfd7518c189eab5574e299b97d
+"@rails/request.js@npm:^0.0.4":
+  version: 0.0.4
+  resolution: "@rails/request.js@npm:0.0.4"
+  checksum: 4e9be905efb6940212a1c1c31834d7a2c041e1fc41498d3a014ca1cce3ac6242efad3537d030aba24524daabb2982262f68d906437d91e60404943904b1d3290
   languageName: node
   linkType: hard
 
-"@rails/ujs@npm:^6.1.3":
-  version: 6.1.3
-  resolution: "@rails/ujs@npm:6.1.3"
-  checksum: 62be570822307c411ffcfbec5c103048d4d60624cdab42b9f60fc5e79626d5975e220fda09ef52f584ee7ca1024ca22757602d1ee25658ec46dba0ea96b67f47
+"@rails/ujs@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@rails/ujs@npm:6.1.4"
+  checksum: 5cc92030ff456615bb34ef7d8e594d33aa9d0f981115f8f335aaa47f926ec0d133f36ac30c43940169dace1fb591e47dcb6efd4396ae6a4f8caa63f215e998a4
   languageName: node
   linkType: hard
 
@@ -1843,7 +1841,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"anymatch@npm:~3.1.1, anymatch@npm:~3.1.2":
+"anymatch@npm:~3.1.2":
   version: 3.1.2
   resolution: "anymatch@npm:3.1.2"
   dependencies:
@@ -2387,7 +2385,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:>=3.0.0 <4.0.0":
+"chokidar@npm:>=3.0.0 <4.0.0, chokidar@npm:^3.5.1":
   version: 3.5.2
   resolution: "chokidar@npm:3.5.2"
   dependencies:
@@ -2426,25 +2424,6 @@ __metadata:
     fsevents:
       optional: true
   checksum: 0758dcc7c6c7ace5924cf3c68088210932d391ab41026376b0adb8e07013ac87232e029f13468dfc9ca4dd59adae62a2b7eaedebb6c4e4f0ba92cbf3ac9e3721
-  languageName: node
-  linkType: hard
-
-"chokidar@npm:^3.5.1":
-  version: 3.5.1
-  resolution: "chokidar@npm:3.5.1"
-  dependencies:
-    anymatch: ~3.1.1
-    braces: ~3.0.2
-    fsevents: ~2.3.1
-    glob-parent: ~5.1.0
-    is-binary-path: ~2.1.0
-    is-glob: ~4.0.1
-    normalize-path: ~3.0.0
-    readdirp: ~3.5.0
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  checksum: 61b3f710f9e7dc69d76f638d8b0d37bad586497444165125ca8062f7192695f35403b5f622cbd7dfdd06805201ceaba40ff90e53ea2974df9a8087861192a99b
   languageName: node
   linkType: hard
 
@@ -3877,7 +3856,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"fsevents@patch:fsevents@~2.3.1#builtin<compat/fsevents>, fsevents@patch:fsevents@~2.3.2#builtin<compat/fsevents>":
+"fsevents@patch:fsevents@~2.3.2#builtin<compat/fsevents>":
   version: 2.3.2
   resolution: "fsevents@patch:fsevents@npm%3A2.3.2#builtin<compat/fsevents>::version=2.3.2&hash=11e9ea"
   dependencies:
@@ -3886,7 +3865,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"fsevents@~2.3.1, fsevents@~2.3.2":
+fsevents@~2.3.2:
   version: 2.3.2
   resolution: "fsevents@npm:2.3.2"
   dependencies:
@@ -3976,7 +3955,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"glob-parent@npm:^5.1.0, glob-parent@npm:~5.1.0, glob-parent@npm:~5.1.2":
+"glob-parent@npm:^5.1.0, glob-parent@npm:~5.1.2":
   version: 5.1.2
   resolution: "glob-parent@npm:5.1.2"
   dependencies:
@@ -4971,9 +4950,9 @@ fsevents@^1.2.7:
   version: 0.0.0-use.local
   resolution: "leitura-do-lugar@workspace:."
   dependencies:
-    "@hotwired/turbo-rails": ^7.0.0-beta.5
-    "@rails/activestorage": ^6.0.3-7
-    "@rails/ujs": ^6.1.3
+    "@hotwired/turbo-rails": ^7.0.0-beta.8
+    "@rails/request.js": ^0.0.4
+    "@rails/ujs": ^6.1.4
     "@rails/webpacker": 6.0.0-beta.7
     "@tailwindcss/forms": ^0.3.3
     "@tailwindcss/typography": ^0.4.1
@@ -7186,15 +7165,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"readdirp@npm:~3.5.0":
-  version: 3.5.0
-  resolution: "readdirp@npm:3.5.0"
-  dependencies:
-    picomatch: ^2.2.1
-  checksum: a64fe5606937d9655252230003362d95da05dbfd3baecedb4bb8c1bc0df497d051a192f9b75345c944e58a0b362c68349be602d6dbf05d03770e510b35a9f80f
-  languageName: node
-  linkType: hard
-
 "readdirp@npm:~3.6.0":
   version: 3.6.0
   resolution: "readdirp@npm:3.6.0"
@@ -7947,13 +7917,6 @@ fsevents@^1.2.7:
   version: 0.7.3
   resolution: "source-map@npm:0.7.3"
   checksum: 351ce26ffa1ebf203660c0d70d7566c81e65d2d994d1c2d94da140808e02da34961673ce12ecea9b40797b96fbeb8c70bf71a4ad9f779f1a4fdbba75530bb386
-  languageName: node
-  linkType: hard
-
-"spark-md5@npm:^3.0.0":
-  version: 3.0.1
-  resolution: "spark-md5@npm:3.0.1"
-  checksum: 2785248ac7a9a75711c2fc1b1afe91fd28d062427501671c51c9c8abf4f26b66e36a9d5e97626cbde01950c2a20c646731954cc723b42c4a6de75c579bb6a215
   languageName: node
   linkType: hard
 

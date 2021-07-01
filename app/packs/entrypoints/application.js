@@ -1,9 +1,10 @@
 import Rails from "@rails/ujs"
-import {Turbo} from "@hotwired/turbo-rails"
-import StimulusApplication from "../javascript/stimulus"
-
 Rails.start()
+
+import { Turbo } from "@hotwired/turbo-rails"
 window.Turbo = Turbo
+
+import StimulusApplication from "../javascript/stimulus"
 StimulusApplication()
 
 // Uncomment to copy all static images under ../images to the output folder and reference

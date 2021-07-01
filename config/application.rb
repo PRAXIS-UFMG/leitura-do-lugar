@@ -38,6 +38,8 @@ module LeituraDoLugar
       Clearance::PasswordsController.layout "application"
       Clearance::SessionsController.layout "application"
       Clearance::UsersController.layout "application"
+
+      Administrate::ApplicationController.helper LeituraDoLugar::Application.helpers
     end
 
     # https://github.com/tailwindlabs/tailwindcss-jit/issues/195

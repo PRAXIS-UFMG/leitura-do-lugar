@@ -12,7 +12,6 @@
 @import "../stylesheets/administrate/base/tables";
 @import "../stylesheets/administrate/base/typography";
 
-@import "../stylesheets/administrate/components/app-container";
 @import "../stylesheets/administrate/components/attributes";
 @import "../stylesheets/administrate/components/buttons";
 @import "../stylesheets/administrate/components/cells";
@@ -23,6 +22,7 @@
 @import "../stylesheets/administrate/components/navigation";
 @import "../stylesheets/administrate/components/pagination";
 @import "../stylesheets/administrate/components/search";
+@import "../stylesheets/administrate/components/media-inline";
 
 .app-container {
   @apply h-screen w-screen;
@@ -51,6 +51,7 @@
 
 .app-content {
   grid-area: main;
+  @apply flex mx-auto max-w-[100rem] p-4;
 }
 
 .timestamp {

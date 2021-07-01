@@ -2,12 +2,12 @@ header.app-header
   h1.app-header-title
     => "leitura"
     span.font-bold do lugar
-  .user-actions.flex.gap-x-3.items-center
+  .user-actions.flex.items-center
     h2.text-lg
       => current_user.name
       | (
       span.underline= current_user.email
       | )
-    = link_to "u", admin_user_path(current_user), title: 'Usuário'
-    = link_to "l", sign_out_path, title: 'Logout',
+    = link_to icon_tag('user', "Usuário"), admin_user_path(current_user), title: 'Usuário', class: 'button tertiary'
+    = link_to icon_tag('logout', 'Logout'), sign_out_path, title: 'Logout', class: 'button tertiary',
             method: :delete, data: { confirm: 'Você tem certeza que deseja sair?' }
