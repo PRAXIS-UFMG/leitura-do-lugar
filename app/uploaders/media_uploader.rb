@@ -1,11 +1,4 @@
 class MediaUploader < Shrine
-  # plugins and uploading logic
-  plugin :derivation_endpoint, prefix: "midias/v"
-
-  derivation :thumbnail do |file, width, height|
-    ImageProcessing::MiniMagick.source(file).resize_to_limit!(width.to_i, height.to_i)
-  end
-
   class MediaUploader::Attacher < Shrine::Attacher
     def activerecord_after_save; end
 
