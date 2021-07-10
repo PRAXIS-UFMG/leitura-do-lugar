@@ -8,9 +8,9 @@ class ContentDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    id: Field::Number,
     article: MarkdownField,
-    name: Field::Select.with_options(searchable: false, collection: ->(field) { I18n.t("content").invert }),
+    slug: Field::String,
+    title: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -21,15 +21,15 @@ class ContentDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    id
-    name
+    slug
+    title
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-    id
-    name
+    slug
+    title
     article
     created_at
     updated_at
@@ -39,7 +39,8 @@ class ContentDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    name
+    title
+    slug
     article
   ].freeze
 
@@ -58,7 +59,7 @@ class ContentDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how contents are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(content)
-  #   "Content ##{content.id}"
-  # end
+  def display_resource(content)
+    "Conteúdo \"#{content.title}\""
+  end
 end

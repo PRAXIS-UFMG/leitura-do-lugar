@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :api do
+    get 'contents/:slug', to: "contents#show"
+  end
+
   namespace :admin do
     resources :reports
     resources :articles, only: :show

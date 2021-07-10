@@ -67,4 +67,7 @@ Rails.application.configure do
 
   # Disable generating CSS files
   config.generators.stylesheets = false
+
+  # Render debugging information preserving the response format
+  config.debug_exception_response_format = :api
 end

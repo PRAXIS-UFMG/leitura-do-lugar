@@ -48,6 +48,7 @@ class UserDashboard < Administrate::BaseDashboard
     email
     admin
     password
+    password_confirmation
   ].freeze
 
   # COLLECTION_FILTERS

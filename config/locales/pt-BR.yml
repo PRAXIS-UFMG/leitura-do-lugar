@@ -119,10 +119,8 @@ pt-BR:
         end_date: Fim
         article: Descrição
       content:
-        name:
-          one: Nome
-          about_project: Descrição do Projeto
-          team_and_aid: Equipe & Apoio
+        title: Título
+        slug: URL
         article: Texto
       media:
         file: Arquivo
