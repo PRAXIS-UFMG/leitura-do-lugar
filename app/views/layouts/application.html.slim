@@ -8,5 +8,6 @@ html
     = csp_meta_tag
     = stylesheet_pack_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
+    = render partial: 'favicon'
   body.h-screen.w-screen
     = yield
