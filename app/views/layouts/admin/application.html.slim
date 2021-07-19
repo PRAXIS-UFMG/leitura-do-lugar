@@ -30,12 +30,11 @@ html
 
     = render partial: 'application/favicon'
   body.app-container
-    = render "icons"
+    = render partial: "icons"
     = render "header"
     = render "navigation"
     .app-content
       main.main-content[role="main"]
         = render "flashes"
         = yield
-        / = render "javascript"
     == File.read "app/packs/images/icons.svg"

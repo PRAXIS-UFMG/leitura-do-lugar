@@ -9,5 +9,5 @@ header.app-header
       span.underline= current_user.email
       | )
     = link_to icon_tag('user', "Usuário"), admin_user_path(current_user), title: 'Usuário', class: 'button tertiary'
-    = link_to icon_tag('logout', 'Logout'), sign_out_path, title: 'Logout', class: 'button tertiary',
-            method: :delete, data: { confirm: 'Você tem certeza que deseja sair?' }
+    = button_to sign_out_path, method: :delete, title: 'Logout', class: 'button tertiary', data: { confirm: 'Você tem certeza que deseja sair?', turbo: "false" } do
+      = icon_tag 'logout', 'Logout'
