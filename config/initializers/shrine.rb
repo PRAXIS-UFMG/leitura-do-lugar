@@ -1,7 +1,7 @@
 require "shrine"
 require "shrine/storage/file_system"
 
-STORAGE_FOLDER = ENV.fetch "STORAGE_FOLDER", "tmp"
+STORAGE_FOLDER = ENV.fetch "STORAGE_FOLDER", "storage"
 
 Shrine.storages = {
   cache: Shrine::Storage::FileSystem.new(STORAGE_FOLDER, prefix: "cache"), # temporary

@@ -1,5 +1,5 @@
-import {Controller} from "stimulus"
-import {post} from '@rails/request.js'
+import { Controller } from "stimulus"
+import { post } from '@rails/request.js'
 
 export default class extends Controller {
     static targets = ["owner", "name", "file", "label"]
@@ -32,13 +32,14 @@ export default class extends Controller {
         this.resetLabel()
     }
 
-    submit = (event) => {
+    submit = async (event) => {
         console.debug("porra pqp")
         event.preventDefault();
         const form = new FormData();
         form.append("media[owner_type]", this.owner.value)
         form.append("media[name]", this.name.value)
         form.append("media[file]", this.file.files.item(0))
-        post('/admin/medias', {headers: {Accept: "text/vnd.turbo-stream.html"}, body: form})
+        await post('/admin/medias', { headers: { Accept: "text/vnd.turbo-stream.html" }, body: form })
+        this.reset()
     }
 }

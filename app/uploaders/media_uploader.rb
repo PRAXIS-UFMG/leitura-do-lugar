@@ -1,4 +1,6 @@
 class MediaUploader < Shrine
+  plugin :download_endpoint, prefix: "medias"
+
   class MediaUploader::Attacher < Shrine::Attacher
     def activerecord_after_save; end
 

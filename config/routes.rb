@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     get 'contents/:slug', to: "contents#show"
   end
 
+  mount MediaUploader.download_endpoint => "/medias"
+
   # Clearance auth routes and roots
   resources :passwords, controller: 'clearance/passwords', only: [:create, :new]
   resources :users, controller: 'clearance/users', only: Clearance.configuration.user_actions do

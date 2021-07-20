@@ -2,7 +2,7 @@
   - if media.inline?
     = nested_media_id_field media.owner_type, media.id
   - if media.file.representable?
-    = image_tag media.file.url, class: 'media-inline-image'
+    = image_tag media.file.download_url, class: 'media-inline-image'
   - else
     = link_to icon(:download, 'Download'), media.file.url, class: 'button tertiary'
   p.flex-grow= media.name.truncate(25)

@@ -62,7 +62,6 @@ class MediaDashboard < Administrate::BaseDashboard
   #   COLLECTION_FILTERS = {
   #     open: ->(resources) { resources.where(open: true) }
   #   }.freeze
-  COLLECTION_FILTERS = {}.freeze
 
   # Overwrite this method to customize how medias are displayed
   # across all pages of the admin dashboard.
