@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resource :session, controller: 'clearance/sessions', only: [:create]
 
   constraints Clearance::Constraints::SignedIn.new do
+    root to: redirect('/admin'), format: :html
+
     # Admin panel
     namespace :admin do
       resources :reports
