@@ -1,6 +1,6 @@
 /* Markdown textarea */
 .EasyMDEContainer {
-    @apply rounded-none border border-gray-500 !important;
+    @apply rounded-none border border-gray-300 !important;
 }
 
 .editor-toolbar, .cm-s-easymde {
@@ -18,4 +18,35 @@
 
 .editor-preview.editor-preview-active {
     @apply prose prose-praxis;
+}
+
+
+/* Input label */
+.field-unit--markdown-field .field-unit__label {
+    @apply pt-3 items-start;
+}
+
+/* Select excerpt */
+.share-this-popover > ul > li {
+    @apply flex justify-center;
+}
+
+li[data-share-via="excerpt"]:hover {
+    @apply cursor-pointer;
+}
+
+.share-this-popover > ul {
+    @apply bg-praxis-500 hover:bg-praxis-400 active:bg-praxis-600;
+}
+
+.share-this-popover::before {
+    @apply border-t-praxis-500;
+}
+
+.share-this-popover:hover::before {
+    @apply border-t-praxis-400;
+}
+
+.share-this-popover:active::before {
+    @apply border-t-praxis-600;
 }

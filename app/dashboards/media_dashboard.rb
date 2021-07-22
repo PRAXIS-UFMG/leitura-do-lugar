@@ -13,7 +13,7 @@ class MediaDashboard < Administrate::BaseDashboard
     name: Field::String,
     description: Field::Text,
     inline: Field::Boolean,
-    file: Field::Text,
+    file: Field::Shrine,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze

@@ -41,6 +41,12 @@ gem "clearance", "~> 2.4"
 # A Rails engine for creating super-flexible admin dashboards
 # (https://administrate-demo.herokuapp.com/)
 gem "administrate", "~> 0.16"
+# Turbo gives you the speed of a single-page web application without having to write any JavaScript
+# (https://github.com/hotwired/turbo-rails)
+gem "turbo-rails", "~> 0.5.12"
+# Cocoon makes it easier to handle nested forms.
+# (https://github.com/nathanvda/cocoon)
+gem "cocoon", "~> 1.2"
 
 # Error reports you can be happy about.
 # (https://github.com/honeybadger-io/honeybadger-ruby)
@@ -100,6 +106,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
-
-gem "turbo-rails", "~> 0.5.12"
-

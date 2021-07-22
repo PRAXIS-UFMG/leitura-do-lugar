@@ -3,9 +3,12 @@
   "private": true,
   "dependencies": {
     "@hotwired/turbo-rails": "^7.0.0-beta.8",
+    "@nathanvda/cocoon": "^1.2.14",
     "@rails/request.js": "^0.0.4",
     "@rails/ujs": "^6.1.4",
     "@rails/webpacker": "6.0.0-beta.7",
+    "choices.js": "^9.0.1",
+    "cocoon-js-vanilla": "^1.2.0",
     "easymde": "^2.15.0",
     "flatpickr": "^4.6.9",
     "sass": "^1.35.2",

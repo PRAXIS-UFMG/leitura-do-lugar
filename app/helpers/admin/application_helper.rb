@@ -1,6 +1,7 @@
 module Admin::ApplicationHelper
-  def nested_media_id_field(owner, id)
-    name = "#{owner.downcase.to_sym}[media_ids][]"
-    hidden_field_tag name, id
+  def nested_media_field(media, field, **options)
+    owner_prefix = media.owner_type.downcase
+    name = "#{owner_prefix}[medias][][#{field}]"
+    hidden_field_tag name, media.public_send(field), options
   end
 end

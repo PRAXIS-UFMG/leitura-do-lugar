@@ -38,7 +38,6 @@ export default class extends Controller {
 
     render = (text, rawText, shareUrl) => {
         this.report = this.reportValue
-        console.debug(encodeURIComponent(this.getSelectionHtml()))
         return this.template.innerHTML
     }
 

@@ -1,0 +1,16 @@
+<component name="ProjectCodeStyleConfiguration">
+  <code_scheme name="Project" version="173">
+    <JSCodeStyleSettings version="0">
+      <option name="SPACES_WITHIN_OBJECT_LITERAL_BRACES" value="true" />
+      <option name="SPACES_WITHIN_IMPORTS" value="true" />
+    </JSCodeStyleSettings>
+    <Ruby>
+      <option name="INDENT_WHEN_CASES" value="true" />
+    </Ruby>
+    <codeStyleSettings language="ruby">
+      <indentOptions>
+        <option name="SMART_TABS" value="true" />
+      </indentOptions>
+    </codeStyleSettings>
+  </code_scheme>
+</component>

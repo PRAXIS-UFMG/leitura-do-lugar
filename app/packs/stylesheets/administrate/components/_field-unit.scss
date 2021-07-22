@@ -9,7 +9,7 @@
 }
 
 .field-unit__label {
-  @apply w-48 flex items-center;
+  @apply w-48 flex items-center flex-shrink-0;
 }
 
 .field-unit__field {

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_10_031702) do
+ActiveRecord::Schema.define(version: 2021_07_21_162316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2021_07_10_031702) do
     t.boolean "approved"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "line_analysis_id"
+    t.index ["line_analysis_id"], name: "index_excerpts_on_line_analysis_id"
     t.index ["report_id"], name: "index_excerpts_on_report_id"
   end
 
@@ -106,5 +108,6 @@ ActiveRecord::Schema.define(version: 2021_07_10_031702) do
     t.index ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id"
   end
 
+  add_foreign_key "excerpts", "line_analyses"
   add_foreign_key "excerpts", "reports"
 end

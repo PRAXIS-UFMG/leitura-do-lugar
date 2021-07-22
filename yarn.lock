@@ -1121,12 +1121,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.8.4":
-  version: 7.13.10
-  resolution: "@babel/runtime@npm:7.13.10"
+"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.8.4, @babel/runtime@npm:^7.9.2":
+  version: 7.14.8
+  resolution: "@babel/runtime@npm:7.14.8"
   dependencies:
     regenerator-runtime: ^0.13.4
-  checksum: 22014226b96a8c8e8d4e8bcdb011f317d1b32881aef424a669dc6ceaee14993d3609172967853cbf9c25c724c25145d45885b6c9df56ba241c12820776607f1f
+  checksum: ebadb3e013a26e0f62abea0da6f6f5d83c9566f0d900e65069885f93088066c64586076d15dcbe6e093c536f66cffc9e2e136ad5d8b3e66235af62f0051afa42
   languageName: node
   linkType: hard
 
@@ -1200,6 +1200,15 @@ __metadata:
   version: 7.0.0-beta.8
   resolution: "@hotwired/turbo@npm:7.0.0-beta.8"
   checksum: 364f792672544c13ca8703864b3a57cf1b2cfd7a5eb945037d295d766d370333a7ccb084d79950352243fef84dab8c56f7daed113b8beb907e63e2056d84713b
+  languageName: node
+  linkType: hard
+
+"@nathanvda/cocoon@npm:^1.2.14":
+  version: 1.2.14
+  resolution: "@nathanvda/cocoon@npm:1.2.14"
+  dependencies:
+    jquery: ^3.3.1
+  checksum: c0b89c2d903a0898253f6997f674461ce92d817167cd746ef09014683c98fe46cf958910a27dd22033ea4f7c0d4bcdb9323e0357c70d401cd619c6fcbfac961b
   languageName: node
   linkType: hard
 
@@ -2361,6 +2370,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"choices.js@npm:^9.0.1":
+  version: 9.0.1
+  resolution: "choices.js@npm:9.0.1"
+  dependencies:
+    deepmerge: ^4.2.0
+    fuse.js: ^3.4.5
+    redux: ^4.0.4
+  checksum: b5fe94e388aea5a85c4c764aaf0757a3ba92555a3200b8359854ec88b8afb50468d922ae1144d5cd71b4fa8ca02014d403cbf9c49a6eb31f83f5c46cfaa00213
+  languageName: node
+  linkType: hard
+
 "chokidar@npm:>=3.0.0 <4.0.0, chokidar@npm:^3.5.2":
   version: 3.5.2
   resolution: "chokidar@npm:3.5.2"
@@ -2455,6 +2475,13 @@ __metadata:
     kind-of: ^6.0.2
     shallow-clone: ^3.0.0
   checksum: b0146d66cabc7e609d23d10155dcc88e2f74b03539b3b65f8a05f889500e2a78b6c6265a744445d009d512a1afa16836f62aa5737d462027142984c2d41130c8
+  languageName: node
+  linkType: hard
+
+"cocoon-js-vanilla@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "cocoon-js-vanilla@npm:1.2.0"
+  checksum: c26ba7af75c48e109b57a3ad2a70edfc2d3a5eb3fa522602f39ffdc5ed620397e054f18eba7724c13aa4158196ff23f14ddfa74d1b9b2116cd2a36dc8a776703
   languageName: node
   linkType: hard
 
@@ -2995,7 +3022,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"deepmerge@npm:^4.0":
+"deepmerge@npm:^4.0, deepmerge@npm:^4.2.0":
   version: 4.2.2
   resolution: "deepmerge@npm:4.2.2"
   checksum: 85abf8e0045ee280996e7d2396979c877ef0741e413b716e42441110e0a83ac08098b2a49cea035510060bf667c0eae3189b2a52349f5fa4b000c211041637b1
@@ -3793,6 +3820,13 @@ fsevents@~2.3.2:
   version: 1.1.1
   resolution: "function-bind@npm:1.1.1"
   checksum: ffad86e7d2010ba179aaa6a3987d2cc0ed48fa92d27f1ed84bfa06d14f77deeed5bfbae7f00bdebc0c54218392cab2b18ecc080e2c72f592431927b87a27d42b
+  languageName: node
+  linkType: hard
+
+"fuse.js@npm:^3.4.5":
+  version: 3.6.1
+  resolution: "fuse.js@npm:3.6.1"
+  checksum: 2eebc6f8f74abdbf65557f2fe81679ddfb20890482343892bfef43742ad3b7146cc9b89f5b12a40b35ecdfb1d8401848d567fc727261fa90fa87e899e8ec6112
   languageName: node
   linkType: hard
 
@@ -4690,6 +4724,13 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
+"jquery@npm:^3.3.1":
+  version: 3.6.0
+  resolution: "jquery@npm:3.6.0"
+  checksum: a0a819022a1bdff5efa79bbd9d4d7352de5bd32dabe42108e6ec0797238dba36c09c108e0eea2724f5d03acc1b30ee87d76bec80e15b9510106532292ebe6ba4
+  languageName: node
+  linkType: hard
+
 "js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -4841,12 +4882,15 @@ fsevents@~2.3.2:
   resolution: "leitura-do-lugar@workspace:."
   dependencies:
     "@hotwired/turbo-rails": ^7.0.0-beta.8
+    "@nathanvda/cocoon": ^1.2.14
     "@rails/request.js": ^0.0.4
     "@rails/ujs": ^6.1.4
     "@rails/webpacker": 6.0.0-beta.7
     "@tailwindcss/forms": ^0.3.3
     "@tailwindcss/typography": ^0.4.1
     autoprefixer: ^10.3.1
+    choices.js: ^9.0.1
+    cocoon-js-vanilla: ^1.2.0
     css-loader: ^6.1.0
     css-minimizer-webpack-plugin: ^3.0.2
     easymde: ^2.15.0
@@ -6673,6 +6717,15 @@ fsevents@~2.3.2:
     css-unit-converter: ^1.1.1
     postcss-value-parser: ^3.3.0
   checksum: 9db44f858fcad6dc58e55d269b639b2225a9ec9753307d5bc55db4115bcf3692d8697027559e7350b9253420249f049e1b5a0e30a51b57a76e650d876003d175
+  languageName: node
+  linkType: hard
+
+"redux@npm:^4.0.4":
+  version: 4.1.0
+  resolution: "redux@npm:4.1.0"
+  dependencies:
+    "@babel/runtime": ^7.9.2
+  checksum: d939d0df1e12982c66c0ea767c8ec98276ee981ce0381222239b7f823c6ad02ea3e3c622859bcb4934446b3f86d735db35d7bd8b1697d359070e5fbef1f4ad49
   languageName: node
   linkType: hard
 

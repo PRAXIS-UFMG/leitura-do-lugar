@@ -24,7 +24,10 @@ Rails.application.routes.draw do
       resources :periods
       resources :contents
       resources :line_analyses
-      resources :medias
+      resources :medias do
+        collection { post :validate_inline }
+        member { delete :destroy_inline }
+      end
       resources :users
       namespace :paper_trail do
         resources :versions

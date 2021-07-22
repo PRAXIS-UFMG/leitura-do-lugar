@@ -2,37 +2,8 @@ module Admin
   class MediasController < Admin::ApplicationController
     # Overwrite any of the RESTful controller actions to implement custom behavior
     # For example, you may want to send an email after a foo is updated.
-    #
-    def create
-      respond_to do |format|
-        format.turbo_stream do
-          media = Media.new(**media_params, inline: true)
-          if media.save
-            render partial: "created", locals: { media: media }
-          else
-            errors = media.errors.full_messages
-            render turbo_stream: turbo_stream
-                                   .replace("nested_media_flash", partial: "form_errors", locals: { errors: errors })
-          end
-        end
-        format.html { super }
-      end
-    end
 
-    def destroy
-      respond_to do |format|
-        format.js do
-          if requested_resource.destroy
-            render partial: "destroyed", locals: { media: requested_resource }
-          else
-            errors = requested_resource.errors.full_messages
-            render turbo_stream: turbo_stream
-                                   .replace("nested_media_flash", partial: "nested_form_flashes", locals: { errors: errors })
-          end
-        end
-        format.html { super }
-      end
-    end
+    private
 
     # Override this method to specify custom lookup behavior.
     # This will be used to set the resource for the `show`, `edit`, and `update`
@@ -59,8 +30,6 @@ module Admin
     def resource_params
       params.require(:media).permit(:owner_type, :owner_id, :name, :file)
     end
-
-    alias media_params resource_params
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions
     # for more information

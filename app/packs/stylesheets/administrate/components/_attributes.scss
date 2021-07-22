@@ -45,3 +45,11 @@
   @apply border border-gray-100;
   @apply rounded p-2;
 }
+
+.attribute-data--medias-field {
+  @apply flex flex-col gap-2;
+}
+
+.attribute-data--belongs-to a {
+  @apply underline hover:text-praxis-500;
+}

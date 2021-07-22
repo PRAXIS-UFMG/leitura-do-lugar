@@ -1,0 +1,14 @@
+.choices__inner {
+  @apply border-gray-300 bg-white rounded-none;
+  @apply focus:border-praxis-500;
+}
+
+.is-open {
+  & .choices__list--dropdown {
+    @apply border-t-0;
+  }
+
+  & .choices__inner, .choices__list--dropdown {
+    @apply ring-1 ring-praxis-500 border-praxis-500;
+  }
+}

@@ -1,0 +1,5 @@
+.media-inline-form
+  = f.text_field :name, class: 'media-inline-form-name'
+  .media-inline-form-file
+    = f.file_field :file
+  = link_to_remove_association icon_tag(:x, "Marcar para remoção"), f, class: 'button tertiary'

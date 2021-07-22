@@ -271,6 +271,27 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="administrate-field-shrine (vbundled(0.0.5)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-shrine-0.0.5/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-shrine-0.0.5/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-shrine-0.0.5/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-shrine-0.0.5/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-shrine-0.0.5/bin" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-shrine-0.0.5/lib" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/administrate-field-shrine-0.0.5/bin" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="argon2 (vbundled(2.0.3)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />
@@ -493,6 +514,33 @@
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/clearance-2.4.0/config" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/clearance-2.4.0/.github" />
           <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/clearance-2.4.0/gemfiles" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="cocoon (vbundled(1.2.15)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/npm" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/gemfiles" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/app" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/npm" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/gemfiles" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/npm" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/spec" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/3.0.0/gems/cocoon-1.2.15/gemfiles" />
         </excluded>
       </library>
     </orderEntry>

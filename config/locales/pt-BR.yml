@@ -125,7 +125,10 @@ pt-BR:
       media:
         file: Arquivo
         description: Descrição
+        owner: Registro Associado
       excerpt:
         report: Relato
         article: Trecho
+        line_analysis: Linha de Análise
+        line_analysis_id: Linha de Análise
 

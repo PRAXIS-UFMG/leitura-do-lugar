@@ -10,7 +10,10 @@ class LineAnalysisDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     name: Field::String,
-    line_type: Field::Select.with_options(searchable: false, collection: ->(field) { field.resource.class.send(field.attribute.to_s.pluralize).keys }),
+    line_type: Field::Select.with_options(
+      searchable: false,
+      collection: ->(field) { field.resource.class.send(field.attribute.to_s.pluralize).keys }
+    ),
     objective: Field::String,
     article: MarkdownField,
     created_at: Field::DateTime,
@@ -67,7 +70,7 @@ class LineAnalysisDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how line analyses are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(line_analysis)
-  #   "LineAnalysis ##{line_analysis.id}"
-  # end
+  def display_resource(line_analysis)
+    "#{line_analysis.name}"
+  end
 end

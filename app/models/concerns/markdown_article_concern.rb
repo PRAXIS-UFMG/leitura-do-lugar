@@ -10,7 +10,7 @@ module MarkdownArticleConcern
         attribute :article_rendered
         attribute :article_markdown
 
-        delegate :markdown, :rendered, to: :article, allow_nil: true, prefix: true
+        delegate :markdown, :rendered, :truncated, to: :article, allow_nil: true, prefix: true
       end
     end
   end

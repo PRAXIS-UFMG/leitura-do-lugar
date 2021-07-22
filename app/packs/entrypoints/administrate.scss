@@ -22,6 +22,7 @@
 @import "../stylesheets/administrate/components/pagination";
 @import "../stylesheets/administrate/components/search";
 @import "../stylesheets/administrate/components/media-inline";
+@import "../stylesheets/administrate/components/select";
 
 .app-container {
   @apply h-screen w-screen;
@@ -50,9 +51,14 @@
 
 .app-content {
   grid-area: main;
-  @apply flex mx-auto max-w-[100rem] p-4;
+  @apply flex mx-auto w-full xl:max-w-[60rem] xl:mx-auto p-4;
 }
 
 .timestamp {
   @apply rounded text-sm px-2 py-0.5 bg-gray-100 text-gray-500;
 }
+
+[role="link"] {
+  @apply cursor-pointer;
+}
+

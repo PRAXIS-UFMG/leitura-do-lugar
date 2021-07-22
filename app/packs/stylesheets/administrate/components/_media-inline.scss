@@ -2,6 +2,11 @@
   @apply flex h-12 w-full items-center justify-between border p-2 rounded-sm border-gray-200 gap-2;
 }
 
+.media-inline-field {
+  @apply flex flex-row items-center gap-2;
+  width: calc(100% - 48px);
+}
+
 .media-inline-list {
   @apply flex flex-col gap-2 mb-2;
 }
@@ -11,16 +16,17 @@
 }
 
 .media-inline-form {
-  @apply py-2;
+  @apply flex;
+  @apply border border-gray-300 bg-white;
 }
+
 .media-inline-form-name {
-  @apply h-full flex-grow;
-  width: unset !important;
+  @apply h-full flex-grow flex-shrink;
+  @apply border-0;
 }
 
 .media-inline-form-file {
-  @apply border border-gray-300 bg-white;
-  @apply h-full px-2 flex items-center;
+  @apply px-2 flex items-center flex-grow;
   @apply text-xs uppercase leading-none font-medium text-gray-600;
   @apply cursor-pointer;
 }

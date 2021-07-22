@@ -9,12 +9,12 @@ class ExcerptDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    report: Field::BelongsTo.with_options(include_blank: false,
-                                          searchable: true,
-                                          searchable_fields: ["interviewee"]),
+    report: Field::BelongsTo.with_options(include_blank: false),
     medias: MediasField,
-    article: MarkdownField,
     approved: BooleanField,
+    line_analysis: Field::BelongsTo.with_options(include_blank: false),
+    article: MarkdownField,
+    article_truncated: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -26,7 +26,8 @@ class ExcerptDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     report
-    article
+    line_analysis
+    article_truncated
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -35,8 +36,9 @@ class ExcerptDashboard < Administrate::BaseDashboard
     id
     report
     medias
-    article
     approved
+    line_analysis
+    article
     created_at
     updated_at
   ].freeze
@@ -47,8 +49,9 @@ class ExcerptDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     report
     medias
-    article
     approved
+    line_analysis
+    article
   ].freeze
 
   # COLLECTION_FILTERS

@@ -4,5 +4,7 @@ pt-BR:
     search:
       label: pesquisar %{resource}
     actions:
-      new_resource: criar novo %{name}
+      new_resource: criar novo(a) %{name}
       back: voltar
+  errors:
+    no_file: "É necessário anexar um arquivo"

@@ -10,6 +10,6 @@ class MediasField < Administrate::Field::Base
   end
 
   def self.permitted_attribute(attr, _options = nil)
-    { media_ids: [] }
+    { medias_attributes: [:id, :_destroy, :name, :file, :owner_type, :owner_id] }
   end
 end

@@ -1,7 +1,1 @@
-- field.owner.medias.each do |media|
-  .media-inline
-    - if media.file.representable?
-      = image_tag media.file.download_url, class: 'media-inline-image'
-    - else
-      = link_to icon(:download, 'Download'), media.file.url, class: 'button tertiary'
-    p.flex-grow= media.name.truncate(25)
+= render field.data
