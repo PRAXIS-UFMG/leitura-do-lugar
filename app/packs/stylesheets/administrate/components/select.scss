@@ -10,5 +10,6 @@
 
   & .choices__inner, .choices__list--dropdown {
     @apply ring-1 ring-praxis-500 border-praxis-500;
+    @apply rounded-none;
   }
 }
