@@ -6,7 +6,7 @@ class LineAnalysis < ApplicationRecord
   attribute :name
   attribute :objective
 
-  has_many :excerpts, dependent: :nullify
+  has_and_belongs_to_many :excerpts
   has_markdown_article
 
   validates :name, uniqueness: true

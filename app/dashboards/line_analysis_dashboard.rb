@@ -71,6 +71,6 @@ class LineAnalysisDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(line_analysis)
-    "#{line_analysis.name}"
+    line_analysis.name
   end
 end

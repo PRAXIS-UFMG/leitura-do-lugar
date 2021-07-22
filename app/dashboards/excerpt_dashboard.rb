@@ -12,7 +12,7 @@ class ExcerptDashboard < Administrate::BaseDashboard
     report: Field::BelongsTo.with_options(include_blank: false),
     medias: MediasField,
     approved: BooleanField,
-    line_analysis: Field::BelongsTo.with_options(include_blank: false),
+    line_analyses: Field::HasMany.with_options(include_blank: false),
     article: MarkdownField,
     article_truncated: Field::Text,
     created_at: Field::DateTime,
@@ -26,7 +26,7 @@ class ExcerptDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     report
-    line_analysis
+    line_analyses
     article_truncated
   ].freeze
 
@@ -37,7 +37,7 @@ class ExcerptDashboard < Administrate::BaseDashboard
     report
     medias
     approved
-    line_analysis
+    line_analyses
     article
     created_at
     updated_at
@@ -50,7 +50,7 @@ class ExcerptDashboard < Administrate::BaseDashboard
     report
     medias
     approved
-    line_analysis
+    line_analyses
     article
   ].freeze
 

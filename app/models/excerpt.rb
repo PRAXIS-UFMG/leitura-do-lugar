@@ -3,9 +3,11 @@ class Excerpt < ApplicationRecord
   attribute :approved, :boolean
 
   belongs_to :report, optional: false
-  belongs_to :line_analysis, optional: false
+  has_and_belongs_to_many :line_analyses
   has_many_media
   has_markdown_article
+
+  validates :line_analyses, presence: false
 
   def name
     "Trecho ##{id}: #{report.name}"

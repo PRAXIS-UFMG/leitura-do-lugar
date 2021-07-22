@@ -48,7 +48,6 @@ class UserDashboard < Administrate::BaseDashboard
     email
     admin
     password
-    password_confirmation
   ].freeze
 
   # COLLECTION_FILTERS
@@ -67,6 +66,6 @@ class UserDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(user)
-    user.name.to_s
+    user.name + (user.admin? && "(admin)").presence.to_s
   end
 end

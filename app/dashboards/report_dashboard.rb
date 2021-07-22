@@ -72,7 +72,7 @@ class ReportDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(report)
-    initials = report.interviewee.scan(/[A-Z]/).map { |c| c + "." }
-    "Relato de #{initials.join.upcase}"
+    first_name = report.interviewee.split(' ').first
+    "Relato de #{first_name}"
   end
 end

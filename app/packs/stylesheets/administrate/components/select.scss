@@ -13,3 +13,23 @@
     @apply rounded-none;
   }
 }
+
+.choices__input.choices__input--cloned, .choices__list--multiple .choices__item {
+  @apply border-0 ring-0 outline-none;
+}
+
+.choices__input.choices__input--cloned {
+  @apply bg-white;
+}
+
+.choices__list--multiple .choices__item {
+  @apply bg-gray-300 rounded-sm;
+}
+
+.choices__list.choices__list--multiple .choices__item.is-highlighted {
+  @apply bg-praxis-500 border-0;
+}
+
+.choices__list.choices__list--multiple .choices__item--selectable {
+  @apply hover:bg-praxis-300 active:bg-praxis-600;
+}
