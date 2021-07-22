@@ -1,5 +1,19 @@
 require "administrate/base_dashboard"
 
+class Administrate::Field::ShrineDownloadable < Administrate::Field::Shrine
+  def url
+    download_url.presence || super
+  end
+
+  def download_url
+    data.try(:download_url)
+  end
+
+  def to_partial_path
+    "/fields/#{self.class.superclass.field_type}/#{page}"
+  end
+end
+
 class MediaDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
@@ -13,7 +27,7 @@ class MediaDashboard < Administrate::BaseDashboard
     name: Field::String,
     description: Field::Text,
     inline: Field::Boolean,
-    file: Field::Text,
+    file: Field::ShrineDownloadable,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
