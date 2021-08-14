@@ -1,0 +1,2 @@
+web: bin/rails s -p 3030
+webpack: bin/webpack-dev-server

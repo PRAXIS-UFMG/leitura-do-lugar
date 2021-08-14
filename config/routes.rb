@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   namespace :api do
-    get 'contents/:slug', to: "contents#show"
+    get 'conteudos/:slug', to: "contents#show"
   end
 
   mount MediaUploader.download_endpoint => "/medias"
