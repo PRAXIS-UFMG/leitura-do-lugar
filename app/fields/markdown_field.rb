@@ -9,11 +9,15 @@ class MarkdownField < Administrate::Field::Base
     resource.id
   end
 
-  def excerptable?
-    @options[:excerptable] == true
+  def highlightable?
+    options[:highlightable] == true
+  end
+
+  def can_include_medias?
+    options[:can_include_medias] == true
   end
 
   def self.permitted_attribute(attr, _options = nil)
-    { article_attributes: [:id, :markdown, :rendered] }
+    { article_attributes: [:id, :markdown, :rendered, medias_attributes: [:id, :_destroy, :name, :file, :owner_type, :owner_id]] }
   end
 end

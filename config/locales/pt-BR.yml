@@ -86,6 +86,9 @@ pt-BR:
       excerpt:
         one: Trecho
         other: Trechos
+      paper_trail/version:
+        one: Versão
+        other: Versões
     attributes:
       user:
         username: Username
@@ -125,10 +128,16 @@ pt-BR:
       media:
         file: Arquivo
         description: Descrição
-        owner: Registro Associado
+        root_owner: Registro Associado
       excerpt:
         report: Relato
         article: Trecho
         line_analysis: Linha de Análise
         line_analysis_id: Linha de Análise
-
+      paper_trail/version:
+        item: Registro
+        id: "Alteração nº"
+        event: Evento
+        whodunnit: ID do Usuário
+    validations:
+      address: "%{address} não foi encontrado (ou houve um erro)"

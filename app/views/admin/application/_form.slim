@@ -14,9 +14,9 @@
 / - [1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Form
 = form_for([namespace, page.resource], html: { class: "admin-form" }) do |f|
   - if page.resource.errors.any?
-    ul
+    ul.flashes
       - page.resource.errors.full_messages.each do |message|
-        li.flash-error
+        li.flash.flash-error
           = message
   - page.attributes.each do |attribute|
     div class="field-unit field-unit--#{attribute.html_class} field-unit--#{requireness(attribute)}"

@@ -1,10 +1,3 @@
-/ <div class="field-unit__label">
-/   <%= f.label field.attribute %>
-/ </div>
-/ <div class="field-unit__field">
-/   <%= f.text_field field.attribute %>
-/ </div>
-
 .field-unit__label
   = f.label field.attribute
 
@@ -12,6 +5,6 @@
   = link_to_add_association icon_tag(:add, "Adicionar"), f, :medias,
           partial: 'admin/medias/fields',
           'data-association-insertion-node': '.media-inline-list', 'data-association-insertion-method': :append
-  .media-inline-list.flex-grow
+  .media-inline-list
     = f.fields_for :medias do |media|
       = render 'admin/medias/fields', f: media

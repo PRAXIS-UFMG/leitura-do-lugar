@@ -1,0 +1,7 @@
+pt-BR:
+  views:
+    pagination:
+      first: primeira
+      previous: anterior
+      next: próxima
+      last: ultima

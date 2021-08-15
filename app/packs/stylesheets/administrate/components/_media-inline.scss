@@ -7,11 +7,21 @@
   width: calc(100% - 48px);
 }
 
-.media-inline-list {
-  @apply flex flex-col gap-2 mb-2;
+.article-medias {
+  @apply flex flex-row items-center gap-2;
+  @apply border-solid border border-gray-200 p-2 mb-4 rounded-sm;
+  width: calc(100% - 107px);
+
+  & legend {
+    @apply text-sm text-gray-400;
+  }
 }
 
-.media-inline-image {
+.media-inline-list {
+  @apply flex flex-col gap-2 flex-grow;
+}
+
+.media-inline-image, .media-inline-image > img {
   @apply h-full w-auto;
 }
 

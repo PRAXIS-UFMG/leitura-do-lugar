@@ -1,5 +1,9 @@
 template#excerpt-template
   - alt = "Criar trecho a partir de seleção"
   button title=alt = icon_tag :annotation, alt
-article.attribute--markdown data-controller=("select-excerpt" if field.excerptable?) data-select-excerpt-report-value=field.owner
+- if field.data.medias.present?
+  fieldset.article-medias
+    legend Mídias
+    = render field.data.medias
+article.attribute--markdown data-controller=("select-excerpt" if field.highlightable?) data-select-excerpt-report-value=field.owner
   == field.to_s

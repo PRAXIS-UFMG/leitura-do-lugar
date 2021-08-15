@@ -28,7 +28,7 @@ module Admin
     # and `dashboard`:
     #
     def resource_params
-      params.require(:media).permit(:owner_type, :owner_id, :name, :file)
+      params.require(:media).permit(:owner_type, :owner_id, :name, :file, :description)
     end
 
     # See https://administrate-prototype.herokuapp.com/customizing_controller_actions

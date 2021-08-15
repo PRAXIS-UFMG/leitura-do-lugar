@@ -2,5 +2,13 @@
   = f.label field.attribute
 .field-unit__field data-controller="markdown-editor"
   = f.fields_for :article do |af|
+    - if field.can_include_medias?
+      fieldset.article-medias
+        legend Mídias
+        = link_to_add_association icon_tag(:add, "Adicionar"), af, :medias, partial: 'admin/medias/fields',
+                'data-association-insertion-node': '.media-inline-list', 'data-association-insertion-method': :append
+        .media-inline-list
+          = af.fields_for :medias do |media|
+            = render 'admin/medias/fields', f: media
     = af.hidden_field :rendered, data: { 'markdown-editor-target': "mdField" }
     = af.text_area :markdown, data: { 'markdown-editor-target': "editorField" }

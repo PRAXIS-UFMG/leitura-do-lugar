@@ -1,6 +1,7 @@
 .media-inline
-  - if media.file.representable?
-    = image_tag media.file.download_url, class: 'media-inline-image'
-  - else
-    = link_to icon_tag(:download, 'Download'), media.file.download_url, class: 'button tertiary'
+  = link_to public_url(media), target: '_blank', class: 'button tertiary media-inline-image' do
+    - if media.file.image?
+      = image_tag public_url(media)
+    - else
+      = icon_tag(:download, 'Download')
   p.flex-grow= media.name.truncate(25)

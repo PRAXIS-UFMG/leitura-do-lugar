@@ -2,10 +2,9 @@
 
 Rails.application.routes.draw do
   namespace :api do
-    get 'conteudos/:slug', to: "contents#show"
+    get 'conteudos/:slug', to: "contents#show", as: :public_contents
+    get 'midias/:name', to: "medias#show", as: :public_media
   end
-
-  mount MediaUploader.download_endpoint => "/medias"
 
   # Clearance auth routes and roots
   resources :passwords, controller: 'clearance/passwords', only: [:create, :new]

@@ -8,7 +8,7 @@ class ContentDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    article: MarkdownField,
+    article: MarkdownField.with_options(can_include_medias: true),
     slug: Field::String,
     title: Field::String,
     created_at: Field::DateTime,

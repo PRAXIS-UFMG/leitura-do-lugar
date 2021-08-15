@@ -1,4 +1,3 @@
-
 class Media < ApplicationRecord
   attribute :name
   attribute :description
@@ -12,10 +11,14 @@ class Media < ApplicationRecord
   before_validation :set_name
   after_save :promote_file
 
+  def root_owner
+    owner&.owner || owner
+  end
+
   private
 
   def set_name
-    self.name ||= file.metadata["filename"].split(".")[0..]
+    self.name ||= file.metadata["filename"].split(".")[0..].join
   end
 
   def promote_file

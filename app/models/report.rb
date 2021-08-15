@@ -14,13 +14,21 @@ class Report < ApplicationRecord
   validates :interviewee, :resides_since, :address, :interview_date, presence: true
 
   geocoded_by :address, latitude: :addr_lat, longitude: :addr_lon
-  after_validation :geocode, if: :address_changed?
-  before_validation if: :address_changed? do
-    self.addr_lat = nil
-    self.addr_lon = nil
-  end
+  validate :geocode!
 
   def name
     "Entrevista com #{interviewee.split.first} em #{I18n.l interview_date}"
+  end
+
+  private
+
+  def geocode!
+    self.addr_lon = nil
+    self.addr_lat = nil
+
+    geocode
+    unless addr_lat.present? && addr_lon.present?
+      errors.add :address, I18n.t('activerecord.validations.address', address: address)
+    end
   end
 end

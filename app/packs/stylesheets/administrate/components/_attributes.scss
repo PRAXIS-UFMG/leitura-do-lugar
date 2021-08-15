@@ -41,7 +41,7 @@
 }
 
 .attribute-data--markdown-field .attribute--markdown {
-  @apply prose prose-praxis bg-gray-50;
+  @apply prose prose-praxis bg-gray-50 max-w-full max-h-[50vh] overflow-y-scroll;
   @apply border border-gray-100;
   @apply rounded p-2;
 }

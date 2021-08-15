@@ -1,5 +1,5 @@
 class MediaUploader < Shrine
-  plugin :download_endpoint, prefix: "medias"
+  plugin :rack_response
   plugin :cached_attachment_data
 
   class MediaUploader::Attacher < Shrine::Attacher
@@ -12,10 +12,6 @@ class MediaUploader < Shrine
   end
 
   class MediaUploader::UploadedFile < Shrine::UploadedFile
-    def representable?
-      image?
-    end
-
     def image?
       metadata["mime_type"].start_with?("image/")
     end

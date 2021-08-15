@@ -1,18 +1,17 @@
 .pagination {
-  margin-top: $base-spacing;
-  padding-left: $base-spacing;
-  padding-right: $base-spacing;
-  text-align: center;
+  @apply border border-gray-200 rounded-sm;
+  @apply m-auto w-max p-2 mt-4 px-4;
+  @apply flex gap-4 items-baseline;
 
   .first,
   .prev,
   .page,
   .next,
   .last {
-    margin: $small-spacing;
+    @apply hover:underline;
   }
 
   .current {
-    font-weight: $bold-font-weight;
+    @apply text-lg font-bold;
   }
 }

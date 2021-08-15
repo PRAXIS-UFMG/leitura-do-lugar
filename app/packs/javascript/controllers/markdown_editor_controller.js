@@ -1,26 +1,25 @@
-import {Controller} from "stimulus"
+import { Controller } from "stimulus"
 import EasyMDE from "easymde";
 import 'easymde/dist/easymde.min.css'
-import {Converter} from "showdown";
+import { Converter } from "showdown";
 
 export default class extends Controller {
     static targets = ['mdField', 'editorField']
 
     connect() {
         const textarea = this.editorFieldTarget
+        this.form = textarea.form
         this.mde = new EasyMDE({
             autoDownloadFontAwesome: true,
             element: textarea,
             spellChecker: false,
             status: ['cursor'],
-            hideIcons: ['code', 'table', 'side-by-side', 'fullscreen', 'image'],
             maxHeight: "20rem",
             blockStyles: {
                 italic: '*'
             },
             previewRender: this.render
         })
-        this.form = textarea.form
         this.form.addEventListener('submit', this.beforeSubmit)
     }
 

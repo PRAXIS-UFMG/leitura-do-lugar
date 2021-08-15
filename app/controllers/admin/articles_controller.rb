@@ -8,6 +8,11 @@ module Admin
     #   send_foo_updated_email(requested_resource)
     # end
 
+    def show
+      owner_url_helper = "admin_#{requested_resource.owner_type.downcase}_url"
+      redirect_to send(owner_url_helper, id: requested_resource.owner_id)
+    end
+
     # Override this method to specify custom lookup behavior.
     # This will be used to set the resource for the `show`, `edit`, and `update`
     # actions.
