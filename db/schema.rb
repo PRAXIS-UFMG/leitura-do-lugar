@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_22_165120) do
+ActiveRecord::Schema.define(version: 2021_08_20_041038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(version: 2021_07_22_165120) do
   create_table "medias", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.boolean "inline", default: false, null: false
     t.json "file_data"
     t.string "owner_type"
     t.bigint "owner_id"

@@ -1,6 +1,6 @@
 require 'uri'
 
-class ShrineDownloadableField < Administrate::Field::Shrine
+class ShrineField < Administrate::Field::Shrine
   include Rails.application.routes.url_helpers
 
   def url

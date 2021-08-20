@@ -50,6 +50,7 @@
   @apply flex flex-col gap-2;
 }
 
-.attribute-data--belongs-to a {
+.attribute-data--belongs-to a, .cell-data--belongs-to a,
+.attribute-data--fake-polymorphic-field a, .cell-data--fake-polymorphic-field a {
   @apply underline hover:text-praxis-500;
 }

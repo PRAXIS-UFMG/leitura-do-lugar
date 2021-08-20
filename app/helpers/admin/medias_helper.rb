@@ -1,7 +1,11 @@
 require 'uri'
 
 module Admin::MediasHelper
-  def public_url(media, download: false)
-    api_public_media_url name: media.name, download: download
+  def link_class(media)
+    "media-inline-image #{'button tertiary' unless media.file.image?}"
+  end
+
+  def public_url(media)
+    api_public_media_url name: media.name
   end
 end

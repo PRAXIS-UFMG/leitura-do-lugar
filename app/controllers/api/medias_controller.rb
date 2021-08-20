@@ -3,7 +3,7 @@ class Api::MediasController < ApplicationController
 
   def show
     media = Media.find_by! name: params[:name]
-    disposition = params[:download].present? ? "attachment" : "inline"
+    disposition = params[:download] == "true" ? "attachment" : "inline"
 
     if media.owner&.try(:approved) == false && signed_out?
       return head :not_found

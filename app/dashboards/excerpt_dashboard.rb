@@ -14,7 +14,6 @@ class ExcerptDashboard < Administrate::BaseDashboard
     approved: BooleanField,
     line_analyses: Field::HasMany.with_options(include_blank: false),
     article: MarkdownField,
-    article_truncated: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
   }.freeze
@@ -27,7 +26,7 @@ class ExcerptDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = %i[
     report
     line_analyses
-    article_truncated
+    article
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -35,9 +34,9 @@ class ExcerptDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     report
-    medias
     approved
     line_analyses
+    medias
     article
     created_at
     updated_at
@@ -48,9 +47,9 @@ class ExcerptDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     report
-    medias
     approved
     line_analyses
+    medias
     article
   ].freeze
 

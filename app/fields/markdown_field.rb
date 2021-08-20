@@ -5,6 +5,10 @@ class MarkdownField < Administrate::Field::Base
     resource.article_rendered
   end
 
+  def truncated
+    resource.article_markdown.remove(/[^[:alnum:][:space:]]/).strip.truncate(50)
+  end
+
   def owner
     resource.id
   end
