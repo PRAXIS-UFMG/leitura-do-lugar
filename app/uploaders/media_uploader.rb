@@ -3,7 +3,8 @@ class MediaUploader < Shrine
   plugin :cached_attachment_data
 
   class MediaUploader::Attacher < Shrine::Attacher
-    def activerecord_after_save; end
+    def activerecord_after_save
+    end
 
     def promote_to_store
       promote

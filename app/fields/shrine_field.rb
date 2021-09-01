@@ -1,4 +1,4 @@
-require 'uri'
+require "uri"
 
 class ShrineField < Administrate::Field::Shrine
   include Rails.application.routes.url_helpers

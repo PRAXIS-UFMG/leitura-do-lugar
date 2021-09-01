@@ -1,8 +1,8 @@
-require 'uri'
+require "uri"
 
 module Admin::MediasHelper
   def link_class(media)
-    "media-inline-image #{'button tertiary' unless media.file.image?}"
+    "media-inline-image #{"button tertiary" unless media.file&.image?}"
   end
 
   def public_url(media)

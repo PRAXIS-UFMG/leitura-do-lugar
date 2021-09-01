@@ -12,7 +12,7 @@ class Media < ApplicationRecord
   after_save :promote_file
 
   def root_owner
-    owner&.owner || owner
+    owner.try(:owner) || owner
   end
 
   private

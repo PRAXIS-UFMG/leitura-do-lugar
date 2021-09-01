@@ -72,7 +72,7 @@ class ReportDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(report)
-    first_name = report.interviewee.split(' ').first
+    first_name = report.interviewee.split(" ").first
     "Relato de #{first_name}"
   end
 end

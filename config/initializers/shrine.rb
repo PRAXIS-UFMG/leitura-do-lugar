@@ -9,4 +9,4 @@ Shrine.storages = {
 }
 
 Shrine.plugin :activerecord
-Shrine.plugin :upload_options, cache: { move: true }, store: { move: true }
+Shrine.plugin :upload_options, cache: {move: true}, store: {move: true}

@@ -28,7 +28,7 @@ class Report < ApplicationRecord
 
     geocode
     unless addr_lat.present? && addr_lon.present?
-      errors.add :address, I18n.t('activerecord.validations.address', address: address)
+      errors.add :address, I18n.t("activerecord.validations.address", address: address)
     end
   end
 end

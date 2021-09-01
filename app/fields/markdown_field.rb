@@ -22,6 +22,6 @@ class MarkdownField < Administrate::Field::Base
   end
 
   def self.permitted_attribute(attr, _options = nil)
-    { article_attributes: [:id, :markdown, :rendered, medias_attributes: [:id, :_destroy, :name, :file, :owner_type, :owner_id]] }
+    {article_attributes: [:id, :markdown, :rendered, medias_attributes: [:id, :_destroy, :name, :file, :owner_type, :owner_id]]}
   end
 end
