@@ -1,6 +1,6 @@
 .media-inline
   = link_to public_url(media), target: '_blank', class: link_class(media) do
-    - if media.file.image?
+    - if media.file&.image?
       = image_tag public_url(media)
     - else
       = icon_tag(:download, 'Download')

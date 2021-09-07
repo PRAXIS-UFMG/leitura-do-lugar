@@ -5,10 +5,14 @@
 
   .first,
   .prev,
-  .page,
+  .page:not(.gap),
   .next,
   .last {
     @apply hover:underline;
+  }
+
+  .gap {
+    @apply text-gray-200;
   }
 
   .current {

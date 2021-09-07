@@ -1,6 +1,7 @@
 pt-BR:
   views:
     pagination:
+      truncate: ⋯
       first: primeira
       previous: anterior
       next: próxima

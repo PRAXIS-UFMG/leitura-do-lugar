@@ -1,11 +1,11 @@
-class Api::MediasController < ApplicationController
+class Api::MediasController < Api::ApplicationController
   include Clearance::Controller
 
   def show
     media = Media.find_by! name: params[:name]
     disposition = params[:download] == "true" ? "attachment" : "inline"
 
-    if media.owner&.try(:approved) == false && signed_out?
+    if media.root_owner.try(:approved) == false && signed_out?
       return head :not_found
     end
 
