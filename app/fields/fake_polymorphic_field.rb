@@ -4,7 +4,7 @@ class FakePolymorphicField < Administrate::Field::Base
   include Rails.application.routes.url_helpers
 
   def to_s
-    associated_dashboard.display_resource(data)
+    associated_dashboard.display_resource(data) if data
   end
 
   def link_to
