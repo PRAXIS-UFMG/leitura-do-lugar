@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     get "conteudos/:slug", to: "contents#show", as: :public_contents
     get "midias/:name", to: "medias#show", as: :public_media
+    get "linhas-analise", to: "line_analysis#index"
   end
 
   # Clearance auth routes and roots
