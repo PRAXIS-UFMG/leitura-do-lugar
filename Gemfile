@@ -8,6 +8,9 @@ ruby "3.0.1"
 # Full-stack web application framework.
 # (https://rubyonrails.org)
 gem "rails", "~> 6.1"
+# generate JSON objects with a Builder-style DSL
+# https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 2.11'
 # Common locale data and translations for Rails i18n.
 # (http://github.com/svenfuchs/rails-i18n)
 gem "rails-i18n", "~> 6.0.0"
