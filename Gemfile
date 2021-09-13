@@ -40,7 +40,7 @@ gem "shrine", "~> 3.0"
 gem "image_processing", "~> 1.12"
 # Rails authentication with email & password.
 # (https://github.com/thoughtbot/clearance)
-gem "clearance", "~> 2.4"
+gem "clearance", "~> 2.5"
 # A Rails engine for creating super-flexible admin dashboards
 # (https://administrate-demo.herokuapp.com/)
 gem "administrate", "~> 0.16"
