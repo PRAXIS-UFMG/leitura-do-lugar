@@ -17,7 +17,7 @@ gem "rails-i18n", "~> 6.0.0"
 # Use PostgreSQL as the database for Active Record
 gem "pg"
 # Use Puma as the app server
-gem "puma", "~> 5.0"
+gem "puma", "~> 5.6"
 # Use webpack to manage app-like JavaScript modules in Rails
 # (https://github.com/rails/webpacker)
 gem "webpacker", "6.0.0.beta.7"
